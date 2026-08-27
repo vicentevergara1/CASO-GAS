@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <div class="logo">MiTienda - Admin</div>
+        <button id="btn-logout" class="btn-login" style="width: auto;">Cerrar Sesión</button>
+    </nav>
+</header>
+<main class="container">
+    <h2>Gestión de Productos</h2>
+    <div class="login-box" style="max-width: 600px; margin: 0 auto;">
+        <form id="product-form">
+            <div class="form-group">
+                <label for="prod-name">Nombre del Producto:</label>
+                <input type="text" id="prod-name" required placeholder="Ej. Zapatillas">
+            </div>
+            <div class="form-group">
+                <label for="prod-price">Precio ($):</label>
+                <input type="number" id="prod-price" required placeholder="Ej. 15000">
+            </div>
+            <button type="submit" class="btn-login">Guardar Producto</button>
+        </form>
+    </div>
+
+    <h3 style="margin-top: 30px;">Productos Registrados</h3>
+    <div id="admin-product-list" class="product-grid"></div>
+</main>
+<script src="admin.js"></script>
+</body>
+</html>

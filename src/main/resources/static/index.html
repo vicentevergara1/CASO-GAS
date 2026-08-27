@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Online</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <div class="logo">MiTienda</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="login.html">Administración</a></li>
+        </ul>
+        <div class="cart-container">
+            <button id="btn-cart" class="btn-login" style="width: auto; margin-top: 0;">
+                🛒 Carrito (<span id="cart-count">0</span>)
+            </button>
+        </div>
+    </nav>
+</header>
+<main class="container">
+    <h1>Catálogo de Productos</h1>
+    <div class="product-grid" id="product-grid">
+    </div>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
