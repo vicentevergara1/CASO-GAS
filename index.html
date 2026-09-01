@@ -11,9 +11,8 @@
     <nav
       class="bg-neutral-primary fixed w-full z-20 top-0 start-0 border-b border-default"
     >
-      <div
-        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
-      >
+      <div class="w-full px-8 flex items-center justify-between relative">
+        <!-- IZQUIERDA: Logo + nombre -->
         <a
           href="index.html"
           class="flex items-center space-x-3 rtl:space-x-reverse"
@@ -21,83 +20,56 @@
           <img
             src="assets/images/volcan.avif"
             class="h-10"
-            alt="El volcan Logo"
+            alt="El Volcan Logo"
           />
-          <span
-            class="self-center text-xl text-heading font-semibold whitespace-nowrap"
-            >El Volcan</span
-          >
+
+          <span class="text-xl text-heading font-semibold whitespace-nowrap">
+            El Volcan
+          </span>
         </a>
 
-        <!-- boton celulares -->
-        <button
-          data-collapse-toggle="navbar-default"
-          type="button"
-          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary"
-          aria-controls="navbar-default"
-          aria-expanded="false"
-        >
-          <span class="sr-only">Open main menu</span>
-          <svg
-            class="w-6 h-6"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-width="2"
-              d="M5 7h14M5 12h14M5 17h14"
-            />
-          </svg>
-        </button>
+        <!-- CENTRO: Links -->
+        <div class="hidden md:block" id="navbar-default">
+          <ul class="font-medium flex items-center space-x-8">
+            <li>
+              <a href="#productos" class="text-heading hover:text-fg-brand">
+                Productos
+              </a>
+            </li>
 
-        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-          <ul
-            class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary"
-          >
             <li>
-              <a
-                href="#"
-                class="block py-2 px-3 text-heading rounded md:p-0"
-                aria-current="page"
-                >Productos</a
-              >
+              <a href="#servicios" class="text-heading hover:text-fg-brand">
+                Servicios
+              </a>
             </li>
+
             <li>
-              <a
-                href="#"
-                class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
-                >Servicios</a
-              >
+              <a href="#nosotros" class="text-heading hover:text-fg-brand">
+                Nosotros
+              </a>
             </li>
+
             <li>
-              <a
-                href="#"
-                class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
-                >Nosotros</a
-              >
+              <a href="#faq" class="text-heading hover:text-fg-brand">
+                Preguntas frecuentes
+              </a>
             </li>
+
             <li>
-              <a
-                href="#"
-                class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
-                >Preguntas frecuentes</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
-                >Contacto</a
-              >
+              <a href="#contacto" class="text-heading hover:text-fg-brand">
+                Contacto
+              </a>
             </li>
           </ul>
         </div>
+
+        <!-- DERECHA: Login -->
+        <a
+          href="pages/login.html"
+          class="hidden md:block text-heading hover:text-fg-brand font-medium"
+        >
+          Iniciar sesión
+        </a>
       </div>
     </nav>
 
@@ -124,23 +96,56 @@
       </section>
     </main>
     <!-- FOOTER -->
-    <footer class="">
-      <nav class="text-center border-t">
-        <ul
-          class="font-medium flex flex-col mt-4 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:justify-center md:bg-neutral-primary"
-        >
-          <li>
-            <a href="#">Acerca</a>
-          </li>
-
-          <li>
-            <a href="#">Contacto</a>
-          </li>
-        </ul>
-        <p class="font-medium">
+    <footer class="border-t border-default">
+      <div class="w-full px-8 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- COLUMNA 1: INFORMACIÓN -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <img
+              src="assets/images/volcan.avif"
+              class="h-10"
+              alt="El Volcan Logo"
+            />
+            <span class="text-xl font-semibold"> El Volcan </span>
+          </div>
+          <p class="text-sm">
+            Distribuidora de gas y productos para instalaciones domésticas e
+            industriales.
+          </p>
+        </div>
+        <!-- COLUMNA 2: ENLACES -->
+        <div>
+          <h2 class="mb-4 text-sm font-semibold uppercase">Enlaces</h2>
+          <ul class="space-y-2 text-sm">
+            <li>
+              <a href="#productos" class="hover:underline"> Productos </a>
+            </li>
+            <li>
+              <a href="#servicios" class="hover:underline"> Servicios </a>
+            </li>
+            <li><a href="#nosotros" class="hover:underline"> Nosotros </a></li>
+            <li>
+              <a href="#faq" class="hover:underline"> Preguntas frecuentes </a>
+            </li>
+            <li><a href="#contacto" class="hover:underline"> Contacto </a></li>
+          </ul>
+        </div>
+        <!-- COLUMNA 3: CONTACTO -->
+        <div>
+          <h2 class="mb-4 text-sm font-semibold uppercase">Contacto</h2>
+          <ul class="space-y-2 text-sm">
+            <li>📞 +56 9 XXXX XXXX</li>
+            <li>✉ contacto@elvolcan.cl</li>
+            <li>📍 Santiago, Chile</li>
+          </ul>
+        </div>
+      </div>
+      <!-- COPYRIGHT -->
+      <div class="border-t border-default">
+        <p class="text-center font-medium py-4">
           © 2026 El Volcan. Todos los derechos reservados.
         </p>
-      </nav>
+      </div>
     </footer>
   </body>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Iniciar sesión</title>
+    <title>Registro</title>
 
     <link rel="stylesheet" href="../src/output.css" />
   </head>
@@ -12,7 +12,22 @@
   <body class="min-h-screen flex items-center justify-center">
     <main class="w-full max-w-md px-6">
       <form class="space-y-5 border rounded-sm p-4">
-        <h1 class="text-3xl font-bold text-center">Iniciar sesión</h1>
+        <h1 class="text-3xl font-bold text-center">Crear cuenta</h1>
+
+        <div>
+          <label for="name" class="block mb-2 text-sm font-medium">
+            Nombre
+          </label>
+
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Ingresa tu nombre"
+            required
+            class="w-full rounded-lg border px-4 py-3 outline-none focus:ring-2"
+          />
+        </div>
 
         <div>
           <label for="email" class="block mb-2 text-sm font-medium">
@@ -44,16 +59,31 @@
           />
         </div>
 
+        <div>
+          <label for="confirm-password" class="block mb-2 text-sm font-medium">
+            Confirmar contraseña
+          </label>
+
+          <input
+            type="password"
+            id="confirm-password"
+            name="confirm-password"
+            placeholder="Repite tu contraseña"
+            required
+            class="w-full rounded-lg border px-4 py-3 outline-none focus:ring-2"
+          />
+        </div>
+
         <button
           type="submit"
           class="w-full rounded-lg border px-4 py-3 font-medium transition hover:opacity-80"
         >
-          Iniciar sesión
+          Registrarse
         </button>
 
         <p class="text-center text-sm">
-          ¿No tienes una cuenta?
-          <a href="register.html" class="font-medium underline"> Regístrate </a>
+          ¿Ya tienes una cuenta?
+          <a href="login.html" class="font-medium underline"> Inicia sesión </a>
         </p>
       </form>
     </main>
