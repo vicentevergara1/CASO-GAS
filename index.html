@@ -74,27 +74,70 @@
     </nav>
 
     <main class="w-full flex-1 pt-24">
-      <section id="productos">
-        <p>Conoce nuestros productos!</p>
-        <h2>Productos</h2>
+      <section id="productos" class="w-full max-w-7xl mx-auto px-8">
+        <h1 class="text-3xl font-bold text-center mb-10">Productos</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <a href="#cilindros" class="border border-default rounded-lg p-6">
+            <h3 class="text-xl font-semibold">Cilindros</h3>
+          </a>
+
+          <a href="#mangueras" class="border border-default rounded-lg p-6">
+            <h3 class="text-xl font-semibold">Mangueras</h3>
+          </a>
+
+          <a href="#reguladores" class="border border-default rounded-lg p-6">
+            <h3 class="text-xl font-semibold">Reguladores</h3>
+          </a>
+
+          <a href="#accesorios" class="border border-default rounded-lg p-6">
+            <h3 class="text-xl font-semibold">Accesorios</h3>
+          </a>
+        </div>
       </section>
 
-      <section id="servicios">
-        <h2>Servicios</h2>
+      <section id="cilindros" class="w-full max-w-7xl mx-auto px-8 py-16">
+        <h2 class="text-2xl font-bold py-4">Cilindros</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div
+            class="border border-default rounded-lg p-6 flex flex-col items-center text-center"
+          >
+            <img
+              src="assets/images/5kg.png"
+              alt="Cilindro de gas 5kg"
+              class="w-full aspect-square object-contain mb-4"
+              loading="lazy"
+            />
+            <h3 class="text-lg font-semibold">5 kg</h3>
+            <p class="text-sm text-muted">Ideal para uso doméstico</p>
+          </div>
+
+          <!-- repetir para 11kg, 15kg, 45kg -->
+        </div>
+
+        <!-- tarjetas de 5, 11, 15 y 45 kg -->
       </section>
 
-      <section id="nosotros">
-        <h2>Nosotros</h2>
+      <section id="mangueras" class="w-full max-w-7xl mx-auto px-8 py-16">
+        <h2 class="text-2xl font-bold">Mangueras y conexiones</h2>
+
+        <!-- tarjetas de 1.5m, 3m, abrazadera y kit -->
       </section>
 
-      <section id="faq">
-        <h2>Preguntas frecuentes</h2>
+      <section id="reguladores" class="w-full max-w-7xl mx-auto px-8 py-16">
+        <h2 class="text-2xl font-bold">Reguladores</h2>
+
+        <!-- tarjetas de doméstico, alta presión y dual -->
       </section>
 
-      <section id="contacto">
-        <h2>Contacto</h2>
+      <section id="accesorios" class="w-full max-w-7xl mx-auto px-8 py-16">
+        <h2 class="text-2xl font-bold">Accesorios</h2>
+
+        <!-- tarjetas de carro, tapa y detector -->
       </section>
     </main>
+
     <!-- FOOTER -->
     <footer class="border-t border-default">
       <div class="w-full px-8 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
