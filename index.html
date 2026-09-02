@@ -99,9 +99,11 @@
       <section id="cilindros" class="w-full max-w-7xl mx-auto px-8 py-16">
         <h2 class="text-2xl font-bold py-4">Cilindros</h2>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch"
+        >
           <div
-            class="border border-default rounded-lg p-6 flex flex-col items-center text-center"
+            class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
           >
             <img
               src="assets/images/5kg.png"
@@ -110,13 +112,57 @@
               loading="lazy"
             />
             <h3 class="text-lg font-semibold">5 kg</h3>
-            <p class="text-sm text-muted">Ideal para uso doméstico</p>
+            <p class="text-sm text-muted grow">Ideal para uso residencial</p>
+            <p class="font-semibold mt-4">$6.500</p>
           </div>
 
+          <div
+            class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+          >
+            <img
+              src="assets/images/11kg.png"
+              alt="Cilindro de gas 11kg"
+              class="w-full aspect-square object-contain mb-4"
+              loading="lazy"
+            />
+            <h3 class="text-lg font-semibold">11 kg</h3>
+            <p class="text-sm text-muted grow">
+              El cilindro mas usado en los hogares de chile
+            </p>
+            <p class="font-semibold mt-4">$12.000</p>
+          </div>
+
+          <div
+            class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+          >
+            <img
+              src="assets/images/15kg.png"
+              alt="Cilindro de gas 15kg"
+              class="w-full aspect-square object-contain mb-4"
+              loading="lazy"
+            />
+            <h3 class="text-lg font-semibold">15 kg</h3>
+            <p class="text-sm text-muted grow">
+              Ideal para hogares de alto consumo
+            </p>
+            <p class="font-semibold mt-4">$16.000</p>
+          </div>
+
+          <div
+            class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+          >
+            <img
+              src="assets/images/45kg.png"
+              alt="Cilindro de gas 45kg"
+              class="w-full aspect-square object-contain mb-4"
+              loading="lazy"
+            />
+            <h3 class="text-lg font-semibold">45 kg</h3>
+            <p class="text-sm text-muted grow">Ideal para uso empresarial</p>
+            <p class="font-semibold mt-4">$45.000</p>
+          </div>
           <!-- repetir para 11kg, 15kg, 45kg -->
         </div>
-
-        <!-- tarjetas de 5, 11, 15 y 45 kg -->
       </section>
 
       <section id="mangueras" class="w-full max-w-7xl mx-auto px-8 py-16">
