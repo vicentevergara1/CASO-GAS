@@ -8,7 +8,7 @@ export default function Login() {
     e.preventDefault();
     if (usuario === 'vicente' && password === 'abc123') {
       alert('¡Bienvenido, Admin Vicente!');
-      localStorage.setItem('usuarioAdmin', 'vicente');
+      localStorage.setItem('usuarioAdmin', 'vicente'); //cambiar la wea echa como el oyo
     } else {
       alert('Credenciales incorrectas. Intenta de nuevo.');
     }
