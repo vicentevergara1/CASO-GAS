@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sobre Nosotros - El Volcán</title>
+    <link rel="stylesheet" href="../src/output.css" />
+  </head>
+
+  <body class="relative w-full min-h-screen flex flex-col bg-neutral-primary">
+    <!-- NAVBAR -->
+    <nav
+      class="fixed top-0 left-0 w-full z-30 bg-neutral-primary border-b border-default"
+    >
+      <div class="w-full px-8 h-14 grid grid-cols-3 items-center">
+        <!-- Logo -->
+        <div>
+          <a href="../index.html" class="flex items-center space-x-3">
+            <img
+              src="../assets/images/volcan.avif"
+              class="h-10"
+              alt="El Volcan Logo"
+            />
+            <span class="text-xl text-heading font-semibold whitespace-nowrap">
+              El Volcán
+            </span>
+          </a>
+        </div>
+
+        <!-- Navegación -->
+        <div class="flex justify-center">
+          <ul class="font-medium flex items-center space-x-8">
+            <li>
+              <a href="productos.html" class="text-heading hover:text-fg-brand">
+                Productos
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="../index.html#servicios"
+                class="text-heading hover:text-fg-brand"
+              >
+                Servicios
+              </a>
+            </li>
+
+            <li>
+              <a href="about.html" class="text-fg-brand font-semibold">
+                Nosotros
+              </a>
+            </li>
+
+            <li>
+              <a href="faq.html" class="text-heading hover:text-fg-brand">
+                Preguntas frecuentes
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="../index.html#contacto"
+                class="text-heading hover:text-fg-brand"
+              >
+                Contacto
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Buscador + Cuenta + Carrito -->
+        <div class="flex items-center justify-end gap-6">
+          <button
+            type="button"
+            aria-label="Buscar productos"
+            class="text-xl text-heading hover:text-fg-brand"
+          >
+            🔍
+          </button>
+
+          <a
+            href="login.html"
+            class="flex items-center gap-2 text-heading hover:text-fg-brand font-medium"
+          >
+            <span class="text-xl">👤</span>
+            Cuenta
+          </a>
+
+          <a
+            href="#"
+            class="flex items-center gap-2 text-heading hover:text-fg-brand font-medium"
+          >
+            <span class="text-xl">🛒</span>
+            Carrito
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="w-full flex-1 pt-28 pb-16">
+      <!-- HERO & HISTORIA -->
+      <section class="w-full max-w-7xl mx-auto px-8 py-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <h1 class="text-4xl font-bold text-heading mb-4">Sobre Nosotros</h1>
+          <p class="text-xl text-fg-brand font-medium">
+            Más de 25 años llevando calor y confianza a los hogares de Ñuble
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+          <div class="space-y-4 text-muted leading-relaxed">
+            <p>
+              Desde 1998, en
+              <strong class="text-heading"
+                >Distribuidora de Gas El Volcán</strong
+              >
+              nos hemos dedicado a abastecer de energía limpia, eficiente y
+              segura a las familias y comercios de Chillán y sus comunas
+              aledañas. Nacimos como una empresa familiar con una misión clara:
+              ser ese vecino de confianza que siempre está presente cuando tu
+              hogar necesita calefacción, agua caliente o la energía para
+              cocinar.
+            </p>
+            <p>
+              A lo largo de más de dos décadas, hemos crecido junto a nuestra
+              comunidad. Lo que comenzó con un esfuerzo modesto hoy se consolida
+              gracias a una infraestructura renovada y un equipo humano
+              altamente comprometido. Nos enorgullece atender día a día las
+              necesidades de nuestra zona, garantizando que el gas en sus
+              distintas presentaciones (cilindros de 5 kg, 11 kg y 15 kg) llegue
+              a la puerta de tu casa de forma oportuna, segura y transparente.
+            </p>
+          </div>
+
+          <!-- TARJETAS DE DATOS DE LA EMPRESA -->
+          <div class="grid grid-cols-2 gap-4">
+            <div
+              class="border border-default rounded-xl p-6 text-center bg-neutral-primary shadow-sm"
+            >
+              <p class="text-3xl font-bold text-fg-brand mb-1">1998</p>
+              <p
+                class="text-xs text-muted font-medium uppercase tracking-wider"
+              >
+                Año de fundación
+              </p>
+            </div>
+
+            <div
+              class="border border-default rounded-xl p-6 text-center bg-neutral-primary shadow-sm"
+            >
+              <p class="text-3xl font-bold text-fg-brand mb-1">+25</p>
+              <p
+                class="text-xs text-muted font-medium uppercase tracking-wider"
+              >
+                Años de trayectoria
+              </p>
+            </div>
+
+            <div
+              class="border border-default rounded-xl p-6 text-center bg-neutral-primary shadow-sm"
+            >
+              <p class="text-3xl font-bold text-fg-brand mb-1">100%</p>
+              <p
+                class="text-xs text-muted font-medium uppercase tracking-wider"
+              >
+                Cobertura Chillán y aledaños
+              </p>
+            </div>
+
+            <div
+              class="border border-default rounded-xl p-6 text-center bg-neutral-primary shadow-sm"
+            >
+              <p class="text-3xl font-bold text-fg-brand mb-1">Chillán</p>
+              <p
+                class="text-xs text-muted font-medium uppercase tracking-wider"
+              >
+                Origen y casa matriz
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MISIÓN Y VISIÓN -->
+      <section
+        class="w-full bg-neutral-secondary py-16 border-y border-default"
+      >
+        <div class="max-w-7xl mx-auto px-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Misión -->
+            <div
+              class="border border-default rounded-xl p-8 bg-neutral-primary shadow-sm"
+            >
+              <div
+                class="w-12 h-12 rounded-lg bg-fg-brand/10 text-fg-brand flex items-center justify-center text-2xl mb-4"
+              >
+                🎯
+              </div>
+              <h2 class="text-2xl font-bold text-heading mb-4">
+                Nuestra Misión
+              </h2>
+              <p class="text-muted leading-relaxed">
+                Ofrecer un servicio de distribución de gas licuado a domicilio
+                caracterizado por la rapidez, la seguridad y la transparencia,
+                combinando la calidez del trato familiar de siempre con
+                herramientas tecnológicas modernas que entreguen tranquilidad y
+                certezas a cada uno de nuestros clientes.
+              </p>
+            </div>
+
+            <!-- Visión -->
+            <div
+              class="border border-default rounded-xl p-8 bg-neutral-primary shadow-sm"
+            >
+              <div
+                class="w-12 h-12 rounded-lg bg-fg-brand/10 text-fg-brand flex items-center justify-center text-2xl mb-4"
+              >
+                👁️
+              </div>
+              <h2 class="text-2xl font-bold text-heading mb-4">
+                Nuestra Visión
+              </h2>
+              <p class="text-muted leading-relaxed">
+                Ser la empresa distribuidora de gas licuado referente y de mayor
+                confianza en la Región de Ñuble, destacando por la calidad de
+                nuestra atención, la modernización constante de nuestros
+                procesos de despacho y el impacto positivo en el bienestar de la
+                comunidad local.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LO QUE NOS DEFINE -->
+      <section class="w-full max-w-7xl mx-auto px-8 py-16">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-heading mb-4">
+            Lo que nos define
+          </h2>
+          <p class="text-muted max-w-2xl mx-auto">
+            Los pilares con los cuales construimos nuestro servicio día a día en
+            la Región de Ñuble.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Valor 1 -->
+          <div class="border border-default rounded-xl p-6 bg-neutral-primary">
+            <div class="text-3xl mb-4">🏘️</div>
+            <h3 class="text-lg font-semibold text-heading mb-2">
+              Tradición e Identidad Local
+            </h3>
+            <p class="text-sm text-muted leading-relaxed">
+              Somos de Chillán y conocemos cada rincón de nuestra zona. Para
+              nosotros, cada entrega representa una oportunidad de servir a
+              nuestros vecinos.
+            </p>
+          </div>
+
+          <!-- Valor 2 -->
+          <div class="border border-default rounded-xl p-6 bg-neutral-primary">
+            <div class="text-3xl mb-4">📱</div>
+            <h3 class="text-lg font-semibold text-heading mb-2">
+              Modernidad y Transparencia
+            </h3>
+            <p class="text-sm text-muted leading-relaxed">
+              Evolucionamos para ofrecerte un servicio a la altura de tus
+              necesidades. Con nuestro sistema digital, puedes solicitar tu
+              pedido y seguir la entrega en tiempo real.
+            </p>
+          </div>
+
+          <!-- Valor 3 -->
+          <div class="border border-default rounded-xl p-6 bg-neutral-primary">
+            <div class="text-3xl mb-4">🛡️</div>
+            <h3 class="text-lg font-semibold text-heading mb-2">
+              Seguridad Garantizada
+            </h3>
+            <p class="text-sm text-muted leading-relaxed">
+              Mantenemos un control riguroso sobre nuestro stock y estado de los
+              cilindros de 5 kg, 11 kg y 15 kg, asegurando que cada carga cumpla
+              con las normativas vigentes.
+            </p>
+          </div>
+
+          <!-- Valor 4 -->
+          <div class="border border-default rounded-xl p-6 bg-neutral-primary">
+            <div class="text-3xl mb-4">🤝</div>
+            <h3 class="text-lg font-semibold text-heading mb-2">
+              Compromiso y Cercanía
+            </h3>
+            <p class="text-sm text-muted leading-relaxed">
+              Nuestro equipo de administración, operadoras y repartidores
+              trabaja coordinadamente para brindarte una atención empática,
+              rápida y sin complicaciones.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-default bg-neutral-primary">
+      <div
+        class="w-full px-8 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto"
+      >
+        <!-- INFORMACIÓN -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <img
+              src="../assets/images/volcan.avif"
+              class="h-10"
+              alt="El Volcan Logo"
+            />
+            <span class="text-xl font-semibold text-heading">El Volcán</span>
+          </div>
+
+          <p class="text-sm text-muted">
+            Distribuidora de gas licuado a domicilio y accesorios de instalación
+            segura para hogares y empresas.
+          </p>
+        </div>
+
+        <!-- ENLACES -->
+        <div>
+          <h2 class="mb-4 text-sm font-semibold uppercase text-heading">
+            Enlaces
+          </h2>
+
+          <ul class="space-y-2 text-sm text-muted">
+            <li>
+              <a href="productos.html" class="hover:underline">Productos</a>
+            </li>
+
+            <li>
+              <a href="../index.html#servicios" class="hover:underline"
+                >Servicios</a
+              >
+            </li>
+
+            <li>
+              <a href="about.html" class="hover:underline">Nosotros</a>
+            </li>
+
+            <li>
+              <a href="faq.html" class="hover:underline"
+                >Preguntas frecuentes</a
+              >
+            </li>
+
+            <li>
+              <a href="../index.html#contacto" class="hover:underline"
+                >Contacto</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- CONTACTO -->
+        <div>
+          <h2 class="mb-4 text-sm font-semibold uppercase text-heading">
+            Contacto
+          </h2>
+
+          <ul class="space-y-2 text-sm text-muted">
+            <li>📞 +56 9 XXXX XXXX</li>
+            <li>✉ contacto@elvolcan.cl</li>
+            <li>📍 Chillán, Región de Ñuble</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- COPYRIGHT -->
+      <div class="border-t border-default">
+        <p class="text-center text-sm font-medium py-4 text-muted">
+          © 2026 El Volcán. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
