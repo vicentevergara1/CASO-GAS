@@ -32,7 +32,7 @@ export default function AdminPanel() {
 
   return (
     <div style={{ maxWidth: '800px', margin: '0 auto', padding: '20px', background: '#fff', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>
-      <h2>⚙️ Panel de Administración - Gas El Volcán</h2>
+      <h2>Panel de Administración - Gas El Volcán</h2>
 
       <form onSubmit={agregarProducto} style={{ display: 'flex', gap: '10px', marginBottom: '20px', flexWrap: 'wrap' }}>
         <input

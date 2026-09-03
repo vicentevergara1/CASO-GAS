@@ -29,7 +29,7 @@ function App() {
     <Router>
       <header style={{ background: '#d32f2f', padding: '1rem 2rem', color: 'white' }}>
         <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '1200px', margin: '0 auto' }}>
-          <h2 style={{ margin: 0, fontSize: '1.4rem' }}>🔥 Gas El Volcán - Chillán</h2>
+          <h2 style={{ margin: 0, fontSize: '1.4rem' }}>Gas El Volcán - Chillán</h2>
           <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
             <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>Catálogo</Link>
             <Link to="/tracking" style={{ color: 'white', textDecoration: 'none' }}>Seguimiento</Link>

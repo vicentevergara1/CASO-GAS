@@ -1,39 +1,58 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export default function Login() {
   const [usuario, setUsuario] = useState('');
-  const [clave, setClave] = useState('');
-  const handleSubmit = (e) => {
+  const [password, setPassword] = useState('');
+
+  const manejarLogin = (e) => {
     e.preventDefault();
-    alert(`Iniciando sesión con el usuario: ${usuario}`);
+    if (usuario === 'vicente' && password === 'abc123') {
+      alert('¡Bienvenido, Admin Vicente!');
+      localStorage.setItem('usuarioAdmin', 'vicente');
+    } else {
+      alert('Credenciales incorrectas. Intenta de nuevo.');
+    }
   };
+
+class UsuarioAdmins {
+    constructor(){
+        this.listaAdmins = [
+            {usuario : 'vicente', password : 'abc123'},
+            {usuario : 'juan', password : 'juan123'},
+            {usuario : 'benja', password : 'benja123'}
+            ];
+        }
+
+    validarUsuario(usuarioInput,claveInput) {
+        return thisAdmins.find(
+            (admin) => admin.usuario.toLowerCase() === usuarioInput.trim().toLowerCase() && admin.clave === claveInput
+            );
+        }
+    }
+export const adminService = new UsuarioAdmin();
+
   return (
-    <div style={{ maxWidth: '400px', margin: '40px auto', background: '#fff', padding: '20px', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>
-      <h2 style={{ textAlign: 'center', color: '#d32f2f', marginTop: 0 }}>🔑 Iniciar Sesión</h2>
-      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+    <div className="login-container">
+      <h3>Iniciar Sesión</h3>
+      <form onSubmit={manejarLogin}>
         <div>
-          <label style={{ display: 'block', marginBottom: '5px', fontWeight: 'bold' }}>Usuario / Email:</label>
-          <input 
-            type="text" 
-            value={usuario} 
+          <label>Usuario / Email:</label>
+          <input
+            type="text"
+            value={usuario}
             onChange={(e) => setUsuario(e.target.value)}
-            style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ccc', boxSizing: 'border-box' }}
-            required
           />
         </div>
         <div>
-          <label style={{ display: 'block', marginBottom: '5px', fontWeight: 'bold' }}>Contraseña:</label>
-          <input 
-            type="password" 
-            value={clave} 
-            onChange={(e) => setClave(e.target.value)}
-            style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ccc', boxSizing: 'border-box' }}
-            required
+          <label>Contraseña:</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="submit" style={{ padding: '10px', background: '#d32f2f', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold' }}>
-          Ingresar
-        </button>
+
+        <button type="submit" className="btn-ingresar">Ingresar</button>
       </form>
     </div>
   );
