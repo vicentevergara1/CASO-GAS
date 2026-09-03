@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Productos - El Volcán</title>
+    <link rel="stylesheet" href="../src/output.css" />
+  </head>
+
+  <body class="relative w-full min-h-screen flex flex-col bg-neutral-primary">
+    <!-- NAVBAR -->
+    <nav
+      class="fixed top-0 left-0 w-full z-30 bg-neutral-primary border-b border-default"
+    >
+      <div class="w-full px-8 h-14 grid grid-cols-3 items-center">
+        <!-- Logo -->
+        <div>
+          <a href="../index.html" class="flex items-center space-x-3">
+            <img
+              src="../assets/images/volcan.avif"
+              class="h-10"
+              alt="El Volcan Logo"
+            />
+            <span class="text-xl text-heading font-semibold whitespace-nowrap">
+              El Volcán
+            </span>
+          </a>
+        </div>
+
+        <!-- Navegación -->
+        <div class="flex justify-center">
+          <ul class="font-medium flex items-center space-x-8">
+            <li>
+              <a href="productos.html" class="text-fg-brand font-semibold">
+                Productos
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="../index.html#servicios"
+                class="text-heading hover:text-fg-brand"
+              >
+                Servicios
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="../index.html#nosotros"
+                class="text-heading hover:text-fg-brand"
+              >
+                Nosotros
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="../index.html#faq"
+                class="text-heading hover:text-fg-brand"
+              >
+                Preguntas frecuentes
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="../index.html#contacto"
+                class="text-heading hover:text-fg-brand"
+              >
+                Contacto
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Buscador + Cuenta + Carrito -->
+        <div class="flex items-center justify-end gap-6">
+          <button
+            type="button"
+            aria-label="Buscar productos"
+            class="text-xl text-heading hover:text-fg-brand"
+          >
+            🔍
+          </button>
+
+          <a
+            href="login.html"
+            class="flex items-center gap-2 text-heading hover:text-fg-brand font-medium"
+          >
+            <span class="text-xl">👤</span>
+            Cuenta
+          </a>
+
+          <a
+            href="#"
+            class="flex items-center gap-2 text-heading hover:text-fg-brand font-medium"
+          >
+            <span class="text-xl">🛒</span>
+            Carrito
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="w-full flex-1 pt-28 pb-16">
+      <!-- NAVEGACIÓN RÁPIDA POR CATEGORÍAS -->
+      <section id="productos" class="w-full max-w-7xl mx-auto px-8 mb-12">
+        <h1 class="text-3xl font-bold text-center mb-10 text-heading">
+          Catálogo de Productos
+        </h1>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <a
+            href="#cilindros"
+            class="border border-default rounded-lg p-4 text-center hover:bg-neutral-secondary transition"
+          >
+            <h3 class="text-lg font-semibold text-heading">Cilindros</h3>
+          </a>
+
+          <a
+            href="#mangueras"
+            class="border border-default rounded-lg p-4 text-center hover:bg-neutral-secondary transition"
+          >
+            <h3 class="text-lg font-semibold text-heading">Mangueras</h3>
+          </a>
+
+          <a
+            href="#reguladores"
+            class="border border-default rounded-lg p-4 text-center hover:bg-neutral-secondary transition"
+          >
+            <h3 class="text-lg font-semibold text-heading">Reguladores</h3>
+          </a>
+
+          <a
+            href="#accesorios"
+            class="border border-default rounded-lg p-4 text-center hover:bg-neutral-secondary transition"
+          >
+            <h3 class="text-lg font-semibold text-heading">Accesorios</h3>
+          </a>
+        </div>
+      </section>
+
+      <!-- CILINDROS -->
+      <section
+        id="cilindros"
+        class="w-full max-w-7xl mx-auto px-8 py-8 border-t border-default"
+      >
+        <h2 class="text-2xl font-bold py-4 text-heading">
+          Cilindros de Gas Licuado
+        </h2>
+
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch"
+        >
+          <div
+            class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+          >
+            <img
+              src="../assets/images/5kg.png"
+              alt="Cilindro de gas licuado de 5 kg El Volcán"
+              class="w-full aspect-square object-contain mb-4"
+              loading="lazy"
+            />
+            <h3 class="text-lg font-semibold text-heading">5 kg</h3>
+            <p class="text-sm text-muted grow mt-2">
+              Compacto y liviano, perfecto para estufas pequeñas, campings o
+              parrillas a gas.
+            </p>
+            <p class="font-semibold text-lg mt-4 text-heading">$6.500</p>
+          </div>
+
+          <div
+            class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+          >
+            <img
+              src="../assets/images/11kg.png"
+              alt="Cilindro de gas licuado de 11 kg El Volcán"
+              class="w-full aspect-square object-contain mb-4"
+              loading="lazy"
+            />
+            <h3 class="text-lg font-semibold text-heading">11 kg</h3>
+            <p class="text-sm text-muted grow mt-2">
+              El formato estándar más usado en los hogares de Chile para cocina
+              y agua caliente.
+            </p>
+            <p class="font-semibold text-lg mt-4 text-heading">$12.000</p>
+          </div>
+
+          <div
+            class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+          >
+            <img
+              src="../assets/images/15kg.png"
+              alt="Cilindro de gas licuado de 15 kg El Volcán"
+              class="w-full aspect-square object-contain mb-4"
+              loading="lazy"
+            />
+            <h3 class="text-lg font-semibold text-heading">15 kg</h3>
+            <p class="text-sm text-muted grow mt-2">
+              Rendimiento superior para familias o sistemas de calefacción de
+              alto consumo.
+            </p>
+            <p class="font-semibold text-lg mt-4 text-heading">$16.000</p>
+          </div>
+
+          <div
+            class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+          >
+            <img
+              src="../assets/images/45kg.png"
+              alt="Cilindro de gas licuado industrial de 45 kg El Volcán"
+              class="w-full aspect-square object-contain mb-4"
+              loading="lazy"
+            />
+            <h3 class="text-lg font-semibold text-heading">45 kg</h3>
+            <p class="text-sm text-muted grow mt-2">
+              Carga industrial para locales comerciales, pymes y consumo
+              continuo.
+            </p>
+            <p class="font-semibold text-lg mt-4 text-heading">$45.000</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MANGUERAS Y CONEXIONES -->
+      <section
+        id="mangueras"
+        class="w-full max-w-7xl mx-auto px-8 py-8 border-t border-default"
+      >
+        <h2 class="text-2xl font-bold py-4 text-heading">
+          Mangueras y Conexiones
+        </h2>
+
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch"
+        >
+          <div
+            class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+          >
+            <img
+              src="../assets/images/1.5m.webp"
+              alt="Manguera de gas flexible de 1.5 metros"
+              class="w-full aspect-square object-contain mb-4"
+              loading="lazy"
+            />
+            <h3 class="text-lg font-semibold text-heading">
+              Manguera gas 1.5 m
+            </h3>
+            <p class="text-sm text-muted grow mt-2">
+              Manguera flexible certificada para conexión directa entre
+              regulador y artefactos domésticos.
+            </p>
+            <p class="font-semibold text-lg mt-4 text-heading">$3.990</p>
+          </div>
+
+          <div
+            class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+          >
+            <img
+              src="../assets/images/3m.webp"
+              alt="Manguera de gas flexible extendida de 3 metros"
+              class="w-full aspect-square object-contain mb-4"
+              loading="lazy"
+            />
+            <h3 class="text-lg font-semibold text-heading">Manguera gas 3 m</h3>
+            <p class="text-sm text-muted grow mt-2">
+              Largo extendido ideal para instalaciones que requieren mayor
+              distancia del cilindro.
+            </p>
+            <p class="font-semibold text-lg mt-4 text-heading">$6.990</p>
+          </div>
+
+          <div
+            class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+          >
+            <img
+              src="../assets/images/abrazadera.webp"
+              alt="Abrazadera metálica de ajuste para manguera de gas"
+              class="w-full aspect-square object-contain mb-4"
+              loading="lazy"
+            />
+            <h3 class="text-lg font-semibold text-heading">
+              Abrazadera metálica
+            </h3>
+            <p class="text-sm text-muted grow mt-2">
+              Ajuste seguro y firme de acero para prevenir fugas en los extremos
+              de la manguera.
+            </p>
+            <p class="font-semibold text-lg mt-4 text-heading">$990</p>
+          </div>
+
+          <div
+            class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+          >
+            <img
+              src="../assets/images/kit.jpeg"
+              alt="Kit de conexión de gas con regulador, manguera y abrazaderas"
+              class="w-full aspect-square object-contain mb-4"
+              loading="lazy"
+            />
+            <h3 class="text-lg font-semibold text-heading">
+              Kit de conexión completo
+            </h3>
+            <p class="text-sm text-muted grow mt-2">
+              Incluye regulador doméstico, manguera de 1.5 metros y 2
+              abrazaderas metálicas.
+            </p>
+            <p class="font-semibold text-lg mt-4 text-heading">$12.990</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- REGULADORES -->
+      <section
+        id="reguladores"
+        class="w-full max-w-7xl mx-auto px-8 py-8 border-t border-default"
+      >
+        <h2 class="text-2xl font-bold py-4 text-heading">Reguladores</h2>
+
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch"
+        >
+          <div
+            class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+          >
+            <img
+              src="../assets/images/regulador-estandar.png"
+              alt="Regulador de presión doméstico estándar para gas licuado"
+              class="w-full aspect-square object-contain mb-4"
+              loading="lazy"
+            />
+            <h3 class="text-lg font-semibold text-heading">
+              Regulador estándar
+            </h3>
+            <p class="text-sm text-muted grow mt-2">
+              Mantiene una presión constante para el uso seguro de cocinas y
+              calefonts de casa.
+            </p>
+            <p class="font-semibold text-lg mt-4 text-heading">$8.990</p>
+          </div>
+
+          <div
+            class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+          >
+            <img
+              src="../assets/images/regulador-alta-presion.png"
+              alt="Regulador de alta presión para quemadores e instalaciones industriales"
+              class="w-full aspect-square object-contain mb-4"
+              loading="lazy"
+            />
+            <h3 class="text-lg font-semibold text-heading">
+              Regulador alta presión
+            </h3>
+            <p class="text-sm text-muted grow mt-2">
+              Diseñado para cocinillas industriales, sopletes y artefactos de
+              alto flujo térmico.
+            </p>
+            <p class="font-semibold text-lg mt-4 text-heading">$18.990</p>
+          </div>
+
+          <div
+            class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+          >
+            <img
+              src="../assets/images/regulador-dual.png"
+              alt="Regulador dual de dos salidas para gas"
+              class="w-full aspect-square object-contain mb-4"
+              loading="lazy"
+            />
+            <h3 class="text-lg font-semibold text-heading">
+              Regulador dual (2 salidas)
+            </h3>
+            <p class="text-sm text-muted grow mt-2">
+              Suministra gas a dos artefactos simultáneamente desde la misma
+              fuente de cilindro.
+            </p>
+            <p class="font-semibold text-lg mt-4 text-heading">$14.990</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACCESORIOS -->
+      <section
+        id="accesorios"
+        class="w-full max-w-7xl mx-auto px-8 py-8 border-t border-default"
+      >
+        <h2 class="text-2xl font-bold py-4 text-heading">Accesorios</h2>
+
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch"
+        >
+          <div
+            class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+          >
+            <img
+              src="../assets/images/porta-cilindro.jpg"
+              alt="Carro porta cilindro metálico con ruedas para transporte"
+              class="w-full aspect-square object-contain mb-4"
+              loading="lazy"
+            />
+            <h3 class="text-lg font-semibold text-heading">
+              Carro porta cilindro
+            </h3>
+            <p class="text-sm text-muted grow mt-2">
+              Estructura metálica resistente con ruedas para mover cilindros de
+              11 y 15 kg con facilidad.
+            </p>
+            <p class="font-semibold text-lg mt-4 text-heading">$12.990</p>
+          </div>
+
+          <div
+            class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+          >
+            <img
+              src="../assets/images/tapa-protectora.webp"
+              alt="Tapa protectora plástica para válvula de cilindro"
+              class="w-full aspect-square object-contain mb-4"
+              loading="lazy"
+            />
+            <h3 class="text-lg font-semibold text-heading">Tapa protectora</h3>
+            <p class="text-sm text-muted grow mt-2">
+              Protege la válvula del cilindro de golpes, humedad y suciedad
+              durante su almacenamiento.
+            </p>
+            <p class="font-semibold text-lg mt-4 text-heading">$1.490</p>
+          </div>
+
+          <div
+            class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+          >
+            <img
+              src="../assets/images/detector.jpg"
+              alt="Detector electrónico de fuga de gas a batería con alarma sonora"
+              class="w-full aspect-square object-contain mb-4"
+              loading="lazy"
+            />
+            <h3 class="text-lg font-semibold text-heading">
+              Detector de fugas
+            </h3>
+            <p class="text-sm text-muted grow mt-2">
+              Sensor inteligente con alarma audible de alerta rápida ante
+              cualquier presencia de gas licuado.
+            </p>
+            <p class="font-semibold text-lg mt-4 text-heading">$19.990</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-default bg-neutral-primary">
+      <div
+        class="w-full px-8 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto"
+      >
+        <!-- INFORMACIÓN -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <img
+              src="../assets/images/volcan.avif"
+              class="h-10"
+              alt="El Volcan Logo"
+            />
+            <span class="text-xl font-semibold text-heading">El Volcán</span>
+          </div>
+
+          <p class="text-sm text-muted">
+            Distribuidora de gas licuado a domicilio y accesorios de instalación
+            segura para hogares y empresas.
+          </p>
+        </div>
+
+        <!-- ENLACES -->
+        <div>
+          <h2 class="mb-4 text-sm font-semibold uppercase text-heading">
+            Enlaces
+          </h2>
+
+          <ul class="space-y-2 text-sm text-muted">
+            <li>
+              <a href="productos.html" class="hover:underline">Productos</a>
+            </li>
+
+            <li>
+              <a href="../index.html#servicios" class="hover:underline"
+                >Servicios</a
+              >
+            </li>
+
+            <li>
+              <a href="../index.html#nosotros" class="hover:underline"
+                >Nosotros</a
+              >
+            </li>
+
+            <li>
+              <a href="../index.html#faq" class="hover:underline"
+                >Preguntas frecuentes</a
+              >
+            </li>
+
+            <li>
+              <a href="../index.html#contacto" class="hover:underline"
+                >Contacto</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- CONTACTO -->
+        <div>
+          <h2 class="mb-4 text-sm font-semibold uppercase text-heading">
+            Contacto
+          </h2>
+
+          <ul class="space-y-2 text-sm text-muted">
+            <li>📞 +56 9 XXXX XXXX</li>
+            <li>✉ contacto@elvolcan.cl</li>
+            <li>📍 Chillán, Región de Ñuble</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- COPYRIGHT -->
+      <div class="border-t border-default">
+        <p class="text-center text-sm font-medium py-4 text-muted">
+          © 2026 El Volcán. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
