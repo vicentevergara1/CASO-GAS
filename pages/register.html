@@ -3,89 +3,146 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Registro</title>
+    <title>Registro - El Volcán</title>
 
     <link rel="stylesheet" href="../src/output.css" />
   </head>
 
-  <body class="min-h-screen flex items-center justify-center">
-    <main class="w-full max-w-md px-6">
-      <form class="space-y-5 border rounded-sm p-4">
-        <h1 class="text-3xl font-bold text-center">Crear cuenta</h1>
+  <body class="min-h-screen flex flex-col justify-between bg-neutral-primary">
+    <!-- Header simplificado con botón de retorno -->
+    <header
+      class="w-full max-w-7xl mx-auto p-6 flex justify-between items-center"
+    >
+      <a
+        href="../index.html"
+        class="inline-flex items-center gap-2 text-sm text-heading hover:text-fg-brand font-medium transition-colors"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          class="w-4 h-4"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+          />
+        </svg>
+        Volver al inicio
+      </a>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="w-full max-w-md px-6 mx-auto my-auto py-8">
+      <!-- Logo de marca arriba del formulario -->
+      <div class="text-center mb-6">
+        <a href="../index.html" class="inline-flex items-center gap-3">
+          <img
+            src="../assets/images/volcan.avif"
+            class="h-12"
+            alt="El Volcan Logo"
+          />
+          <span class="text-2xl font-bold text-heading">El Volcán</span>
+        </a>
+      </div>
+
+      <form
+        class="space-y-5 border border-default rounded-xl p-8 bg-neutral-primary shadow-sm"
+      >
+        <h1 class="text-2xl font-bold text-center text-heading">
+          Crear cuenta
+        </h1>
 
         <div>
-          <label for="name" class="block mb-2 text-sm font-medium">
-            Nombre
+          <label for="name" class="block mb-2 text-sm font-medium text-heading">
+            Nombre completo
           </label>
-
           <input
             type="text"
             id="name"
             name="name"
             placeholder="Ingresa tu nombre"
             required
-            class="w-full rounded-lg border px-4 py-3 outline-none focus:ring-2"
+            class="w-full rounded-lg border border-default px-4 py-3 outline-none focus:ring-2 focus:ring-fg-brand"
           />
         </div>
 
         <div>
-          <label for="email" class="block mb-2 text-sm font-medium">
+          <label
+            for="email"
+            class="block mb-2 text-sm font-medium text-heading"
+          >
             Correo electrónico
           </label>
-
           <input
             type="email"
             id="email"
             name="email"
             placeholder="correo@ejemplo.com"
             required
-            class="w-full rounded-lg border px-4 py-3 outline-none focus:ring-2"
+            class="w-full rounded-lg border border-default px-4 py-3 outline-none focus:ring-2 focus:ring-fg-brand"
           />
         </div>
 
         <div>
-          <label for="password" class="block mb-2 text-sm font-medium">
+          <label
+            for="password"
+            class="block mb-2 text-sm font-medium text-heading"
+          >
             Contraseña
           </label>
-
           <input
             type="password"
             id="password"
             name="password"
             placeholder="Ingresa tu contraseña"
             required
-            class="w-full rounded-lg border px-4 py-3 outline-none focus:ring-2"
+            class="w-full rounded-lg border border-default px-4 py-3 outline-none focus:ring-2 focus:ring-fg-brand"
           />
         </div>
 
         <div>
-          <label for="confirm-password" class="block mb-2 text-sm font-medium">
+          <label
+            for="confirm-password"
+            class="block mb-2 text-sm font-medium text-heading"
+          >
             Confirmar contraseña
           </label>
-
           <input
             type="password"
             id="confirm-password"
             name="confirm-password"
             placeholder="Repite tu contraseña"
             required
-            class="w-full rounded-lg border px-4 py-3 outline-none focus:ring-2"
+            class="w-full rounded-lg border border-default px-4 py-3 outline-none focus:ring-2 focus:ring-fg-brand"
           />
         </div>
 
         <button
           type="submit"
-          class="w-full rounded-lg border px-4 py-3 font-medium transition hover:opacity-80"
+          class="w-full rounded-lg bg-fg-brand text-white px-4 py-3 font-medium transition hover:opacity-90"
         >
           Registrarse
         </button>
 
-        <p class="text-center text-sm">
+        <p class="text-center text-sm text-muted">
           ¿Ya tienes una cuenta?
-          <a href="login.html" class="font-medium underline"> Inicia sesión </a>
+          <a
+            href="login.html"
+            class="font-medium text-heading underline hover:text-fg-brand"
+          >
+            Inicia sesión
+          </a>
         </p>
       </form>
     </main>
+
+    <!-- Footer minimalista -->
+    <footer class="py-6 text-center text-xs text-muted border-t border-default">
+      © 2026 El Volcán. Todos los derechos reservados.
+    </footer>
   </body>
 </html>
