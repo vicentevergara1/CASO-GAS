@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb7b3fe0-30f7-47ce-ab2b-73654b3898c0" name="Changes" comment="01-09-2026 avances">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/admin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/admin.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/app.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/login.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="bb7b3fe0-30f7-47ce-ab2b-73654b3898c0" name="Changes" comment="commit avance admin usuario" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,12 +19,12 @@
     &quot;assignee&quot;: &quot;vicentevergara1&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/vicentevergara1/CASO-GAS.git&quot;,
-    &quot;accountId&quot;: &quot;33fca20b-27b3-4565-b528-a86fc9cef114&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/vicentevergara1/CASO-GAS.git",
+    "accountId": "0324b25f-13bf-47b1-ab50-144a6dfc1edb"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -63,10 +58,28 @@
       <option name="presentableId" value="Default" />
       <updated>1787928090294</updated>
     </task>
+    <task id="LOCAL-00001" summary="commit avance admin usuario">
+      <option name="closed" value="true" />
+      <created>1788453895275</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1788453895275</updated>
+    </task>
+    <task id="LOCAL-00002" summary="commit avance admin usuario">
+      <option name="closed" value="true" />
+      <created>1788453978171</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1788453978171</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="01-09-2026 avances" />
-    <option name="LAST_COMMIT_MESSAGE" value="01-09-2026 avances" />
+    <MESSAGE value="commit avance admin usuario" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit avance admin usuario" />
   </component>
 </project>
