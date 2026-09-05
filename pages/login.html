@@ -6,16 +6,27 @@
     <title>Iniciar sesión - El Volcán</title>
 
     <link rel="stylesheet" href="../src/output.css" />
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
-  <body class="min-h-screen flex flex-col justify-between bg-neutral-primary">
+  <!-- Fondo general gris suave (bg-slate-100) para eliminar el blanco total de la página -->
+  <body
+    class="min-h-screen flex flex-col justify-between bg-slate-100 text-slate-800"
+  >
     <!-- Header simplificado solo para navegación de retorno -->
     <header
       class="w-full max-w-7xl mx-auto p-6 flex justify-between items-center"
     >
       <a
         href="../index.html"
-        class="inline-flex items-center gap-2 text-sm text-heading hover:text-fg-brand font-medium transition-colors"
+        class="inline-flex items-center gap-2 text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -36,81 +47,120 @@
     </header>
 
     <!-- CONTENIDO PRINCIPAL -->
-    <main class="w-full max-w-md px-6 mx-auto my-auto py-8">
-      <!-- Logo de marca arriba del formulario -->
-      <div class="text-center mb-6">
-        <a href="../index.html" class="inline-flex items-center gap-3">
-          <img
-            src="../assets/images/volcan.avif"
-            class="h-12"
-            alt="El Volcan Logo"
-          />
-          <span class="text-2xl font-bold text-heading">El Volcán</span>
-        </a>
-      </div>
-
-      <form
-        class="space-y-5 border border-default rounded-xl p-8 bg-neutral-primary shadow-sm"
+    <main class="w-full max-w-4xl px-4 sm:px-6 mx-auto my-auto py-8">
+      <!-- Tarjeta sin borde y con sombra suave elevada -->
+      <div
+        class="flex flex-col md:flex-row overflow-hidden rounded-2xl bg-white shadow-2xl shadow-slate-300/50"
       >
-        <h1 class="text-2xl font-bold text-center text-heading">
-          Iniciar sesión
-        </h1>
-
-        <div>
-          <label
-            for="email"
-            class="block mb-2 text-sm font-medium text-heading"
-          >
-            Correo electrónico
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="correo@ejemplo.com"
-            required
-            class="w-full rounded-lg border border-default px-4 py-3 outline-none focus:ring-2 focus:ring-fg-brand"
-          />
-        </div>
-
-        <div>
-          <label
-            for="password"
-            class="block mb-2 text-sm font-medium text-heading"
-          >
-            Contraseña
-          </label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Ingresa tu contraseña"
-            required
-            class="w-full rounded-lg border border-default px-4 py-3 outline-none focus:ring-2 focus:ring-fg-brand"
-          />
-        </div>
-
-        <button
-          type="submit"
-          class="w-full rounded-lg bg-fg-brand text-white px-4 py-3 font-medium transition hover:opacity-90"
+        <!-- COLUMNA IZQUIERDA: Imagen de Chillán + Capa Oscura + Texto -->
+        <div
+          class="w-full md:w-5/12 text-white p-8 md:p-10 flex flex-col justify-between relative min-h-[280px] md:min-h-[460px] overflow-hidden"
         >
-          Iniciar sesión
-        </button>
+          <!-- 1. Imagen de fondo Chillán -->
+          <img
+            src="../assets/images/chillan.jpg"
+            alt="Chillán"
+            class="absolute inset-0 w-full h-full object-cover"
+          />
 
-        <p class="text-center text-sm text-muted">
-          ¿No tienes una cuenta?
-          <a
-            href="register.html"
-            class="font-medium text-heading underline hover:text-fg-brand"
-          >
-            Regístrate
-          </a>
-        </p>
-      </form>
+          <!-- 2. Overlay azul/oscuro semi-transparente -->
+          <div
+            class="absolute inset-0 bg-slate-900/75 backdrop-blur-[2px]"
+          ></div>
+
+          <!-- 3. Contenido sobre la imagen -->
+          <div class="flex items-center gap-3 relative z-10">
+            <img
+              src="../assets/images/logo.png"
+              class="h-9 w-auto object-contain"
+              alt="El Volcán Logo"
+            />
+            <span class="text-xl font-bold tracking-tight text-white"
+              >El Volcán</span
+            >
+          </div>
+
+          <div class="my-auto py-6 relative z-10">
+            <h2 class="text-2xl font-bold mb-2 leading-tight text-white">
+              Tu energía de confianza en Chillán
+            </h2>
+            <p class="text-sm text-slate-200 leading-relaxed">
+              Inicia sesión para realizar tus pedidos de gas, hacer seguimiento
+              en tiempo real y acceder a promociones exclusivas.
+            </p>
+          </div>
+
+          <p class="text-xs text-slate-300 relative z-10">
+            Distribuidora de Gas El Volcán • Desde 1998
+          </p>
+        </div>
+
+        <!-- COLUMNA DERECHA: Formulario -->
+        <div
+          class="w-full md:w-7/12 p-8 md:p-10 flex flex-col justify-center bg-white"
+        >
+          <h1 class="text-2xl font-bold text-slate-900 mb-6">Iniciar sesión</h1>
+
+          <form class="space-y-5">
+            <div>
+              <label
+                for="email"
+                class="block mb-2 text-sm font-medium text-slate-700"
+              >
+                Correo electrónico
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="correo@ejemplo.com"
+                required
+                class="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-fg-brand focus:border-transparent transition-all"
+              />
+            </div>
+
+            <div>
+              <label
+                for="password"
+                class="block mb-2 text-sm font-medium text-slate-700"
+              >
+                Contraseña
+              </label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Ingresa tu contraseña"
+                required
+                class="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-fg-brand focus:border-transparent transition-all"
+              />
+            </div>
+
+            <button
+              type="submit"
+              class="w-full rounded-lg bg-fg-brand text-white px-4 py-3 font-medium transition hover:opacity-90 cursor-pointer shadow-sm"
+            >
+              Iniciar sesión
+            </button>
+
+            <p class="text-center text-sm text-slate-500 pt-2">
+              ¿No tienes una cuenta?
+              <a
+                href="register.html"
+                class="font-medium text-slate-900 underline hover:text-fg-brand transition-colors"
+              >
+                Regístrate
+              </a>
+            </p>
+          </form>
+        </div>
+      </div>
     </main>
 
     <!-- Footer minimalista -->
-    <footer class="py-6 text-center text-xs text-muted border-t border-default">
+    <footer
+      class="py-6 text-center text-xs text-slate-500 border-t border-slate-200/60"
+    >
       © 2026 El Volcán. Todos los derechos reservados.
     </footer>
   </body>
