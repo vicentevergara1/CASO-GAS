@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preguntas Frecuentes - El Volcán</title>
+    <link rel="stylesheet" href="../src/output.css" />
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="relative w-full min-h-screen flex flex-col bg-neutral-primary">
+    <!-- NAVBAR -->
+    <nav
+      class="fixed top-0 left-0 w-full z-30 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm"
+    >
+      <div class="w-full px-8 h-14 grid grid-cols-3 items-center">
+        <!-- Logo -->
+        <div>
+          <a href="../index.html" class="flex items-center space-x-3">
+            <img
+              src="../assets/images/logo.png"
+              class="h-10"
+              alt="El Volcan Logo"
+            />
+            <span class="text-xl text-heading font-semibold whitespace-nowrap">
+              El Volcán
+            </span>
+          </a>
+        </div>
+
+        <!-- Navegación -->
+        <div class="flex justify-center">
+          <ul class="font-medium flex items-center space-x-8">
+            <li>
+              <a href="productos.html" class="text-heading hover:text-fg-brand">
+                Productos
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="../index.html#servicios"
+                class="text-heading hover:text-fg-brand"
+              >
+                Servicios
+              </a>
+            </li>
+
+            <li>
+              <a href="about.html" class="text-heading hover:text-fg-brand">
+                Nosotros
+              </a>
+            </li>
+
+            <li>
+              <a href="faq.html" class="text-fg-brand font-semibold">
+                Preguntas frecuentes
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="../index.html#contacto"
+                class="text-heading hover:text-fg-brand"
+              >
+                Contacto
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Buscador + Cuenta + Carrito -->
+        <div class="flex items-center justify-end gap-6">
+          <button
+            type="button"
+            aria-label="Buscar preguntas"
+            class="text-xl text-heading hover:text-fg-brand"
+          >
+            🔍
+          </button>
+
+          <a
+            href="login.html"
+            class="flex items-center gap-2 text-heading hover:text-fg-brand font-medium"
+          >
+            <span class="text-xl">👤</span>
+            Cuenta
+          </a>
+
+          <a
+            href="#"
+            class="flex items-center gap-2 text-heading hover:text-fg-brand font-medium"
+          >
+            <span class="text-xl">🛒</span>
+            Carrito
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="w-full flex-1 pt-28 pb-16">
+      <!-- HERO -->
+      <section class="w-full max-w-7xl mx-auto px-8 py-8 text-center">
+        <h1 class="text-4xl font-bold text-heading mb-4">Centro de Ayuda</h1>
+        <p class="text-lg text-muted max-w-2xl mx-auto mb-8">
+          Resuelve todas tus dudas sobre nuestros servicios de distribución de
+          gas, tiempos de despacho, medios de pago y normas de seguridad.
+        </p>
+
+        <!-- NAVEGACIÓN RÁPIDA POR CATEGORÍAS -->
+        <div
+          class="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto mb-12"
+        >
+          <a
+            href="#pedidos-despacho"
+            class="px-4 py-2 rounded-full border border-default text-sm font-medium hover:bg-neutral-secondary transition text-heading"
+          >
+            🚚 Pedidos y Despacho
+          </a>
+          <a
+            href="#cilindros-canje"
+            class="px-4 py-2 rounded-full border border-default text-sm font-medium hover:bg-neutral-secondary transition text-heading"
+          >
+            🛢️ Cilindros y Canje
+          </a>
+          <a
+            href="#pagos-facturacion"
+            class="px-4 py-2 rounded-full border border-default text-sm font-medium hover:bg-neutral-secondary transition text-heading"
+          >
+            💳 Pagos y Facturación
+          </a>
+          <a
+            href="#seguridad-instalacion"
+            class="px-4 py-2 rounded-full border border-default text-sm font-medium hover:bg-neutral-secondary transition text-heading"
+          >
+            🛡️ Seguridad e Instalación
+          </a>
+        </div>
+      </section>
+
+      <div class="max-w-4xl mx-auto px-8 space-y-12">
+        <!-- SECCIÓN 1: PEDIDOS Y DESPACHO -->
+        <section id="pedidos-despacho" class="scroll-mt-32">
+          <h2
+            class="text-2xl font-bold text-heading mb-6 flex items-center gap-3 border-b border-default pb-3"
+          >
+            <span>🚚</span> Pedidos y Despacho
+          </h2>
+
+          <div class="space-y-4">
+            <details
+              class="group bg-neutral-primary border border-default rounded-xl p-6 cursor-pointer transition-all"
+            >
+              <summary
+                class="flex items-center justify-between font-semibold text-lg text-heading gap-2 select-none"
+              >
+                <span>¿En qué sectores y comunas realizan entregas?</span>
+                <span class="transition group-open:rotate-180 shrink-0">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </span>
+              </summary>
+              <p class="mt-4 text-muted leading-relaxed">
+                Cubrimos el 100% de la comuna de
+                <strong
+                  >Chillán, Chillán Viejo y sus sectores urbanos y
+                  periurbanos</strong
+                >. Para sectores rurales aledaños o pedidos especiales fuera de
+                la zona urbana estándar, puedes contactarnos directamente al
+                WhatsApp de atención para confirmar disponibilidad.
+              </p>
+            </details>
+
+            <details
+              class="group bg-neutral-primary border border-default rounded-xl p-6 cursor-pointer transition-all"
+            >
+              <summary
+                class="flex items-center justify-between font-semibold text-lg text-heading gap-2 select-none"
+              >
+                <span>¿Cuánto tiempo tarda en llegar mi pedido?</span>
+                <span class="transition group-open:rotate-180 shrink-0">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </span>
+              </summary>
+              <p class="mt-4 text-muted leading-relaxed">
+                Nuestro tiempo promedio de despacho es de
+                <strong>30 a 45 minutos</strong> dentro del radio urbano de
+                Chillán. Al realizar tu pedido en la plataforma, te enviaremos
+                una notificación para que puedas ver el trayecto de nuestro
+                repartidor en tiempo real sobre el mapa.
+              </p>
+            </details>
+
+            <details
+              class="group bg-neutral-primary border border-default rounded-xl p-6 cursor-pointer transition-all"
+            >
+              <summary
+                class="flex items-center justify-between font-semibold text-lg text-heading gap-2 select-none"
+              >
+                <span>¿Cuáles son los horarios de atención y reparto?</span>
+                <span class="transition group-open:rotate-180 shrink-0">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </span>
+              </summary>
+              <p class="mt-4 text-muted leading-relaxed">
+                Atendemos de
+                <strong>Lunes a Sábado de 08:00 a 20:00 hrs</strong>, y los
+                <strong>Domingos y festivos de 09:00 a 18:00 hrs</strong>. Los
+                pedidos realizados fuera de este horario quedarán programados
+                automáticamente para primera hora del día siguiente.
+              </p>
+            </details>
+
+            <details
+              class="group bg-neutral-primary border border-default rounded-xl p-6 cursor-pointer transition-all"
+            >
+              <summary
+                class="flex items-center justify-between font-semibold text-lg text-heading gap-2 select-none"
+              >
+                <span>¿Puedo programar una hora específica de entrega?</span>
+                <span class="transition group-open:rotate-180 shrink-0">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </span>
+              </summary>
+              <p class="mt-4 text-muted leading-relaxed">
+                ¡Sí! Durante el proceso de confirmación de tu pedido, puedes
+                seleccionar el rango horario que más te acomode para recibir tu
+                carga de gas sin tener que esperar en casa todo el día.
+              </p>
+            </details>
+          </div>
+        </section>
+
+        <!-- SECCIÓN 2: CILINDROS Y CANJE -->
+        <section id="cilindros-canje" class="scroll-mt-32">
+          <h2
+            class="text-2xl font-bold text-heading mb-6 flex items-center gap-3 border-b border-default pb-3"
+          >
+            <span>🛢️</span> Cilindros y Canje de Envases
+          </h2>
+
+          <div class="space-y-4">
+            <details
+              class="group bg-neutral-primary border border-default rounded-xl p-6 cursor-pointer transition-all"
+            >
+              <summary
+                class="flex items-center justify-between font-semibold text-lg text-heading gap-2 select-none"
+              >
+                <span>¿Aceptan cilindros vacíos de otras marcas?</span>
+                <span class="transition group-open:rotate-180 shrink-0">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </span>
+              </summary>
+              <p class="mt-4 text-muted leading-relaxed">
+                Sí, recibimos cualquier cilindro multimarca oficial en Chile
+                (Gasco, Lipigas, Abastible, etc.) siempre y cuando corresponda
+                al mismo kilaje y se encuentre en condiciones estructurales
+                seguras.
+              </p>
+            </details>
+
+            <details
+              class="group bg-neutral-primary border border-default rounded-xl p-6 cursor-pointer transition-all"
+            >
+              <summary
+                class="flex items-center justify-between font-semibold text-lg text-heading gap-2 select-none"
+              >
+                <span
+                  >¿Qué pasa si no tengo un envase vacío para entregar?</span
+                >
+                <span class="transition group-open:rotate-180 shrink-0">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </span>
+              </summary>
+              <p class="mt-4 text-muted leading-relaxed">
+                Si no cuentas con un envase previo para entregar a cambio,
+                deberás cancelar el valor de la
+                <strong>garantía/compra del envase</strong> adicional al valor
+                de la carga de gas.
+              </p>
+            </details>
+
+            <details
+              class="group bg-neutral-primary border border-default rounded-xl p-6 cursor-pointer transition-all"
+            >
+              <summary
+                class="flex items-center justify-between font-semibold text-lg text-heading gap-2 select-none"
+              >
+                <span
+                  >¿Cómo aseguran la calidad y carga exacta de los
+                  cilindros?</span
+                >
+                <span class="transition group-open:rotate-180 shrink-0">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </span>
+              </summary>
+              <p class="mt-4 text-muted leading-relaxed">
+                Todos nuestros cilindros cuentan con el sello de seguridad en su
+                válvula que garantiza que la carga fue realizada en planta bajo
+                estrictos estándares normativos de pesaje y revisión antifugas.
+              </p>
+            </details>
+          </div>
+        </section>
+
+        <!-- SECCIÓN 3: PAGOS Y FACTURACIÓN -->
+        <section id="pagos-facturacion" class="scroll-mt-32">
+          <h2
+            class="text-2xl font-bold text-heading mb-6 flex items-center gap-3 border-b border-default pb-3"
+          >
+            <span>💳</span> Pagos y Facturación
+          </h2>
+
+          <div class="space-y-4">
+            <details
+              class="group bg-neutral-primary border border-default rounded-xl p-6 cursor-pointer transition-all"
+            >
+              <summary
+                class="flex items-center justify-between font-semibold text-lg text-heading gap-2 select-none"
+              >
+                <span>¿Cuáles son los medios de pago disponibles?</span>
+                <span class="transition group-open:rotate-180 shrink-0">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </span>
+              </summary>
+              <p class="mt-4 text-muted leading-relaxed">
+                El pago se realiza directamente al recibir el producto.
+                Aceptamos
+                <strong
+                  >efectivo, tarjetas de débito/crédito (vía máquina
+                  Redelcom/Transbank del repartidor) y transferencias bancarias
+                  instantáneas</strong
+                >.
+              </p>
+            </details>
+
+            <details
+              class="group bg-neutral-primary border border-default rounded-xl p-6 cursor-pointer transition-all"
+            >
+              <summary
+                class="flex items-center justify-between font-semibold text-lg text-heading gap-2 select-none"
+              >
+                <span>¿Puedo solicitar factura para mi empresa o negocio?</span>
+                <span class="transition group-open:rotate-180 shrink-0">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </span>
+              </summary>
+              <p class="mt-4 text-muted leading-relaxed">
+                Sí, emitimos boletas y facturas electrónicas. Al momento de
+                pedir, selecciona la opción "Requiero Factura" e ingresa los
+                datos tributarios de tu empresa (RUT, Razón Social y Giro).
+              </p>
+            </details>
+          </div>
+        </section>
+
+        <!-- SECCIÓN 4: SEGURIDAD E INSTALACIÓN -->
+        <section id="seguridad-instalacion" class="scroll-mt-32">
+          <h2
+            class="text-2xl font-bold text-heading mb-6 flex items-center gap-3 border-b border-default pb-3"
+          >
+            <span>🛡️</span> Seguridad e Instalación
+          </h2>
+
+          <div class="space-y-4">
+            <details
+              class="group bg-neutral-primary border border-default rounded-xl p-6 cursor-pointer transition-all"
+            >
+              <summary
+                class="flex items-center justify-between font-semibold text-lg text-heading gap-2 select-none"
+              >
+                <span
+                  >¿El repartidor puede instalar el cilindro en mi
+                  domicilio?</span
+                >
+                <span class="transition group-open:rotate-180 shrink-0">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </span>
+              </summary>
+              <p class="mt-4 text-muted leading-relaxed">
+                Sí, nuestros repartidores están capacitados para instalar el
+                cilindro de forma gratuita y realizar una verificación básica de
+                estanqueidad para asegurar que tu conexión quede completamente
+                libre de fugas.
+              </p>
+            </details>
+
+            <details
+              class="group bg-neutral-primary border border-default rounded-xl p-6 cursor-pointer transition-all"
+            >
+              <summary
+                class="flex items-center justify-between font-semibold text-lg text-heading gap-2 select-none"
+              >
+                <span>¿Qué debo hacer si percibo olor a gas?</span>
+                <span class="transition group-open:rotate-180 shrink-0">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </span>
+              </summary>
+              <p class="mt-4 text-muted leading-relaxed">
+                Cierra de inmediato el regulador de paso del cilindro, abre
+                ventanas para ventilar el área, no enciendas interruptores
+                eléctricos ni fósforos, y ponte en contacto de inmediato con
+                nuestras líneas de asistencia telefónica.
+              </p>
+            </details>
+          </div>
+        </section>
+
+        <!-- CAJA DE CONTACTO DIRECTO -->
+        <section
+          class="border border-default bg-neutral-secondary rounded-2xl p-8 text-center mt-12"
+        >
+          <h3 class="text-2xl font-bold text-heading mb-2">
+            ¿No encontraste la respuesta que buscabas?
+          </h3>
+          <p class="text-muted mb-6">
+            Nuestro equipo de atención al cliente está disponible para ayudarte
+            de forma personalizada.
+          </p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a
+              href="../index.html#contacto"
+              class="px-6 py-3 bg-fg-brand text-white font-medium rounded-lg hover:opacity-90 transition"
+            >
+              Contactar por Formulario
+            </a>
+            <a
+              href="tel:+56912345678"
+              class="px-6 py-3 border border-default bg-neutral-primary font-medium rounded-lg text-heading hover:bg-neutral-secondary transition"
+            >
+              📞 Llamar a Soporte
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-default bg-neutral-primary">
+      <div
+        class="w-full px-8 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto"
+      >
+        <!-- INFORMACIÓN -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <img
+              src="../assets/images/logo.png"
+              class="h-10"
+              alt="El Volcan Logo"
+            />
+            <span class="text-xl font-semibold text-heading">El Volcán</span>
+          </div>
+
+          <p class="text-sm text-muted">
+            Distribuidora de gas licuado a domicilio y accesorios de instalación
+            segura para hogares y empresas.
+          </p>
+        </div>
+
+        <!-- ENLACES -->
+        <div>
+          <h2 class="mb-4 text-sm font-semibold uppercase text-heading">
+            Enlaces
+          </h2>
+
+          <ul class="space-y-2 text-sm text-muted">
+            <li>
+              <a href="productos.html" class="hover:underline">Productos</a>
+            </li>
+
+            <li>
+              <a href="../index.html#servicios" class="hover:underline"
+                >Servicios</a
+              >
+            </li>
+
+            <li>
+              <a href="about.html" class="hover:underline">Nosotros</a>
+            </li>
+
+            <li>
+              <a href="faq.html" class="hover:underline"
+                >Preguntas frecuentes</a
+              >
+            </li>
+
+            <li>
+              <a href="../index.html#contacto" class="hover:underline"
+                >Contacto</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- CONTACTO -->
+        <div>
+          <h2 class="mb-4 text-sm font-semibold uppercase text-heading">
+            Contacto
+          </h2>
+
+          <ul class="space-y-2 text-sm text-muted">
+            <li>📞 +56 9 XXXX XXXX</li>
+            <li>✉ contacto@elvolcan.cl</li>
+            <li>📍 Chillán, Región de Ñuble</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- COPYRIGHT -->
+      <div class="border-t border-default">
+        <p class="text-center text-sm font-medium py-4 text-muted">
+          © 2026 El Volcán. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
