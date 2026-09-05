@@ -7,19 +7,25 @@
     <title>El Volcan</title>
 
     <link rel="stylesheet" href="src/output.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body class="relative w-full min-h-screen flex flex-col">
     <!-- NAVBAR -->
     <nav
-      class="fixed top-0 left-0 w-full z-30 bg-neutral-primary border-b border-default"
+      class="fixed top-0 left-0 w-full z-30 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm"
     >
       <div class="w-full px-8 h-14 grid grid-cols-3 items-center">
         <!-- Logo -->
         <div>
           <a href="index.html" class="flex items-center space-x-3">
             <img
-              src="assets/images/volcan.avif"
+              src="assets/images/logo.png"
               class="h-10"
               alt="El Volcan Logo"
             />
@@ -101,145 +107,306 @@
     </nav>
 
     <!-- CONTENIDO PRINCIPAL -->
-    <main class="w-full flex-1 pt-28">
+    <main class="w-full flex-1 pt-14">
       <!-- HERO -->
-      <section class="w-full max-w-7xl mx-auto px-8 py-16">
-        <div class="text-center">
-          <h1 class="text-4xl font-bold text-heading mb-4">Gas El Volcan</h1>
+      <!-- Hero -->
+      <section class="relative w-full h-[500px] overflow-hidden">
+        <!-- Imagen de Chillán -->
+        <img
+          src="assets/images/chillan.jpg"
+          alt="Paisaje de Chillán"
+          class="absolute inset-0 w-full h-full object-cover"
+        />
 
-          <p class="text-lg text-muted max-w-2xl mx-auto mb-8">
-            Distribuidora de gas y productos para instalaciones domésticas e
-            industriales.
-          </p>
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/45"></div>
 
-          <a
-            href="pages/productos.html"
-            class="inline-block px-6 py-3 rounded-lg bg-fg-brand text-white font-medium hover:opacity-90"
-          >
-            Ver productos
-          </a>
+        <!-- Contenido -->
+        <div
+          class="relative z-10 w-full max-w-7xl mx-auto px-8 h-full flex items-center"
+        >
+          <div class="max-w-2xl text-white">
+            <p class="text-sm font-semibold uppercase tracking-widest mb-4">
+              Chillán · Región de Ñuble · Desde 1998
+            </p>
+
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">
+              Tu gas, directo a tu puerta.
+            </h1>
+
+            <p class="text-lg md:text-xl text-white/90 mb-8 max-w-xl">
+              Solicita tu cilindro de gas y recíbelo en tu domicilio en Chillán
+              y comunas aledañas.
+            </p>
+
+            <div class="flex flex-wrap gap-4">
+              <a
+                href="pages/productos.html"
+                class="px-6 py-3 bg-white text-black rounded-lg font-semibold hover:bg-gray-100 transition"
+              >
+                Pedir gas
+              </a>
+
+              <a
+                href="#productos"
+                class="px-6 py-3 border border-white text-white rounded-lg font-semibold hover:bg-white/10 transition"
+              >
+                Ver productos
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- PRODUCTOS DESTACADOS -->
-      <section id="productos" class="w-full max-w-7xl mx-auto px-8 py-16">
-        <div class="text-center mb-10">
-          <h2 class="text-3xl font-bold text-heading">Productos destacados</h2>
-
-          <p class="text-muted mt-2">
-            Conoce algunos de nuestros principales productos.
-          </p>
-        </div>
-
-        <!-- Categorías -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <!-- CILINDROS -->
-          <div
-            class="border border-default rounded-lg p-6 flex flex-col items-center text-center"
-          >
-            <img
-              src="assets/images/11kg.png"
-              alt="Cilindro de gas de 11 kg"
-              class="w-full aspect-square object-contain mb-4"
-              loading="lazy"
-            />
-
-            <h3 class="text-xl font-semibold mb-2">Cilindros</h3>
-
-            <p class="text-sm text-muted">
-              Cilindros de gas en distintos formatos para uso residencial y
-              empresarial.
+      <section class="py-12 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+          <!-- Título centrado -->
+          <div class="text-center max-w-xl mx-auto mb-10">
+            <h2 class="text-2xl font-bold text-slate-900">
+              Productos destacados
+            </h2>
+            <p class="text-sm text-slate-600 mt-1">
+              Equipamiento y recargas de gas listas para tu hogar o empresa.
             </p>
           </div>
 
-          <!-- MANGUERAS -->
-          <div
-            class="border border-default rounded-lg p-6 flex flex-col items-center text-center"
-          >
-            <img
-              src="assets/images/1.5m.webp"
-              alt="Manguera para gas de 1.5 metros"
-              class="w-full aspect-square object-contain mb-4"
-              loading="lazy"
-            />
+          <!-- Grilla de 4 productos -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Producto 1 -->
+            <div
+              class="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 flex flex-col justify-between group"
+            >
+              <div>
+                <!-- Categoría accesible: text-slate-600 + font-bold -->
+                <span
+                  class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2"
+                >
+                  Cilindros
+                </span>
+                <div class="h-44 flex items-center justify-center p-2 mb-4">
+                  <img
+                    src="assets/images/15kg.png"
+                    alt="Gas 15kg"
+                    class="max-h-full object-contain group-hover:scale-105 transition-transform"
+                  />
+                </div>
+                <h3 class="font-semibold text-slate-900 text-lg">
+                  Cilindro Gas 15 Kg
+                </h3>
+                <p class="text-sm text-slate-500 mt-1">
+                  Ideal para cocinas y calefacción del hogar.
+                </p>
+              </div>
+              <div
+                class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between"
+              >
+                <span class="text-xl font-bold text-slate-900">$26.900</span>
+                <button
+                  class="bg-fg-brand hover:opacity-90 text-white p-2.5 rounded-lg transition-colors cursor-pointer"
+                  aria-label="Agregar Cilindro Gas 15 Kg al carrito"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 4v16m8-8H4"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
 
-            <h3 class="text-xl font-semibold mb-2">Mangueras</h3>
+            <!-- Producto 2 -->
+            <div
+              class="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 flex flex-col justify-between group"
+            >
+              <div>
+                <span
+                  class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2"
+                >
+                  Reguladores
+                </span>
+                <div class="h-44 flex items-center justify-center p-2 mb-4">
+                  <img
+                    src="assets/images/regulador-estandar.png"
+                    alt="Regulador"
+                    class="max-h-full object-contain group-hover:scale-105 transition-transform"
+                  />
+                </div>
+                <h3 class="font-semibold text-slate-900 text-lg">
+                  Regulador Estándar
+                </h3>
+                <p class="text-sm text-slate-500 mt-1">
+                  Conexión rápida con seguro incorporado.
+                </p>
+              </div>
+              <div
+                class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between"
+              >
+                <span class="text-xl font-bold text-slate-900">$12.500</span>
+                <button
+                  class="bg-fg-brand hover:opacity-90 text-white p-2.5 rounded-lg transition-colors cursor-pointer"
+                  aria-label="Agregar Regulador Estándar al carrito"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 4v16m8-8H4"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
 
-            <p class="text-sm text-muted">
-              Mangueras y conexiones para instalaciones de gas residenciales.
-            </p>
+            <!-- Producto 3 -->
+            <div
+              class="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 flex flex-col justify-between group"
+            >
+              <div>
+                <span
+                  class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2"
+                >
+                  Accesorios
+                </span>
+                <div class="h-44 flex items-center justify-center p-2 mb-4">
+                  <img
+                    src="assets/images/1.5m.webp"
+                    alt="Manguera"
+                    class="max-h-full object-contain group-hover:scale-105 transition-transform"
+                  />
+                </div>
+                <h3 class="font-semibold text-slate-900 text-lg">
+                  Manguera Certificada 1.5m
+                </h3>
+                <p class="text-sm text-slate-500 mt-1">
+                  Alta resistencia para instalaciones seguras.
+                </p>
+              </div>
+              <div
+                class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between"
+              >
+                <span class="text-xl font-bold text-slate-900">$8.900</span>
+                <button
+                  class="bg-fg-brand hover:opacity-90 text-white p-2.5 rounded-lg transition-colors cursor-pointer"
+                  aria-label="Agregar Manguera Certificada al carrito"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 4v16m8-8H4"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Producto 4 -->
+            <div
+              class="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 flex flex-col justify-between group"
+            >
+              <div>
+                <span
+                  class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2"
+                >
+                  Seguridad
+                </span>
+                <div class="h-44 flex items-center justify-center p-2 mb-4">
+                  <img
+                    src="assets/images/detector.jpg"
+                    alt="Detector"
+                    class="max-h-full object-contain group-hover:scale-105 transition-transform"
+                  />
+                </div>
+                <h3 class="font-semibold text-slate-900 text-lg">
+                  Detector de Fugas
+                </h3>
+                <p class="text-sm text-slate-500 mt-1">
+                  Alarma sonora para detección de gas.
+                </p>
+              </div>
+              <div
+                class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between"
+              >
+                <span class="text-xl font-bold text-slate-900">$18.990</span>
+                <button
+                  class="bg-fg-brand hover:opacity-90 text-white p-2.5 rounded-lg transition-colors cursor-pointer"
+                  aria-label="Agregar Detector de Fugas al carrito"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 4v16m8-8H4"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
           </div>
-
-          <!-- REGULADORES -->
-          <div
-            class="border border-default rounded-lg p-6 flex flex-col items-center text-center"
-          >
-            <img
-              src="assets/images/regulador-estandar.png"
-              alt="Regulador doméstico estándar"
-              class="w-full aspect-square object-contain mb-4"
-              loading="lazy"
-            />
-
-            <h3 class="text-xl font-semibold mb-2">Reguladores</h3>
-
-            <p class="text-sm text-muted">
-              Reguladores para controlar y mantener una presión adecuada del
-              gas.
-            </p>
+          <!-- BOTÓN CATÁLOGO -->
+          <!-- BOTÓN CATÁLOGO -->
+          <div class="text-center mt-10">
+            <a
+              href="pages/productos.html"
+              class="inline-block px-6 py-3 rounded-lg bg-fg-brand hover:bg-fg-brand-hover text-white font-medium transition-colors shadow-sm cursor-pointer"
+            >
+              Ver todos los productos
+            </a>
           </div>
-
-          <!-- ACCESORIOS -->
-          <div
-            class="border border-default rounded-lg p-6 flex flex-col items-center text-center"
-          >
-            <img
-              src="assets/images/porta-cilindro.jpg"
-              alt="Carro porta cilindro"
-              class="w-full aspect-square object-contain mb-4"
-              loading="lazy"
-            />
-
-            <h3 class="text-xl font-semibold mb-2">Accesorios</h3>
-
-            <p class="text-sm text-muted">
-              Accesorios complementarios para el uso y transporte de cilindros
-              de gas.
-            </p>
-          </div>
-        </div>
-
-        <!-- BOTÓN CATÁLOGO -->
-        <div class="text-center mt-10">
-          <a
-            href="pages/productos.html"
-            class="inline-block px-6 py-3 rounded-lg border border-default font-medium text-heading hover:bg-neutral-secondary"
-          >
-            Ver todos los productos
-          </a>
         </div>
       </section>
-
       <!-- SERVICIOS -->
       <section id="servicios" class="w-full max-w-7xl mx-auto px-8 py-16">
         <div class="text-center mb-10">
-          <h2 class="text-3xl font-bold text-heading">Nuestros servicios</h2>
-
-          <p class="mt-3 text-body">
-            Todo lo que necesitas para recibir tu gas de forma rápida y segura.
+          <h2 class="text-3xl font-bold text-slate-900">Nuestros servicios</h2>
+          <p class="text-sm text-slate-500 mt-2 max-w-md mx-auto">
+            Todo lo que necesitas para recibir tu gas de forma rápida, segura y
+            confiable.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <!-- Gas a domicilio -->
           <div
-            class="p-6 rounded-xl border border-default bg-neutral-primary text-center"
+            class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 flex flex-col items-center text-center group"
           >
-            <div class="text-4xl mb-4">🛢️</div>
+            <div
+              class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300"
+            >
+              🛢️
+            </div>
 
-            <h3 class="text-xl font-semibold text-heading">Gas a domicilio</h3>
+            <h3 class="font-semibold text-slate-900 text-lg">
+              Gas a domicilio
+            </h3>
 
-            <p class="mt-2 text-body">
+            <p class="text-sm text-slate-500 mt-2">
               Solicita cilindros de 5, 11 y 15 kg y recíbelos directamente en tu
               domicilio.
             </p>
@@ -247,44 +414,60 @@
 
           <!-- Despacho -->
           <div
-            class="p-6 rounded-xl border border-default bg-neutral-primary text-center"
+            class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 flex flex-col items-center text-center group"
           >
-            <div class="text-4xl mb-4">🚚</div>
+            <div
+              class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300"
+            >
+              🚚
+            </div>
 
-            <h3 class="text-xl font-semibold text-heading">
+            <h3 class="font-semibold text-slate-900 text-lg">
               Despacho a domicilio
             </h3>
 
-            <p class="mt-2 text-body">
-              Realizamos entregas en Chillán y comunas aledañas.
+            <p class="text-sm text-slate-500 mt-2">
+              Realizamos entregas rápidas en Chillán y comunas aledañas.
             </p>
           </div>
 
           <!-- Seguimiento -->
           <div
-            class="p-6 rounded-xl border border-default bg-neutral-primary text-center"
+            class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 flex flex-col items-center text-center group"
           >
-            <div class="text-4xl mb-4">📍</div>
+            <div
+              class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300"
+            >
+              📍
+            </div>
 
-            <h3 class="text-xl font-semibold text-heading">
+            <h3 class="font-semibold text-slate-900 text-lg">
               Seguimiento de pedidos
             </h3>
 
-            <p class="mt-2 text-body">
-              Consulta el estado de tu pedido y conoce el avance de tu entrega.
+            <p class="text-sm text-slate-500 mt-2">
+              Consulta el estado de tu pedido y conoce el avance de tu entrega
+              en tiempo real.
             </p>
           </div>
 
           <!-- Pago -->
           <div
-            class="p-6 rounded-xl border border-default bg-neutral-primary text-center"
+            class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 flex flex-col items-center text-center group"
           >
-            <div class="text-4xl mb-4">💵</div>
+            <div
+              class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300"
+            >
+              💵
+            </div>
 
-            <h3 class="text-xl font-semibold text-heading">Pago al recibir</h3>
+            <h3 class="font-semibold text-slate-900 text-lg">
+              Pago al recibir
+            </h3>
 
-            <p class="mt-2 text-body">
-              Realiza el pago de tu pedido al momento de recibirlo.
+            <p class="text-sm text-slate-500 mt-2">
+              Realiza el pago de tu pedido de forma segura al momento de
+              recibirlo.
             </p>
           </div>
         </div>
@@ -293,10 +476,10 @@
       <!-- NOSOTROS -->
       <section id="nosotros" class="w-full max-w-7xl mx-auto px-8 py-16">
         <div class="text-center max-w-3xl mx-auto">
-          <h2 class="text-3xl font-bold text-heading mb-4">Sobre nosotros</h2>
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">Sobre nosotros</h2>
 
-          <p class="text-muted leading-relaxed mb-8">
-            <strong class="text-heading font-semibold block mb-2"
+          <p class="text-slate-600 leading-relaxed mb-8">
+            <strong class="text-slate-900 font-semibold block mb-2"
               >Calor y confianza para Chillán desde 1998</strong
             >
             En Distribuidora de Gas El Volcán llevamos más de 25 años
@@ -309,7 +492,7 @@
 
           <a
             href="pages/about.html"
-            class="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-default font-medium text-heading hover:bg-neutral-secondary transition-colors"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-fg-brand hover:bg-fg-brand-hover text-white font-medium transition-colors shadow-sm cursor-pointer"
           >
             Conoce más sobre nosotros
             <svg
@@ -333,11 +516,11 @@
       <!-- FAQ -->
       <section id="faq" class="w-full max-w-7xl mx-auto px-8 py-16">
         <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-heading mb-4">
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">
             Preguntas frecuentes
           </h2>
 
-          <p class="text-muted max-w-2xl mx-auto">
+          <p class="text-slate-500 max-w-2xl mx-auto">
             Encuentra respuestas a las preguntas más comunes sobre nuestros
             productos y servicios.
           </p>
@@ -349,13 +532,15 @@
         >
           <!-- Pregunta 1 -->
           <details
-            class="group bg-card border border-border rounded-xl p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer transition-all h-fit"
+            class="group bg-white border border-slate-200/80 rounded-2xl p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer transition-all shadow-sm hover:shadow-md h-fit"
           >
             <summary
-              class="flex items-center justify-between font-semibold text-lg text-heading gap-2"
+              class="flex items-center justify-between font-semibold text-lg text-slate-900 group-hover:text-fg-brand group-open:text-fg-brand gap-2 transition-colors"
             >
               <span>¿En qué sectores realizan entregas?</span>
-              <span class="transition group-open:rotate-180 shrink-0">
+              <span
+                class="transition group-open:rotate-180 shrink-0 text-slate-400 group-hover:text-fg-brand group-open:text-fg-brand transition-colors"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -372,22 +557,24 @@
                 </svg>
               </span>
             </summary>
-            <p class="mt-4 text-muted leading-relaxed">
+            <p class="mt-4 text-slate-500 leading-relaxed text-sm">
               Entregamos a domicilio en toda la comuna de
-              <strong>Chillán y comunas aledañas</strong> dentro de la Región de
-              Ñuble.
+              <strong class="text-slate-800">Chillán y comunas aledañas</strong>
+              dentro de la Región de Ñuble.
             </p>
           </details>
 
           <!-- Pregunta 2 -->
           <details
-            class="group bg-card border border-border rounded-xl p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer transition-all h-fit"
+            class="group bg-white border border-slate-200/80 rounded-2xl p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer transition-all shadow-sm hover:shadow-md h-fit"
           >
             <summary
-              class="flex items-center justify-between font-semibold text-lg text-heading gap-2"
+              class="flex items-center justify-between font-semibold text-lg text-slate-900 group-hover:text-fg-brand group-open:text-fg-brand gap-2 transition-colors"
             >
-              <span>¿Cómo puedo saber en cuánto tiempo llegará mi pedido?</span>
-              <span class="transition group-open:rotate-180 shrink-0">
+              <span>¿Cuánto tarda en llegar mi pedido?</span>
+              <span
+                class="transition group-open:rotate-180 shrink-0 text-slate-400 group-hover:text-fg-brand group-open:text-fg-brand transition-colors"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -404,22 +591,27 @@
                 </svg>
               </span>
             </summary>
-            <p class="mt-4 text-muted leading-relaxed">
+            <p class="mt-4 text-slate-500 leading-relaxed text-sm">
               Al realizar tu pedido desde nuestra web, podrás hacer un
-              <strong>seguimiento en tiempo real sobre el mapa</strong> para ver
-              el recorrido de tu repartidor y el estado exacto de tu entrega.
+              <strong class="text-slate-800"
+                >seguimiento en tiempo real sobre el mapa</strong
+              >
+              para ver el recorrido de tu repartidor y el estado exacto de tu
+              entrega.
             </p>
           </details>
 
           <!-- Pregunta 3 -->
           <details
-            class="group bg-card border border-border rounded-xl p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer transition-all h-fit"
+            class="group bg-white border border-slate-200/80 rounded-2xl p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer transition-all shadow-sm hover:shadow-md h-fit"
           >
             <summary
-              class="flex items-center justify-between font-semibold text-lg text-heading gap-2"
+              class="flex items-center justify-between font-semibold text-lg text-slate-900 group-hover:text-fg-brand group-open:text-fg-brand gap-2 transition-colors"
             >
               <span>¿Cuáles son los medios de pago disponibles?</span>
-              <span class="transition group-open:rotate-180 shrink-0">
+              <span
+                class="transition group-open:rotate-180 shrink-0 text-slate-400 group-hover:text-fg-brand group-open:text-fg-brand transition-colors"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -436,21 +628,25 @@
                 </svg>
               </span>
             </summary>
-            <p class="mt-4 text-muted leading-relaxed">
+            <p class="mt-4 text-slate-500 leading-relaxed text-sm">
               El pago se realiza directamente al momento de recibir el cilindro.
-              Aceptamos <strong>pago en efectivo</strong> y transferencias.
+              Aceptamos
+              <strong class="text-slate-800">pago en efectivo</strong> y
+              transferencias.
             </p>
           </details>
 
           <!-- Pregunta 4 -->
           <details
-            class="group bg-card border border-border rounded-xl p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer transition-all h-fit"
+            class="group bg-white border border-slate-200/80 rounded-2xl p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer transition-all shadow-sm hover:shadow-md h-fit"
           >
             <summary
-              class="flex items-center justify-between font-semibold text-lg text-heading gap-2"
+              class="flex items-center justify-between font-semibold text-lg text-slate-900 group-hover:text-fg-brand group-open:text-fg-brand gap-2 transition-colors"
             >
               <span>¿Es necesario registrarse para pedir cilindros?</span>
-              <span class="transition group-open:rotate-180 shrink-0">
+              <span
+                class="transition group-open:rotate-180 shrink-0 text-slate-400 group-hover:text-fg-brand group-open:text-fg-brand transition-colors"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -467,20 +663,21 @@
                 </svg>
               </span>
             </summary>
-            <p class="mt-4 text-muted leading-relaxed">
+            <p class="mt-4 text-slate-500 leading-relaxed text-sm">
               Puedes ingresar tus datos de despacho directamente al solicitar tu
               pedido para un proceso ágil, o crear una cuenta para guardar tus
               direcciones y revisar tu historial de compras.
             </p>
           </details>
         </div>
+
         <!-- Enlace hacia la vista completa de FAQ -->
         <div class="text-center mt-10">
-          <p class="text-muted">
+          <p class="text-slate-500">
             ¿Tienes más dudas?
             <a
               href="pages/faq.html"
-              class="text-primary font-medium hover:underline inline-flex items-center gap-1 transition-colors"
+              class="text-fg-brand hover:text-fg-brand-hover font-medium hover:underline inline-flex items-center gap-1 transition-colors"
             >
               Haz clic aquí para ver todas las preguntas frecuentes
               <svg
@@ -505,33 +702,102 @@
       <!-- CONTACTO -->
       <section id="contacto" class="w-full max-w-7xl mx-auto px-8 py-16">
         <div class="text-center">
-          <h2 class="text-3xl font-bold text-heading mb-4">Contacto</h2>
+          <h2 class="text-3xl font-bold text-slate-900 mb-6">Contacto</h2>
 
-          <p class="text-muted">📞 +56 9 XXXX XXXX</p>
+          <div
+            class="inline-grid grid-cols-[auto_auto] gap-x-3 gap-y-3 justify-center text-slate-600"
+          >
+            <!-- Teléfono -->
+            <div class="w-6 h-6 flex items-center justify-center text-fg-brand">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-5 h-5 block"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.826-1.47-5.112-3.756-6.58-6.58l1.293-.97c.362-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
+                />
+              </svg>
+            </div>
+            <span class="text-sm font-medium leading-none self-center text-left"
+              >+56 9 XXXX XXXX</span
+            >
 
-          <p class="text-muted">✉ contacto@elvolcan.cl</p>
+            <!-- Correo -->
+            <div class="w-6 h-6 flex items-center justify-center text-fg-brand">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-5 h-5 block"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
+                />
+              </svg>
+            </div>
+            <span class="text-sm font-medium leading-none self-center text-left"
+              >contacto@elvolcan.cl</span
+            >
 
-          <p class="text-muted">📍 Chillán, Región de Ñuble</p>
+            <!-- Ubicación -->
+            <div class="w-6 h-6 flex items-center justify-center text-fg-brand">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-5 h-5 block"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+                />
+              </svg>
+            </div>
+            <span class="text-sm font-medium leading-none self-center text-left"
+              >Chillán, Región de Ñuble</span
+            >
+          </div>
         </div>
       </section>
     </main>
 
     <!-- FOOTER -->
-    <footer class="border-t border-default">
-      <div class="w-full px-8 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer class="bg-white border-t border-slate-200">
+      <div
+        class="w-full max-w-7xl mx-auto px-8 py-12 grid grid-cols-1 md:grid-cols-3 gap-10"
+      >
         <!-- INFORMACIÓN -->
         <div>
-          <div class="flex items-center gap-3 mb-4">
+          <a href="index.html" class="inline-flex items-center gap-3 mb-4">
             <img
-              src="assets/images/volcan.avif"
+              src="assets/images/logo.png"
               class="h-10"
               alt="El Volcan Logo"
             />
+            <span class="text-xl font-semibold text-slate-900">
+              El Volcan
+            </span>
+          </a>
 
-            <span class="text-xl font-semibold"> El Volcan </span>
-          </div>
-
-          <p class="text-sm">
+          <p class="text-sm text-slate-500 leading-relaxed">
             Distribuidora de gas y productos para instalaciones domésticas e
             industriales.
           </p>
@@ -539,48 +805,149 @@
 
         <!-- ENLACES -->
         <div>
-          <h2 class="mb-4 text-sm font-semibold uppercase">Enlaces</h2>
+          <h2
+            class="mb-4 text-xs font-bold uppercase tracking-wider text-slate-900"
+          >
+            Enlaces
+          </h2>
 
-          <ul class="space-y-2 text-sm">
+          <ul class="space-y-2.5 text-sm font-medium">
             <li>
-              <a href="#productos" class="hover:underline"> Productos </a>
+              <a
+                href="pages/productos.html"
+                class="text-slate-600 hover:text-fg-brand transition-colors"
+              >
+                Productos
+              </a>
             </li>
 
             <li>
-              <a href="#servicios" class="hover:underline"> Servicios </a>
+              <a
+                href="#servicios"
+                class="text-slate-600 hover:text-fg-brand transition-colors"
+              >
+                Servicios
+              </a>
             </li>
 
             <li>
-              <a href="/pages/about.html" class="hover:underline"> Nosotros </a>
+              <a
+                href="pages/about.html"
+                class="text-slate-600 hover:text-fg-brand transition-colors"
+              >
+                Nosotros
+              </a>
             </li>
 
             <li>
-              <a href="#faq" class="hover:underline"> Preguntas frecuentes </a>
+              <a
+                href="pages/faq.html"
+                class="text-slate-600 hover:text-fg-brand transition-colors"
+              >
+                Preguntas frecuentes
+              </a>
             </li>
 
             <li>
-              <a href="#contacto" class="hover:underline"> Contacto </a>
+              <a
+                href="#contacto"
+                class="text-slate-600 hover:text-fg-brand transition-colors"
+              >
+                Contacto
+              </a>
             </li>
           </ul>
         </div>
 
         <!-- CONTACTO -->
         <div>
-          <h2 class="mb-4 text-sm font-semibold uppercase">Contacto</h2>
+          <h2
+            class="mb-4 text-xs font-bold uppercase tracking-wider text-slate-900"
+          >
+            Contacto
+          </h2>
 
-          <ul class="space-y-2 text-sm">
-            <li>📞 +56 9 XXXX XXXX</li>
-            <li>✉ contacto@elvolcan.cl</li>
-            <li>📍 Chillán, Región de Ñuble</li>
+          <ul
+            class="grid grid-cols-[1.25rem_1fr] gap-x-2 gap-y-2.5 text-sm text-slate-500"
+          >
+            <!-- Teléfono -->
+            <li class="contents">
+              <span class="flex items-center justify-center text-fg-brand">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-4 h-4 block"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.826-1.47-5.112-3.756-6.58-6.58l1.293-.97c.362-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
+                  />
+                </svg>
+              </span>
+              <span class="self-center">+56 9 XXXX XXXX</span>
+            </li>
+
+            <!-- Correo -->
+            <li class="contents">
+              <span class="flex items-center justify-center text-fg-brand">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-4 h-4 block"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
+                  />
+                </svg>
+              </span>
+              <span class="self-center">contacto@elvolcan.cl</span>
+            </li>
+
+            <!-- Ubicación -->
+            <li class="contents">
+              <span class="flex items-center justify-center text-fg-brand">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-4 h-4 block"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+                  />
+                </svg>
+              </span>
+              <span class="self-center">Chillán, Región de Ñuble</span>
+            </li>
           </ul>
         </div>
       </div>
 
       <!-- COPYRIGHT -->
-      <div class="border-t border-default">
-        <p class="text-center font-medium py-4">
+      <div class="border-t border-slate-100">
+        <div
+          class="max-w-7xl mx-auto px-8 py-5 text-center text-sm font-medium text-slate-500"
+        >
           © 2026 El Volcan. Todos los derechos reservados.
-        </p>
+        </div>
       </div>
     </footer>
   </body>
