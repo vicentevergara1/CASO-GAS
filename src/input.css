@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+
+  --color-fg-brand: #0284c7; /* Azul vivo / Gas (Sky 600) */
+  --color-fg-brand-hover: #0369a1; /* Tono un poco más oscuro para cuando pasas el mouse */
+}
