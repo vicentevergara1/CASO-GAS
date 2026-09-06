@@ -98,9 +98,11 @@
         <div
           class="w-full md:w-7/12 p-8 md:p-10 flex flex-col justify-center bg-white"
         >
-          <h1 class="text-2xl font-bold text-slate-900 mb-6">Crear cuenta</h1>
+          <h1 id="form-title" class="text-2xl font-bold text-slate-900 mb-6">
+            Crear cuenta
+          </h1>
 
-          <form class="space-y-4">
+          <form id="register-form" class="space-y-4" novalidate>
             <div>
               <label
                 for="name"
@@ -114,8 +116,15 @@
                 name="name"
                 placeholder="Ingresa tu nombre"
                 required
+                aria-invalid="false"
+                aria-describedby="name-error"
                 class="w-full rounded-lg border border-slate-300 px-4 py-2.5 outline-none focus:ring-2 focus:ring-fg-brand focus:border-transparent transition-all"
               />
+              <p
+                id="name-error"
+                class="hidden mt-1.5 text-sm text-red-600"
+                role="alert"
+              ></p>
             </div>
 
             <div>
@@ -131,8 +140,15 @@
                 name="email"
                 placeholder="correo@ejemplo.com"
                 required
+                aria-invalid="false"
+                aria-describedby="email-error"
                 class="w-full rounded-lg border border-slate-300 px-4 py-2.5 outline-none focus:ring-2 focus:ring-fg-brand focus:border-transparent transition-all"
               />
+              <p
+                id="email-error"
+                class="hidden mt-1.5 text-sm text-red-600"
+                role="alert"
+              ></p>
             </div>
 
             <div>
@@ -148,8 +164,15 @@
                 name="password"
                 placeholder="Ingresa tu contraseña"
                 required
+                aria-invalid="false"
+                aria-describedby="password-error"
                 class="w-full rounded-lg border border-slate-300 px-4 py-2.5 outline-none focus:ring-2 focus:ring-fg-brand focus:border-transparent transition-all"
               />
+              <p
+                id="password-error"
+                class="hidden mt-1.5 text-sm text-red-600"
+                role="alert"
+              ></p>
             </div>
 
             <div>
@@ -165,8 +188,15 @@
                 name="confirm-password"
                 placeholder="Repite tu contraseña"
                 required
+                aria-invalid="false"
+                aria-describedby="confirm-password-error"
                 class="w-full rounded-lg border border-slate-300 px-4 py-2.5 outline-none focus:ring-2 focus:ring-fg-brand focus:border-transparent transition-all"
               />
+              <p
+                id="confirm-password-error"
+                class="hidden mt-1.5 text-sm text-red-600"
+                role="alert"
+              ></p>
             </div>
 
             <button
@@ -186,6 +216,44 @@
               </a>
             </p>
           </form>
+
+          <!-- Mensaje de éxito (oculto por defecto) -->
+          <div
+            id="success-message"
+            class="hidden flex-col items-center text-center py-4"
+            role="status"
+          >
+            <div
+              class="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mb-4"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="w-7 h-7 text-green-600"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4.5 12.75l6 6 9-13.5"
+                />
+              </svg>
+            </div>
+            <h2 class="text-xl font-bold text-slate-900 mb-2">
+              ¡Registro exitoso!
+            </h2>
+            <p class="text-sm text-slate-500 mb-6">
+              Tu cuenta ha sido creada correctamente.
+            </p>
+            <a
+              href="login.html"
+              class="w-full rounded-lg bg-fg-brand text-white px-4 py-3 font-medium transition hover:opacity-90 cursor-pointer shadow-sm text-center"
+            >
+              Volver al inicio de sesión
+            </a>
+          </div>
         </div>
       </div>
     </main>
@@ -196,5 +264,7 @@
     >
       © 2026 El Volcán. Todos los derechos reservados.
     </footer>
+
+    <script src="../assets/js/register.js"></script>
   </body>
 </html>
