@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>El Volcan</title>
-
+ 
     <link rel="stylesheet" href="src/output.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,7 +13,7 @@
       rel="stylesheet"
     />
   </head>
-
+ 
   <body class="relative w-full min-h-screen flex flex-col">
     <!-- NAVBAR RESPONSIVE -->
     <nav
@@ -31,7 +31,7 @@
             El Volcan
           </span>
         </a>
-
+ 
         <!-- Menú desktop (visible en pantallas lg+) -->
         <div class="hidden lg:flex items-center">
           <ul class="font-medium flex items-center space-x-8">
@@ -65,7 +65,7 @@
             </li>
           </ul>
         </div>
-
+ 
         <!-- Buscador + Cuenta + Carrito (escritorio) -->
         <div class="hidden lg:flex items-center gap-5">
           <form data-search-form class="relative">
@@ -85,7 +85,7 @@
               🔍
             </button>
           </form>
-
+ 
           <a
             href="pages/login.html"
             class="flex items-center gap-2 text-heading hover:text-fg-brand font-medium"
@@ -93,7 +93,7 @@
             <span class="text-xl">👤</span>
             Cuenta
           </a>
-
+ 
           <button
             type="button"
             onclick="toggleCart()"
@@ -108,7 +108,7 @@
             >
           </button>
         </div>
-
+ 
         <!-- Botón hamburguesa (visible solo en móviles/tablets) -->
         <button
           id="menu-toggle"
@@ -119,7 +119,7 @@
           ☰
         </button>
       </div>
-
+ 
       <!-- Menú móvil desplegable -->
       <div
         id="mobile-menu"
@@ -143,7 +143,7 @@
               🔍
             </button>
           </form>
-
+ 
           <ul class="flex flex-col space-y-3 font-medium">
             <li>
               <a
@@ -174,7 +174,7 @@
               </a>
             </li>
           </ul>
-
+ 
           <div class="flex items-center justify-between pt-3 border-t border-slate-100">
             <a
               href="pages/login.html"
@@ -183,7 +183,7 @@
               <span class="text-xl">👤</span>
               Cuenta
             </a>
-
+ 
             <button
               type="button"
               onclick="toggleCart()"
@@ -201,7 +201,7 @@
         </div>
       </div>
     </nav>
-
+ 
     <!-- CONTENIDO PRINCIPAL -->
     <main class="w-full flex-1 pt-14">
       <!-- HERO -->
@@ -212,10 +212,10 @@
           alt="Paisaje de Chillán"
           class="absolute inset-0 w-full h-full object-cover"
         />
-
+ 
         <!-- Overlay -->
         <div class="absolute inset-0 bg-black/45"></div>
-
+ 
         <!-- Contenido -->
         <div
           class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-8 h-full flex items-center"
@@ -224,16 +224,16 @@
             <p class="text-sm font-semibold uppercase tracking-widest mb-4">
               Chillán · Región de Ñuble · Desde 1998
             </p>
-
+ 
             <h1 class="text-4xl md:text-6xl font-bold mb-6">
               Tu gas, directo a tu puerta.
             </h1>
-
+ 
             <p class="text-lg md:text-xl text-white/90 mb-8 max-w-xl">
               Solicita tu cilindro de gas y recíbelo en tu domicilio en Chillán
               y comunas aledañas.
             </p>
-
+ 
             <div class="flex flex-wrap gap-4">
               <a
                 href="pages/productos.html"
@@ -241,7 +241,7 @@
               >
                 Pedir gas
               </a>
-
+ 
               <a
                 href="#productos"
                 class="px-6 py-3 border border-white text-white rounded-lg font-semibold hover:bg-white/10 transition"
@@ -252,7 +252,7 @@
           </div>
         </div>
       </section>
-
+ 
       <!-- PRODUCTOS DESTACADOS -->
       <section class="py-12 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
@@ -265,7 +265,7 @@
               Equipamiento y recargas de gas listas para tu hogar o empresa.
             </p>
           </div>
-
+ 
           <!-- Grilla de 4 productos -->
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <!-- Producto 1 -->
@@ -320,7 +320,7 @@
                 </button>
               </div>
             </div>
-
+ 
             <!-- Producto 2 -->
             <div
               class="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 flex flex-col justify-between group"
@@ -373,7 +373,7 @@
                 </button>
               </div>
             </div>
-
+ 
             <!-- Producto 3 -->
             <div
               class="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 flex flex-col justify-between group"
@@ -426,7 +426,7 @@
                 </button>
               </div>
             </div>
-
+ 
             <!-- Producto 4 -->
             <div
               class="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 flex flex-col justify-between group"
@@ -491,7 +491,7 @@
           </div>
         </div>
       </section>
-
+ 
       <!-- SERVICIOS -->
       <section id="servicios" class="w-full max-w-7xl mx-auto px-4 sm:px-8 py-16">
         <div class="text-center mb-10">
@@ -501,7 +501,7 @@
             confiable.
           </p>
         </div>
-
+ 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <!-- Gas a domicilio -->
           <div
@@ -512,17 +512,17 @@
             >
               🛢️
             </div>
-
+ 
             <h3 class="font-semibold text-slate-900 text-lg">
               Gas a domicilio
             </h3>
-
+ 
             <p class="text-sm text-slate-500 mt-2">
               Solicita cilindros de 5, 11 y 15 kg y recíbelos directamente en tu
               domicilio.
             </p>
           </div>
-
+ 
           <!-- Despacho -->
           <div
             class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 flex flex-col items-center text-center group"
@@ -532,16 +532,16 @@
             >
               🚚
             </div>
-
+ 
             <h3 class="font-semibold text-slate-900 text-lg">
               Despacho a domicilio
             </h3>
-
+ 
             <p class="text-sm text-slate-500 mt-2">
               Realizamos entregas rápidas en Chillán y comunas aledañas.
             </p>
           </div>
-
+ 
           <!-- Seguimiento -->
           <div
             class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 flex flex-col items-center text-center group"
@@ -551,17 +551,17 @@
             >
               📍
             </div>
-
+ 
             <h3 class="font-semibold text-slate-900 text-lg">
               Seguimiento de pedidos
             </h3>
-
+ 
             <p class="text-sm text-slate-500 mt-2">
               Consulta el estado de tu pedido y conoce el avance de tu entrega
               en tiempo real.
             </p>
           </div>
-
+ 
           <!-- Pago -->
           <div
             class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 flex flex-col items-center text-center group"
@@ -571,11 +571,11 @@
             >
               💵
             </div>
-
+ 
             <h3 class="font-semibold text-slate-900 text-lg">
               Pago al recibir
             </h3>
-
+ 
             <p class="text-sm text-slate-500 mt-2">
               Realiza el pago de tu pedido de forma segura al momento de
               recibirlo.
@@ -583,12 +583,12 @@
           </div>
         </div>
       </section>
-
+ 
       <!-- NOSOTROS -->
       <section id="nosotros" class="w-full max-w-7xl mx-auto px-4 sm:px-8 py-16">
         <div class="text-center max-w-3xl mx-auto">
           <h2 class="text-3xl font-bold text-slate-900 mb-4">Sobre nosotros</h2>
-
+ 
           <p class="text-slate-600 leading-relaxed mb-8">
             <strong class="text-slate-900 font-semibold block mb-2"
               >Calor y confianza para Chillán desde 1998</strong
@@ -600,7 +600,7 @@
             que pidas tus cilindros sin complicaciones y sigas la ruta de tu
             repartidor en tiempo real.
           </p>
-
+ 
           <a
             href="pages/about.html"
             class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-fg-brand hover:bg-fg-brand-hover text-white font-medium transition-colors shadow-sm cursor-pointer"
@@ -623,20 +623,20 @@
           </a>
         </div>
       </section>
-
+ 
       <!-- FAQ -->
       <section id="faq" class="w-full max-w-7xl mx-auto px-4 sm:px-8 py-16">
         <div class="text-center mb-12">
           <h2 class="text-3xl font-bold text-slate-900 mb-4">
             Preguntas frecuentes
           </h2>
-
+ 
           <p class="text-slate-500 max-w-2xl mx-auto">
             Encuentra respuestas a las preguntas más comunes sobre nuestros
             productos y servicios.
           </p>
         </div>
-
+ 
         <!-- Grid 2x2 en pantallas medianas y grandes -->
         <div
           class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl mx-auto items-start"
@@ -674,7 +674,7 @@
               dentro de la Región de Ñuble.
             </p>
           </details>
-
+ 
           <!-- Pregunta 2 -->
           <details
             class="group bg-white border border-slate-200/80 rounded-2xl p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer transition-all shadow-sm hover:shadow-md h-fit"
@@ -711,7 +711,7 @@
               entrega.
             </p>
           </details>
-
+ 
           <!-- Pregunta 3 -->
           <details
             class="group bg-white border border-slate-200/80 rounded-2xl p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer transition-all shadow-sm hover:shadow-md h-fit"
@@ -746,7 +746,7 @@
               transferencias.
             </p>
           </details>
-
+ 
           <!-- Pregunta 4 -->
           <details
             class="group bg-white border border-slate-200/80 rounded-2xl p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer transition-all shadow-sm hover:shadow-md h-fit"
@@ -781,7 +781,7 @@
             </p>
           </details>
         </div>
-
+ 
         <!-- Enlace hacia la vista completa de FAQ -->
         <div class="text-center mt-10">
           <p class="text-slate-500">
@@ -809,12 +809,12 @@
           </p>
         </div>
       </section>
-
+ 
       <!-- CONTACTO -->
       <section id="contacto" class="w-full max-w-7xl mx-auto px-4 sm:px-8 py-16">
         <div class="text-center">
           <h2 class="text-3xl font-bold text-slate-900 mb-6">Contacto</h2>
-
+ 
           <div
             class="inline-grid grid-cols-[auto_auto] gap-x-3 gap-y-3 justify-center text-slate-600"
           >
@@ -838,7 +838,7 @@
             <span class="text-sm font-medium leading-none self-center text-left"
               >+56 9 XXXX XXXX</span
             >
-
+ 
             <!-- Correo -->
             <div class="w-6 h-6 flex items-center justify-center text-fg-brand">
               <svg
@@ -859,7 +859,7 @@
             <span class="text-sm font-medium leading-none self-center text-left"
               >contacto@elvolcan.cl</span
             >
-
+ 
             <!-- Ubicación -->
             <div class="w-6 h-6 flex items-center justify-center text-fg-brand">
               <svg
@@ -889,7 +889,7 @@
         </div>
       </section>
     </main>
-
+ 
     <!-- FOOTER -->
     <footer class="bg-white border-t border-slate-200">
       <div
@@ -907,13 +907,13 @@
               El Volcan
             </span>
           </a>
-
+ 
           <p class="text-sm text-slate-500 leading-relaxed">
             Distribuidora de gas y productos para instalaciones domésticas e
             industriales.
           </p>
         </div>
-
+ 
         <!-- ENLACES -->
         <div>
           <h2
@@ -921,7 +921,7 @@
           >
             Enlaces
           </h2>
-
+ 
           <ul class="space-y-2.5 text-sm font-medium">
             <li>
               <a
@@ -931,7 +931,7 @@
                 Productos
               </a>
             </li>
-
+ 
             <li>
               <a
                 href="#servicios"
@@ -940,7 +940,7 @@
                 Servicios
               </a>
             </li>
-
+ 
             <li>
               <a
                 href="pages/about.html"
@@ -949,7 +949,7 @@
                 Nosotros
               </a>
             </li>
-
+ 
             <li>
               <a
                 href="pages/faq.html"
@@ -958,7 +958,7 @@
                 Preguntas frecuentes
               </a>
             </li>
-
+ 
             <li>
               <a
                 href="#contacto"
@@ -969,7 +969,7 @@
             </li>
           </ul>
         </div>
-
+ 
         <!-- CONTACTO -->
         <div>
           <h2
@@ -977,7 +977,7 @@
           >
             Contacto
           </h2>
-
+ 
           <ul
             class="grid grid-cols-[1.25rem_1fr] gap-x-2 gap-y-2.5 text-sm text-slate-500"
           >
@@ -1001,7 +1001,7 @@
               </span>
               <span class="self-center">+56 9 XXXX XXXX</span>
             </li>
-
+ 
             <!-- Correo -->
             <li class="contents">
               <span class="flex items-center justify-center text-fg-brand">
@@ -1022,7 +1022,7 @@
               </span>
               <span class="self-center">contacto@elvolcan.cl</span>
             </li>
-
+ 
             <!-- Ubicación -->
             <li class="contents">
               <span class="flex items-center justify-center text-fg-brand">
@@ -1051,7 +1051,7 @@
           </ul>
         </div>
       </div>
-
+ 
       <!-- COPYRIGHT -->
       <div class="border-t border-slate-100">
         <div
@@ -1061,14 +1061,14 @@
         </div>
       </div>
     </footer>
-
+ 
     <!-- CARRITO DRAWER -->
     <div
       id="cart-overlay"
       onclick="toggleCart()"
       class="hidden fixed inset-0 bg-black/40 z-40"
     ></div>
-
+ 
     <aside
       id="cart-drawer"
       class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white z-50 shadow-xl transform translate-x-full transition-transform duration-300 flex flex-col"
@@ -1098,14 +1098,14 @@
           </svg>
         </button>
       </div>
-
+ 
       <div id="cart-items" class="flex-1 overflow-y-auto px-6 py-4 space-y-4">
         <!-- JS inserta los items aquí -->
         <p id="cart-empty" class="text-slate-400 text-sm text-center mt-10">
           Tu carrito está vacío
         </p>
       </div>
-
+ 
       <div class="border-t border-slate-200 px-6 py-4">
         <div class="flex items-center justify-between mb-4">
           <span class="font-semibold text-slate-900">Total</span>
@@ -1120,8 +1120,13 @@
         </button>
       </div>
     </aside>
-
+ 
+    <script>
+      // productos.html vive dentro de /pages, no en la raíz
+      window.PRODUCTS_URL = "pages/productos.html";
+    </script>
     <script src="assets/js/cart.js"></script>
     <script src="assets/js/site-nav.js"></script>
   </body>
 </html>
+ 
