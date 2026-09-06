@@ -82,13 +82,16 @@
 
         <!-- Buscador + Cuenta + Carrito -->
         <div class="flex items-center justify-end gap-6">
-          <button
-            type="button"
-            aria-label="Buscar productos"
-            class="text-xl text-heading hover:text-fg-brand"
-          >
-            🔍
-          </button>
+          <!-- BÚSQUEDA (input funcional) -->
+          <div class="relative">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Buscar productos..."
+              class="w-48 sm:w-64 pl-9 pr-4 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-fg-brand"
+            />
+            <span class="absolute left-3 top-2.5 text-slate-400 text-sm">🔍</span>
+          </div>
 
           <a
             href="login.html"
@@ -162,6 +165,7 @@
         >
           <div
             class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+            data-name="cilindro 5 kg"
           >
             <img
               src="../assets/images/5kg.png"
@@ -179,6 +183,7 @@
 
           <div
             class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+            data-name="cilindro 11 kg"
           >
             <img
               src="../assets/images/11kg.png"
@@ -196,6 +201,7 @@
 
           <div
             class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+            data-name="cilindro 15 kg"
           >
             <img
               src="../assets/images/15kg.png"
@@ -213,6 +219,7 @@
 
           <div
             class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+            data-name="cilindro 45 kg industrial"
           >
             <img
               src="../assets/images/45kg.png"
@@ -244,6 +251,7 @@
         >
           <div
             class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+            data-name="manguera gas 1.5 m"
           >
             <img
               src="../assets/images/1.5m.webp"
@@ -263,6 +271,7 @@
 
           <div
             class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+            data-name="manguera gas 3 m"
           >
             <img
               src="../assets/images/3m.webp"
@@ -280,6 +289,7 @@
 
           <div
             class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+            data-name="abrazadera metálica"
           >
             <img
               src="../assets/images/abrazadera.webp"
@@ -299,6 +309,7 @@
 
           <div
             class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+            data-name="kit de conexión completo"
           >
             <img
               src="../assets/images/kit.jpeg"
@@ -330,6 +341,7 @@
         >
           <div
             class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+            data-name="regulador estándar"
           >
             <img
               src="../assets/images/regulador-estandar.png"
@@ -349,6 +361,7 @@
 
           <div
             class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+            data-name="regulador alta presión"
           >
             <img
               src="../assets/images/regulador-alta-presion.png"
@@ -368,6 +381,7 @@
 
           <div
             class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+            data-name="regulador dual 2 salidas"
           >
             <img
               src="../assets/images/regulador-dual.png"
@@ -399,6 +413,7 @@
         >
           <div
             class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+            data-name="carro porta cilindro"
           >
             <img
               src="../assets/images/porta-cilindro.jpg"
@@ -418,6 +433,7 @@
 
           <div
             class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+            data-name="tapa protectora"
           >
             <img
               src="../assets/images/tapa-protectora.webp"
@@ -435,6 +451,7 @@
 
           <div
             class="border border-default rounded-lg p-6 flex flex-col items-center text-center h-full"
+            data-name="detector de fugas"
           >
             <img
               src="../assets/images/detector.jpg"
@@ -535,5 +552,21 @@
         </p>
       </div>
     </footer>
+
+    <!-- SCRIPT DE BÚSQUEDA -->
+    <script>
+      // Obtener el input y todas las tarjetas con data-name
+      const searchInput = document.getElementById('search-input');
+      const productCards = document.querySelectorAll('[data-name]');
+
+      searchInput.addEventListener('input', function () {
+        const term = this.value.trim().toLowerCase();
+
+        productCards.forEach(card => {
+          const name = card.getAttribute('data-name').toLowerCase();
+          card.style.display = name.includes(term) ? '' : 'none';
+        });
+      });
+    </script>
   </body>
 </html>
