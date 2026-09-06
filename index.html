@@ -19,9 +19,9 @@
     <nav
       class="fixed top-0 left-0 w-full z-30 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm"
     >
-      <div class="w-full px-4 sm:px-8 h-14 flex items-center justify-between">
+      <div class="w-full px-4 sm:px-8 h-14 flex items-center justify-between gap-4">
         <!-- Logo -->
-        <a href="index.html" class="flex items-center space-x-3">
+        <a href="index.html" class="flex items-center space-x-3 shrink-0">
           <img
             src="assets/images/logo.png"
             class="h-10"
@@ -32,8 +32,8 @@
           </span>
         </a>
 
-        <!-- Menú desktop (visible en pantallas md+) -->
-        <div class="hidden md:flex items-center space-x-8">
+        <!-- Menú desktop (visible en pantallas lg+) -->
+        <div class="hidden lg:flex items-center">
           <ul class="font-medium flex items-center space-x-8">
             <li>
               <a
@@ -66,11 +66,55 @@
           </ul>
         </div>
 
-        <!-- Botón hamburguesa (visible solo en móviles) -->
+        <!-- Buscador + Cuenta + Carrito (escritorio) -->
+        <div class="hidden lg:flex items-center gap-5">
+          <form data-search-form class="relative">
+            <label for="search-input-desktop" class="sr-only">Buscar productos</label>
+            <input
+              type="text"
+              id="search-input-desktop"
+              data-search-input
+              placeholder="Buscar productos..."
+              class="w-48 xl:w-64 pl-9 pr-4 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-fg-brand"
+            />
+            <button
+              type="submit"
+              aria-label="Buscar"
+              class="absolute left-3 top-2.5 text-slate-400 text-sm cursor-pointer"
+            >
+              🔍
+            </button>
+          </form>
+
+          <a
+            href="pages/login.html"
+            class="flex items-center gap-2 text-heading hover:text-fg-brand font-medium"
+          >
+            <span class="text-xl">👤</span>
+            Cuenta
+          </a>
+
+          <button
+            type="button"
+            onclick="toggleCart()"
+            aria-label="Abrir carrito"
+            class="relative flex items-center gap-2 text-heading hover:text-fg-brand font-medium cursor-pointer"
+          >
+            <span class="text-xl">🛒</span>
+            Carrito
+            <span
+              class="cart-badge hidden absolute -top-2 -right-3 bg-fg-brand text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center"
+              >0</span
+            >
+          </button>
+        </div>
+
+        <!-- Botón hamburguesa (visible solo en móviles/tablets) -->
         <button
           id="menu-toggle"
-          class="md:hidden text-2xl text-heading cursor-pointer"
+          class="lg:hidden text-2xl text-heading cursor-pointer"
           aria-label="Abrir menú"
+          aria-expanded="false"
         >
           ☰
         </button>
@@ -79,46 +123,82 @@
       <!-- Menú móvil desplegable -->
       <div
         id="mobile-menu"
-        class="hidden md:hidden bg-white border-t border-slate-200 shadow-lg"
+        class="hidden lg:hidden bg-white border-t border-slate-200 shadow-lg"
       >
-        <ul class="flex flex-col p-4 space-y-3">
-          <li>
-            <a
-              href="pages/productos.html"
-              class="text-heading hover:text-fg-brand block"
+        <div class="p-4 space-y-4">
+          <form data-search-form class="relative">
+            <label for="search-input-mobile" class="sr-only">Buscar productos</label>
+            <input
+              type="text"
+              id="search-input-mobile"
+              data-search-input
+              placeholder="Buscar productos..."
+              class="w-full pl-9 pr-4 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-fg-brand"
+            />
+            <button
+              type="submit"
+              aria-label="Buscar"
+              class="absolute left-3 top-2.5 text-slate-400 text-sm cursor-pointer"
             >
-              Productos
-            </a>
-          </li>
-          <li>
-            <a href="#servicios" class="text-heading hover:text-fg-brand block">
-              Servicios
-            </a>
-          </li>
-          <li>
-            <a href="#nosotros" class="text-heading hover:text-fg-brand block">
-              Nosotros
-            </a>
-          </li>
-          <li>
-            <a href="#faq" class="text-heading hover:text-fg-brand block">
-              Preguntas frecuentes
-            </a>
-          </li>
-          <li>
-            <a href="#contacto" class="text-heading hover:text-fg-brand block">
-              Contacto
-            </a>
-          </li>
-          <li class="pt-2 border-t border-slate-100">
+              🔍
+            </button>
+          </form>
+
+          <ul class="flex flex-col space-y-3 font-medium">
+            <li>
+              <a
+                href="pages/productos.html"
+                class="text-heading hover:text-fg-brand block"
+              >
+                Productos
+              </a>
+            </li>
+            <li>
+              <a href="#servicios" class="text-heading hover:text-fg-brand block">
+                Servicios
+              </a>
+            </li>
+            <li>
+              <a href="#nosotros" class="text-heading hover:text-fg-brand block">
+                Nosotros
+              </a>
+            </li>
+            <li>
+              <a href="#faq" class="text-heading hover:text-fg-brand block">
+                Preguntas frecuentes
+              </a>
+            </li>
+            <li>
+              <a href="#contacto" class="text-heading hover:text-fg-brand block">
+                Contacto
+              </a>
+            </li>
+          </ul>
+
+          <div class="flex items-center justify-between pt-3 border-t border-slate-100">
             <a
               href="pages/login.html"
-              class="text-heading hover:text-fg-brand block"
+              class="flex items-center gap-2 text-heading hover:text-fg-brand font-medium"
             >
+              <span class="text-xl">👤</span>
               Cuenta
             </a>
-          </li>
-        </ul>
+
+            <button
+              type="button"
+              onclick="toggleCart()"
+              aria-label="Abrir carrito"
+              class="relative flex items-center gap-2 text-heading hover:text-fg-brand font-medium cursor-pointer"
+            >
+              <span class="text-xl">🛒</span>
+              Carrito
+              <span
+                class="cart-badge hidden absolute -top-2 -right-3 bg-fg-brand text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center"
+                >0</span
+              >
+            </button>
+          </div>
+        </div>
       </div>
     </nav>
 
@@ -1042,14 +1122,6 @@
     </aside>
 
     <script src="assets/js/cart.js"></script>
-    <script>
-      // Lógica del menú móvil
-      const menuToggle = document.getElementById("menu-toggle");
-      const mobileMenu = document.getElementById("mobile-menu");
-
-      menuToggle.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
-    </script>
+    <script src="assets/js/site-nav.js"></script>
   </body>
 </html>
