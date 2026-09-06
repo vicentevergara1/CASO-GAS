@@ -18,30 +18,27 @@
     <nav
       class="fixed top-0 left-0 w-full z-30 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm"
     >
-      <div class="w-full px-8 h-14 grid grid-cols-3 items-center">
+      <div class="w-full px-4 sm:px-8 h-14 flex items-center justify-between gap-4">
         <!-- Logo -->
-        <div>
-          <a href="../index.html" class="flex items-center space-x-3">
-            <img
-              src="../assets/images/logo.png"
-              class="h-10"
-              alt="El Volcan Logo"
-            />
-            <span class="text-xl text-heading font-semibold whitespace-nowrap">
-              El Volcán
-            </span>
-          </a>
-        </div>
+        <a href="../index.html" class="flex items-center space-x-3 shrink-0">
+          <img
+            src="../assets/images/logo.png"
+            class="h-10"
+            alt="El Volcan Logo"
+          />
+          <span class="text-xl text-heading font-semibold whitespace-nowrap">
+            El Volcán
+          </span>
+        </a>
 
-        <!-- Navegación -->
-        <div class="flex justify-center">
+        <!-- Navegación (escritorio) -->
+        <div class="hidden lg:flex items-center">
           <ul class="font-medium flex items-center space-x-8">
             <li>
               <a href="productos.html" class="text-fg-brand font-semibold">
                 Productos
               </a>
             </li>
-
             <li>
               <a
                 href="../index.html#servicios"
@@ -50,25 +47,16 @@
                 Servicios
               </a>
             </li>
-
             <li>
-              <a
-                href="../index.html#nosotros"
-                class="text-heading hover:text-fg-brand"
-              >
+              <a href="about.html" class="text-heading hover:text-fg-brand">
                 Nosotros
               </a>
             </li>
-
             <li>
-              <a
-                href="../index.html#faq"
-                class="text-heading hover:text-fg-brand"
-              >
+              <a href="faq.html" class="text-heading hover:text-fg-brand">
                 Preguntas frecuentes
               </a>
             </li>
-
             <li>
               <a
                 href="../index.html#contacto"
@@ -80,18 +68,25 @@
           </ul>
         </div>
 
-        <!-- Buscador + Cuenta + Carrito -->
-        <div class="flex items-center justify-end gap-6">
-          <!-- BÚSQUEDA (input funcional) -->
-          <div class="relative">
+        <!-- Buscador + Cuenta + Carrito (escritorio) -->
+        <div class="hidden lg:flex items-center gap-5">
+          <form data-search-form class="relative">
+            <label for="search-input-desktop" class="sr-only">Buscar productos</label>
             <input
               type="text"
-              id="search-input"
+              id="search-input-desktop"
+              data-search-input
               placeholder="Buscar productos..."
-              class="w-48 sm:w-64 pl-9 pr-4 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-fg-brand"
+              class="w-48 xl:w-64 pl-9 pr-4 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-fg-brand"
             />
-            <span class="absolute left-3 top-2.5 text-slate-400 text-sm">🔍</span>
-          </div>
+            <button
+              type="submit"
+              aria-label="Buscar"
+              class="absolute left-3 top-2.5 text-slate-400 text-sm cursor-pointer"
+            >
+              🔍
+            </button>
+          </form>
 
           <a
             href="login.html"
@@ -101,13 +96,113 @@
             Cuenta
           </a>
 
-          <a
-            href="#"
-            class="flex items-center gap-2 text-heading hover:text-fg-brand font-medium"
+          <button
+            type="button"
+            onclick="toggleCart()"
+            aria-label="Abrir carrito"
+            class="relative flex items-center gap-2 text-heading hover:text-fg-brand font-medium cursor-pointer"
           >
             <span class="text-xl">🛒</span>
             Carrito
-          </a>
+            <span
+              class="cart-badge hidden absolute -top-2 -right-3 bg-fg-brand text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center"
+              >0</span
+            >
+          </button>
+        </div>
+
+        <!-- Botón hamburguesa (móvil/tablet) -->
+        <button
+          id="menu-toggle"
+          class="lg:hidden text-2xl text-heading cursor-pointer"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+      </div>
+
+      <!-- Menú móvil -->
+      <div
+        id="mobile-menu"
+        class="hidden lg:hidden bg-white border-t border-slate-200 shadow-lg"
+      >
+        <div class="p-4 space-y-4">
+          <form data-search-form class="relative">
+            <label for="search-input-mobile" class="sr-only">Buscar productos</label>
+            <input
+              type="text"
+              id="search-input-mobile"
+              data-search-input
+              placeholder="Buscar productos..."
+              class="w-full pl-9 pr-4 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-fg-brand"
+            />
+            <button
+              type="submit"
+              aria-label="Buscar"
+              class="absolute left-3 top-2.5 text-slate-400 text-sm cursor-pointer"
+            >
+              🔍
+            </button>
+          </form>
+
+          <ul class="flex flex-col space-y-3 font-medium">
+            <li>
+              <a href="productos.html" class="block text-fg-brand font-semibold">
+                Productos
+              </a>
+            </li>
+            <li>
+              <a
+                href="../index.html#servicios"
+                class="block text-heading hover:text-fg-brand"
+              >
+                Servicios
+              </a>
+            </li>
+            <li>
+              <a href="about.html" class="block text-heading hover:text-fg-brand">
+                Nosotros
+              </a>
+            </li>
+            <li>
+              <a href="faq.html" class="block text-heading hover:text-fg-brand">
+                Preguntas frecuentes
+              </a>
+            </li>
+            <li>
+              <a
+                href="../index.html#contacto"
+                class="block text-heading hover:text-fg-brand"
+              >
+                Contacto
+              </a>
+            </li>
+          </ul>
+
+          <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+            <a
+              href="login.html"
+              class="flex items-center gap-2 text-heading hover:text-fg-brand font-medium"
+            >
+              <span class="text-xl">👤</span>
+              Cuenta
+            </a>
+
+            <button
+              type="button"
+              onclick="toggleCart()"
+              aria-label="Abrir carrito"
+              class="relative flex items-center gap-2 text-heading hover:text-fg-brand font-medium cursor-pointer"
+            >
+              <span class="text-xl">🛒</span>
+              Carrito
+              <span
+                class="cart-badge hidden absolute -top-2 -right-3 bg-fg-brand text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center"
+                >0</span
+              >
+            </button>
+          </div>
         </div>
       </div>
     </nav>
@@ -119,6 +214,13 @@
         <h1 class="text-3xl font-bold text-center mb-10 text-heading">
           Catálogo de Productos
         </h1>
+
+        <p
+          id="search-empty-state"
+          class="hidden text-center text-muted mb-10"
+        >
+          No se encontraron productos que coincidan con tu búsqueda.
+        </p>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
           <a
@@ -178,7 +280,20 @@
               Compacto y liviano, perfecto para estufas pequeñas, campings o
               parrillas a gas.
             </p>
-            <p class="font-semibold text-lg mt-4 text-heading">$6.500</p>
+            <div class="flex items-center justify-between w-full mt-4 gap-3">
+            <p class="font-semibold text-lg text-heading">$6.500</p>
+            <button
+              type="button"
+              onclick="addToCart(this)"
+              data-id="cilindro-5-kg"
+              data-name="Cilindro 5 Kg"
+              data-price="6500"
+              aria-label="Agregar Cilindro 5 Kg al carrito"
+              class="bg-fg-brand hover:opacity-90 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors cursor-pointer shrink-0"
+            >
+              Agregar
+            </button>
+          </div>
           </div>
 
           <div
@@ -196,7 +311,20 @@
               El formato estándar más usado en los hogares de Chile para cocina
               y agua caliente.
             </p>
-            <p class="font-semibold text-lg mt-4 text-heading">$12.000</p>
+            <div class="flex items-center justify-between w-full mt-4 gap-3">
+            <p class="font-semibold text-lg text-heading">$12.000</p>
+            <button
+              type="button"
+              onclick="addToCart(this)"
+              data-id="cilindro-11-kg"
+              data-name="Cilindro 11 Kg"
+              data-price="12000"
+              aria-label="Agregar Cilindro 11 Kg al carrito"
+              class="bg-fg-brand hover:opacity-90 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors cursor-pointer shrink-0"
+            >
+              Agregar
+            </button>
+          </div>
           </div>
 
           <div
@@ -214,7 +342,20 @@
               Rendimiento superior para familias o sistemas de calefacción de
               alto consumo.
             </p>
-            <p class="font-semibold text-lg mt-4 text-heading">$16.000</p>
+            <div class="flex items-center justify-between w-full mt-4 gap-3">
+            <p class="font-semibold text-lg text-heading">$16.000</p>
+            <button
+              type="button"
+              onclick="addToCart(this)"
+              data-id="cilindro-15-kg"
+              data-name="Cilindro 15 Kg"
+              data-price="16000"
+              aria-label="Agregar Cilindro 15 Kg al carrito"
+              class="bg-fg-brand hover:opacity-90 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors cursor-pointer shrink-0"
+            >
+              Agregar
+            </button>
+          </div>
           </div>
 
           <div
@@ -232,7 +373,20 @@
               Carga industrial para locales comerciales, pymes y consumo
               continuo.
             </p>
-            <p class="font-semibold text-lg mt-4 text-heading">$45.000</p>
+            <div class="flex items-center justify-between w-full mt-4 gap-3">
+            <p class="font-semibold text-lg text-heading">$45.000</p>
+            <button
+              type="button"
+              onclick="addToCart(this)"
+              data-id="cilindro-45-kg-industrial"
+              data-name="Cilindro 45 Kg Industrial"
+              data-price="45000"
+              aria-label="Agregar Cilindro 45 Kg Industrial al carrito"
+              class="bg-fg-brand hover:opacity-90 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors cursor-pointer shrink-0"
+            >
+              Agregar
+            </button>
+          </div>
           </div>
         </div>
       </section>
@@ -266,7 +420,20 @@
               Manguera flexible certificada para conexión directa entre
               regulador y artefactos domésticos.
             </p>
-            <p class="font-semibold text-lg mt-4 text-heading">$3.990</p>
+            <div class="flex items-center justify-between w-full mt-4 gap-3">
+            <p class="font-semibold text-lg text-heading">$3.990</p>
+            <button
+              type="button"
+              onclick="addToCart(this)"
+              data-id="manguera-gas-1-5-m"
+              data-name="Manguera Gas 1.5 M"
+              data-price="3990"
+              aria-label="Agregar Manguera Gas 1.5 M al carrito"
+              class="bg-fg-brand hover:opacity-90 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors cursor-pointer shrink-0"
+            >
+              Agregar
+            </button>
+          </div>
           </div>
 
           <div
@@ -284,7 +451,20 @@
               Largo extendido ideal para instalaciones que requieren mayor
               distancia del cilindro.
             </p>
-            <p class="font-semibold text-lg mt-4 text-heading">$6.990</p>
+            <div class="flex items-center justify-between w-full mt-4 gap-3">
+            <p class="font-semibold text-lg text-heading">$6.990</p>
+            <button
+              type="button"
+              onclick="addToCart(this)"
+              data-id="manguera-gas-3-m"
+              data-name="Manguera Gas 3 M"
+              data-price="6990"
+              aria-label="Agregar Manguera Gas 3 M al carrito"
+              class="bg-fg-brand hover:opacity-90 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors cursor-pointer shrink-0"
+            >
+              Agregar
+            </button>
+          </div>
           </div>
 
           <div
@@ -304,7 +484,20 @@
               Ajuste seguro y firme de acero para prevenir fugas en los extremos
               de la manguera.
             </p>
-            <p class="font-semibold text-lg mt-4 text-heading">$990</p>
+            <div class="flex items-center justify-between w-full mt-4 gap-3">
+            <p class="font-semibold text-lg text-heading">$990</p>
+            <button
+              type="button"
+              onclick="addToCart(this)"
+              data-id="abrazadera-metalica"
+              data-name="Abrazadera Metálica"
+              data-price="990"
+              aria-label="Agregar Abrazadera Metálica al carrito"
+              class="bg-fg-brand hover:opacity-90 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors cursor-pointer shrink-0"
+            >
+              Agregar
+            </button>
+          </div>
           </div>
 
           <div
@@ -324,7 +517,20 @@
               Incluye regulador doméstico, manguera de 1.5 metros y 2
               abrazaderas metálicas.
             </p>
-            <p class="font-semibold text-lg mt-4 text-heading">$12.990</p>
+            <div class="flex items-center justify-between w-full mt-4 gap-3">
+            <p class="font-semibold text-lg text-heading">$12.990</p>
+            <button
+              type="button"
+              onclick="addToCart(this)"
+              data-id="kit-de-conexion-completo"
+              data-name="Kit De Conexión Completo"
+              data-price="12990"
+              aria-label="Agregar Kit De Conexión Completo al carrito"
+              class="bg-fg-brand hover:opacity-90 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors cursor-pointer shrink-0"
+            >
+              Agregar
+            </button>
+          </div>
           </div>
         </div>
       </section>
@@ -356,7 +562,20 @@
               Mantiene una presión constante para el uso seguro de cocinas y
               calefonts de casa.
             </p>
-            <p class="font-semibold text-lg mt-4 text-heading">$8.990</p>
+            <div class="flex items-center justify-between w-full mt-4 gap-3">
+            <p class="font-semibold text-lg text-heading">$8.990</p>
+            <button
+              type="button"
+              onclick="addToCart(this)"
+              data-id="regulador-estandar"
+              data-name="Regulador Estándar"
+              data-price="8990"
+              aria-label="Agregar Regulador Estándar al carrito"
+              class="bg-fg-brand hover:opacity-90 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors cursor-pointer shrink-0"
+            >
+              Agregar
+            </button>
+          </div>
           </div>
 
           <div
@@ -376,7 +595,20 @@
               Diseñado para cocinillas industriales, sopletes y artefactos de
               alto flujo térmico.
             </p>
-            <p class="font-semibold text-lg mt-4 text-heading">$18.990</p>
+            <div class="flex items-center justify-between w-full mt-4 gap-3">
+            <p class="font-semibold text-lg text-heading">$18.990</p>
+            <button
+              type="button"
+              onclick="addToCart(this)"
+              data-id="regulador-alta-presion"
+              data-name="Regulador Alta Presión"
+              data-price="18990"
+              aria-label="Agregar Regulador Alta Presión al carrito"
+              class="bg-fg-brand hover:opacity-90 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors cursor-pointer shrink-0"
+            >
+              Agregar
+            </button>
+          </div>
           </div>
 
           <div
@@ -396,7 +628,20 @@
               Suministra gas a dos artefactos simultáneamente desde la misma
               fuente de cilindro.
             </p>
-            <p class="font-semibold text-lg mt-4 text-heading">$14.990</p>
+            <div class="flex items-center justify-between w-full mt-4 gap-3">
+            <p class="font-semibold text-lg text-heading">$14.990</p>
+            <button
+              type="button"
+              onclick="addToCart(this)"
+              data-id="regulador-dual-2-salidas"
+              data-name="Regulador Dual 2 Salidas"
+              data-price="14990"
+              aria-label="Agregar Regulador Dual 2 Salidas al carrito"
+              class="bg-fg-brand hover:opacity-90 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors cursor-pointer shrink-0"
+            >
+              Agregar
+            </button>
+          </div>
           </div>
         </div>
       </section>
@@ -428,7 +673,20 @@
               Estructura metálica resistente con ruedas para mover cilindros de
               11 y 15 kg con facilidad.
             </p>
-            <p class="font-semibold text-lg mt-4 text-heading">$12.990</p>
+            <div class="flex items-center justify-between w-full mt-4 gap-3">
+            <p class="font-semibold text-lg text-heading">$12.990</p>
+            <button
+              type="button"
+              onclick="addToCart(this)"
+              data-id="carro-porta-cilindro"
+              data-name="Carro Porta Cilindro"
+              data-price="12990"
+              aria-label="Agregar Carro Porta Cilindro al carrito"
+              class="bg-fg-brand hover:opacity-90 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors cursor-pointer shrink-0"
+            >
+              Agregar
+            </button>
+          </div>
           </div>
 
           <div
@@ -446,7 +704,20 @@
               Protege la válvula del cilindro de golpes, humedad y suciedad
               durante su almacenamiento.
             </p>
-            <p class="font-semibold text-lg mt-4 text-heading">$1.490</p>
+            <div class="flex items-center justify-between w-full mt-4 gap-3">
+            <p class="font-semibold text-lg text-heading">$1.490</p>
+            <button
+              type="button"
+              onclick="addToCart(this)"
+              data-id="tapa-protectora"
+              data-name="Tapa Protectora"
+              data-price="1490"
+              aria-label="Agregar Tapa Protectora al carrito"
+              class="bg-fg-brand hover:opacity-90 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors cursor-pointer shrink-0"
+            >
+              Agregar
+            </button>
+          </div>
           </div>
 
           <div
@@ -466,7 +737,20 @@
               Sensor inteligente con alarma audible de alerta rápida ante
               cualquier presencia de gas licuado.
             </p>
-            <p class="font-semibold text-lg mt-4 text-heading">$19.990</p>
+            <div class="flex items-center justify-between w-full mt-4 gap-3">
+            <p class="font-semibold text-lg text-heading">$19.990</p>
+            <button
+              type="button"
+              onclick="addToCart(this)"
+              data-id="detector-de-fugas"
+              data-name="Detector De Fugas"
+              data-price="19990"
+              aria-label="Agregar Detector De Fugas al carrito"
+              class="bg-fg-brand hover:opacity-90 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors cursor-pointer shrink-0"
+            >
+              Agregar
+            </button>
+          </div>
           </div>
         </div>
       </section>
@@ -553,20 +837,70 @@
       </div>
     </footer>
 
-    <!-- SCRIPT DE BÚSQUEDA -->
+    <!-- CARRITO DRAWER -->
+    <div
+      id="cart-overlay"
+      onclick="toggleCart()"
+      class="hidden fixed inset-0 bg-black/40 z-40"
+    ></div>
+
+    <aside
+      id="cart-drawer"
+      class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white z-50 shadow-xl transform translate-x-full transition-transform duration-300 flex flex-col"
+    >
+      <div
+        class="flex items-center justify-between px-6 py-4 border-b border-slate-200"
+      >
+        <h2 class="text-lg font-bold text-slate-900">Tu carrito</h2>
+        <button
+          onclick="toggleCart()"
+          aria-label="Cerrar carrito"
+          class="text-slate-500 hover:text-slate-900 cursor-pointer"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <div id="cart-items" class="flex-1 overflow-y-auto px-6 py-4 space-y-4">
+        <!-- JS inserta los items aquí -->
+        <p id="cart-empty" class="text-slate-400 text-sm text-center mt-10">
+          Tu carrito está vacío
+        </p>
+      </div>
+
+      <div class="border-t border-slate-200 px-6 py-4">
+        <div class="flex items-center justify-between mb-4">
+          <span class="font-semibold text-slate-900">Total</span>
+          <span id="cart-total" class="font-bold text-xl text-slate-900"
+            >$0</span
+          >
+        </div>
+        <button
+          class="w-full bg-fg-brand hover:opacity-90 text-white font-semibold py-3 rounded-lg transition-colors cursor-pointer"
+        >
+          Ir a pagar
+        </button>
+      </div>
+    </aside>
+
     <script>
-      // Obtener el input y todas las tarjetas con data-name
-      const searchInput = document.getElementById('search-input');
-      const productCards = document.querySelectorAll('[data-name]');
-
-      searchInput.addEventListener('input', function () {
-        const term = this.value.trim().toLowerCase();
-
-        productCards.forEach(card => {
-          const name = card.getAttribute('data-name').toLowerCase();
-          card.style.display = name.includes(term) ? '' : 'none';
-        });
-      });
+      // Esta es la página de catálogo: el buscador filtra en vivo en vez de redirigir.
+      window.IS_PRODUCTS_PAGE = true;
     </script>
+    <script src="../assets/js/cart.js"></script>
+    <script src="../assets/js/site-nav.js"></script>
   </body>
 </html>
