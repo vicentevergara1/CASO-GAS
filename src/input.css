@@ -1,8 +1,84 @@
 @import "tailwindcss";
 
 @theme {
+  /* Tipografía */
   --font-sans: "Inter", sans-serif;
 
-  --color-fg-brand: #0284c7; /* Azul vivo / Gas (Sky 600) */
-  --color-fg-brand-hover: #0369a1; /* Tono un poco más oscuro para cuando pasas el mouse */
+  /* Colores de marca */
+  --color-fg-brand: #0284c7;       /* Azul principal */
+  --color-fg-brand-hover: #0369a1; /* Azul oscuro al pasar mouse */
+
+  /* Colores semánticos (usados en tus HTML) */
+  --color-heading: #0f172a;          /* Títulos (slate-900) */
+  --color-muted: #64748b;            /* Texto secundario (slate-500) */
+  --color-neutral-primary: #ffffff;  /* Fondo principal */
+  --color-neutral-secondary: #f1f5f9; /* Fondo alternativo (slate-100) */
+  --color-border-default: #e2e8f0;   /* Bordes (slate-200) */
+}
+
+@layer components {
+  /* Botón primario (azul sólido) */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-fg-brand text-white font-medium transition hover:bg-fg-brand-hover focus:outline-none focus:ring-2 focus:ring-fg-brand focus:ring-offset-2 cursor-pointer;
+  }
+
+  /* Botón secundario (borde gris) */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-slate-300 text-slate-700 font-medium transition hover:bg-slate-50 hover:border-fg-brand focus:outline-none focus:ring-2 focus:ring-fg-brand cursor-pointer;
+  }
+
+  /* Botón blanco sobre imagen oscura */
+  .btn-white {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-white text-black font-semibold transition hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-white cursor-pointer;
+  }
+
+  /* Botón outline blanco */
+  .btn-outline-white {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-white text-white font-semibold transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white cursor-pointer;
+  }
+
+  /* Tarjeta de producto o contenido */
+  .card {
+    @apply bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 flex flex-col justify-between;
+  }
+
+  /* Título de sección */
+  .section-title {
+    @apply text-2xl md:text-3xl font-bold text-slate-900 mb-4;
+  }
+
+  /* Subtítulo de sección */
+  .section-subtitle {
+    @apply text-sm md:text-base text-slate-500 mt-2 max-w-xl mx-auto;
+  }
+
+  /* Input estándar */
+  .input {
+    @apply w-full rounded-lg border border-slate-300 px-4 py-2.5 outline-none focus:ring-2 focus:ring-fg-brand focus:border-transparent transition;
+  }
+
+  /* Etiqueta de campo */
+  .label {
+    @apply block mb-1.5 text-sm font-medium text-slate-700;
+  }
+
+  /* Navbar (barra de navegación fija) */
+  .navbar {
+    @apply fixed top-0 left-0 w-full z-30 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm;
+  }
+
+  /* Enlace de navegación */
+  .nav-link {
+    @apply text-heading hover:text-fg-brand transition-colors font-medium;
+  }
+
+  /* Enlace de texto */
+  .link {
+    @apply text-fg-brand hover:text-fg-brand-hover hover:underline transition-colors;
+  }
+
+  /* Footer */
+  .footer {
+    @apply bg-white border-t border-slate-200;
+  }
 }
