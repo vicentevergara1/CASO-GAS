@@ -20,71 +20,69 @@
     <nav
       class="fixed top-0 left-0 w-full z-30 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm"
     >
-      <div class="w-full px-8 h-14 grid grid-cols-3 items-center">
+      <div class="w-full px-4 sm:px-8 h-14 flex items-center justify-between gap-4">
         <!-- Logo -->
-        <div>
-          <a href="../index.html" class="flex items-center space-x-3">
-            <img
-              src="../assets/images/logo.png"
-              class="h-10"
-              alt="El Volcan Logo"
-            />
-            <span class="text-xl text-heading font-semibold whitespace-nowrap">
-              El Volcán
-            </span>
-          </a>
-        </div>
+        <a href="../index.html" class="flex items-center space-x-3 shrink-0">
+          <img
+            src="../assets/images/logo.png"
+            class="h-10"
+            alt="El Volcan Logo"
+          />
+          <span class="text-xl text-heading font-semibold whitespace-nowrap">
+            El Volcán
+          </span>
+        </a>
 
-        <!-- Navegación -->
-        <div class="flex justify-center">
+        <!-- Navegación (escritorio) -->
+        <div class="hidden lg:flex items-center">
           <ul class="font-medium flex items-center space-x-8">
             <li>
               <a href="productos.html" class="text-heading hover:text-fg-brand">
                 Productos
               </a>
             </li>
-
             <li>
-              <a
-                href="../index.html#servicios"
-                class="text-heading hover:text-fg-brand"
-              >
+              <a href="../index.html#servicios" class="text-heading hover:text-fg-brand">
                 Servicios
               </a>
             </li>
-
             <li>
               <a href="about.html" class="text-fg-brand font-semibold">
                 Nosotros
               </a>
             </li>
-
             <li>
               <a href="faq.html" class="text-heading hover:text-fg-brand">
                 Preguntas frecuentes
               </a>
             </li>
-
             <li>
-              <a
-                href="../index.html#contacto"
-                class="text-heading hover:text-fg-brand"
-              >
+              <a href="../index.html#contacto" class="text-heading hover:text-fg-brand">
                 Contacto
               </a>
             </li>
           </ul>
         </div>
 
-        <!-- Buscador + Cuenta + Carrito -->
-        <div class="flex items-center justify-end gap-6">
-          <button
-            type="button"
-            aria-label="Buscar productos"
-            class="text-xl text-heading hover:text-fg-brand"
-          >
-            🔍
-          </button>
+        <!-- Buscador + Cuenta + Carrito (escritorio) -->
+        <div class="hidden lg:flex items-center gap-5">
+          <form data-search-form class="relative">
+            <label for="search-input-desktop" class="sr-only">Buscar productos</label>
+            <input
+              type="text"
+              id="search-input-desktop"
+              data-search-input
+              placeholder="Buscar productos..."
+              class="w-48 xl:w-64 pl-9 pr-4 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-fg-brand"
+            />
+            <button
+              type="submit"
+              aria-label="Buscar"
+              class="absolute left-3 top-2.5 text-slate-400 text-sm cursor-pointer"
+            >
+              🔍
+            </button>
+          </form>
 
           <a
             href="login.html"
@@ -94,13 +92,107 @@
             Cuenta
           </a>
 
-          <a
-            href="#"
-            class="flex items-center gap-2 text-heading hover:text-fg-brand font-medium"
+          <button
+            type="button"
+            onclick="toggleCart()"
+            aria-label="Abrir carrito"
+            class="relative flex items-center gap-2 text-heading hover:text-fg-brand font-medium cursor-pointer"
           >
             <span class="text-xl">🛒</span>
             Carrito
-          </a>
+            <span
+              class="cart-badge hidden absolute -top-2 -right-3 bg-fg-brand text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center"
+              >0</span
+            >
+          </button>
+        </div>
+
+        <!-- Botón hamburguesa (móvil/tablet) -->
+        <button
+          id="menu-toggle"
+          class="lg:hidden text-2xl text-heading cursor-pointer"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+      </div>
+
+      <!-- Menú móvil -->
+      <div
+        id="mobile-menu"
+        class="hidden lg:hidden bg-white border-t border-slate-200 shadow-lg"
+      >
+        <div class="p-4 space-y-4">
+          <form data-search-form class="relative">
+            <label for="search-input-mobile" class="sr-only">Buscar productos</label>
+            <input
+              type="text"
+              id="search-input-mobile"
+              data-search-input
+              placeholder="Buscar productos..."
+              class="w-full pl-9 pr-4 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-fg-brand"
+            />
+            <button
+              type="submit"
+              aria-label="Buscar"
+              class="absolute left-3 top-2.5 text-slate-400 text-sm cursor-pointer"
+            >
+              🔍
+            </button>
+          </form>
+
+          <ul class="flex flex-col space-y-3 font-medium">
+            <li>
+              <a href="productos.html" class="block text-heading hover:text-fg-brand">
+                Productos
+              </a>
+            </li>
+            <li>
+              <a href="../index.html#servicios" class="block text-heading hover:text-fg-brand">
+                Servicios
+              </a>
+            </li>
+            <li>
+              <a href="about.html" class="block text-fg-brand font-semibold">
+                Nosotros
+              </a>
+            </li>
+            <li>
+              <a href="faq.html" class="block text-heading hover:text-fg-brand">
+                Preguntas frecuentes
+              </a>
+            </li>
+            <li>
+              <a href="../index.html#contacto" class="block text-heading hover:text-fg-brand">
+                Contacto
+              </a>
+            </li>
+          </ul>
+
+          <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+            <a
+              href="login.html"
+              class="flex items-center gap-2 text-heading hover:text-fg-brand font-medium"
+            >
+              <span class="text-xl">👤</span>
+              Cuenta
+            </a>
+
+            <button
+              type="button"
+              onclick="toggleCart()"
+              aria-label="Abrir carrito"
+              class="relative flex items-center gap-2 text-heading hover:text-fg-brand font-medium cursor-pointer"
+            >
+              <span class="text-xl">🛒</span>
+              Carrito
+              <span
+                class="cart-badge hidden absolute -top-2 -right-3 bg-fg-brand text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center"
+                >0</span
+              >
+            </button>
+          </div>
         </div>
       </div>
     </nav>
@@ -387,5 +479,66 @@
         </p>
       </div>
     </footer>
+
+    <!-- CARRITO DRAWER -->
+    <div
+      id="cart-overlay"
+      onclick="toggleCart()"
+      class="hidden fixed inset-0 bg-black/40 z-40"
+    ></div>
+
+    <aside
+      id="cart-drawer"
+      class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white z-50 shadow-xl transform translate-x-full transition-transform duration-300 flex flex-col"
+    >
+      <div
+        class="flex items-center justify-between px-6 py-4 border-b border-slate-200"
+      >
+        <h2 class="text-lg font-bold text-slate-900">Tu carrito</h2>
+        <button
+          onclick="toggleCart()"
+          aria-label="Cerrar carrito"
+          class="text-slate-500 hover:text-slate-900 cursor-pointer"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <div id="cart-items" class="flex-1 overflow-y-auto px-6 py-4 space-y-4">
+        <p id="cart-empty" class="text-slate-400 text-sm text-center mt-10">
+          Tu carrito está vacío
+        </p>
+      </div>
+
+      <div class="border-t border-slate-200 px-6 py-4">
+        <div class="flex items-center justify-between mb-4">
+          <span class="font-semibold text-slate-900">Total</span>
+          <span id="cart-total" class="font-bold text-xl text-slate-900"
+            >$0</span
+          >
+        </div>
+        <button
+          class="w-full bg-fg-brand hover:opacity-90 text-white font-semibold py-3 rounded-lg transition-colors cursor-pointer"
+        >
+          Ir a pagar
+        </button>
+      </div>
+    </aside>
+
+    <script src="../assets/js/cart.js"></script>
+    <script src="../assets/js/site-nav.js"></script>
   </body>
 </html>
