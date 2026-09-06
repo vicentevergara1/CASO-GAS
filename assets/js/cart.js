@@ -1,5 +1,26 @@
-// Carrito en memoria (se reinicia al recargar la página)
-let cart = [];
+// Carrito persistente: se guarda en localStorage para que no se pierda
+// al recargar la página o navegar entre secciones del sitio.
+const CART_STORAGE_KEY = "elvolcan_cart";
+
+function loadCart() {
+  try {
+    const raw = localStorage.getItem(CART_STORAGE_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveCart() {
+  try {
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+  } catch (e) {
+    // Si localStorage no está disponible, el carrito sigue funcionando
+    // en memoria durante la sesión actual.
+  }
+}
+
+let cart = loadCart();
 
 function formatPrice(num) {
   return "$" + num.toLocaleString("es-CL");
@@ -54,25 +75,30 @@ function changeQty(id, delta) {
 }
 
 function renderCart() {
+  saveCart();
+
   const container = document.getElementById("cart-items");
   const totalEl = document.getElementById("cart-total");
-  const badge = document.getElementById("cart-badge");
+  const badges = document.querySelectorAll(".cart-badge");
 
   // 1) Calcular el total PRIMERO, antes de tocar el DOM de las filas.
   //    Así el precio siempre queda correcto aunque algo falle al dibujar una fila.
   const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
   const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
 
-  totalEl.textContent = formatPrice(total);
+  if (totalEl) totalEl.textContent = formatPrice(total);
 
-  if (totalItems > 0) {
-    badge.textContent = totalItems;
-    badge.classList.remove("hidden");
-  } else {
-    badge.classList.add("hidden");
-  }
+  badges.forEach((badge) => {
+    if (totalItems > 0) {
+      badge.textContent = totalItems;
+      badge.classList.remove("hidden");
+    } else {
+      badge.classList.add("hidden");
+    }
+  });
 
   // 2) Ahora sí, dibujar las filas.
+  if (!container) return;
   container.innerHTML = "";
 
   if (cart.length === 0) {
@@ -130,17 +156,20 @@ function renderCart() {
 
 // Delegación de eventos: un solo listener en el contenedor,
 // en vez de "onclick" escrito como texto en cada botón generado dinámicamente.
-document.getElementById("cart-items").addEventListener("click", function (e) {
-  const btn = e.target.closest("button[data-action]");
-  if (!btn) return;
+const cartItemsEl = document.getElementById("cart-items");
+if (cartItemsEl) {
+  cartItemsEl.addEventListener("click", function (e) {
+    const btn = e.target.closest("button[data-action]");
+    if (!btn) return;
 
-  const id = btn.dataset.id;
-  const action = btn.dataset.action;
+    const id = btn.dataset.id;
+    const action = btn.dataset.action;
 
-  if (action === "increase") changeQty(id, 1);
-  if (action === "decrease") changeQty(id, -1);
-  if (action === "remove") removeFromCart(id);
-});
+    if (action === "increase") changeQty(id, 1);
+    if (action === "decrease") changeQty(id, -1);
+    if (action === "remove") removeFromCart(id);
+  });
+}
 
 function openCart() {
   document.getElementById("cart-drawer").classList.remove("translate-x-full");
@@ -160,3 +189,6 @@ function toggleCart() {
     closeCart();
   }
 }
+
+// Pintar el estado guardado del carrito (badge, total, items) apenas carga la página.
+renderCart();
