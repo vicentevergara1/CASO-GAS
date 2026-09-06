@@ -95,13 +95,20 @@
           </a>
 
           <!-- Carrito -->
-          <a
-            href="#"
-            class="flex items-center gap-2 text-heading hover:text-fg-brand font-medium"
+          <button
+            type="button"
+            onclick="toggleCart()"
+            class="relative flex items-center gap-2 text-heading hover:text-fg-brand font-medium cursor-pointer"
           >
             <span class="text-xl">🛒</span>
             Carrito
-          </a>
+            <span
+              id="cart-badge"
+              class="hidden absolute -top-2 -right-3 bg-fg-brand text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center"
+            >
+              0
+            </span>
+          </button>
         </div>
       </div>
     </nav>
@@ -204,6 +211,10 @@
                 <button
                   class="bg-fg-brand hover:opacity-90 text-white p-2.5 rounded-lg transition-colors cursor-pointer"
                   aria-label="Agregar Cilindro Gas 15 Kg al carrito"
+                  data-id="cilindro-15kg"
+                  data-name="Cilindro Gas 15 Kg"
+                  data-price="26900"
+                  onclick="addToCart(this)"
                 >
                   <svg
                     class="w-5 h-5"
@@ -253,6 +264,10 @@
                 <button
                   class="bg-fg-brand hover:opacity-90 text-white p-2.5 rounded-lg transition-colors cursor-pointer"
                   aria-label="Agregar Regulador Estándar al carrito"
+                  data-id="regulador-estándar"
+                  data-name="Regulador Estándar"
+                  data-price="12500"
+                  onclick="addToCart(this)"
                 >
                   <svg
                     class="w-5 h-5"
@@ -302,6 +317,10 @@
                 <button
                   class="bg-fg-brand hover:opacity-90 text-white p-2.5 rounded-lg transition-colors cursor-pointer"
                   aria-label="Agregar Manguera Certificada al carrito"
+                  data-id="Manguera-certificada-1.5m"
+                  data-name="Manguera Certificada 1.5m"
+                  data-price="8900"
+                  onclick="addToCart(this)"
                 >
                   <svg
                     class="w-5 h-5"
@@ -351,6 +370,10 @@
                 <button
                   class="bg-fg-brand hover:opacity-90 text-white p-2.5 rounded-lg transition-colors cursor-pointer"
                   aria-label="Agregar Detector de Fugas al carrito"
+                  data-id="detector-de-fugas"
+                  data-name="Detector de fugas"
+                  data-price="18990"
+                  onclick="addToCart(this)"
                 >
                   <svg
                     class="w-5 h-5"
@@ -369,7 +392,6 @@
               </div>
             </div>
           </div>
-          <!-- BOTÓN CATÁLOGO -->
           <!-- BOTÓN CATÁLOGO -->
           <div class="text-center mt-10">
             <a
@@ -950,5 +972,66 @@
         </div>
       </div>
     </footer>
+
+    <!-- CARRITO DRAWER -->
+    <div
+      id="cart-overlay"
+      onclick="toggleCart()"
+      class="hidden fixed inset-0 bg-black/40 z-40"
+    ></div>
+
+    <aside
+      id="cart-drawer"
+      class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white z-50 shadow-xl transform translate-x-full transition-transform duration-300 flex flex-col"
+    >
+      <div
+        class="flex items-center justify-between px-6 py-4 border-b border-slate-200"
+      >
+        <h2 class="text-lg font-bold text-slate-900">Tu carrito</h2>
+        <button
+          onclick="toggleCart()"
+          aria-label="Cerrar carrito"
+          class="text-slate-500 hover:text-slate-900 cursor-pointer"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <div id="cart-items" class="flex-1 overflow-y-auto px-6 py-4 space-y-4">
+        <!-- JS inserta los items aquí -->
+        <p id="cart-empty" class="text-slate-400 text-sm text-center mt-10">
+          Tu carrito está vacío
+        </p>
+      </div>
+
+      <div class="border-t border-slate-200 px-6 py-4">
+        <div class="flex items-center justify-between mb-4">
+          <span class="font-semibold text-slate-900">Total</span>
+          <span id="cart-total" class="font-bold text-xl text-slate-900"
+            >$0</span
+          >
+        </div>
+        <button
+          class="w-full bg-fg-brand hover:opacity-90 text-white font-semibold py-3 rounded-lg transition-colors cursor-pointer"
+        >
+          Ir a pagar
+        </button>
+      </div>
+    </aside>
+
+    <script src="assets/js/cart.js"></script>
   </body>
 </html>
