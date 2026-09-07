@@ -13,84 +13,6 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <style>
-      /* Ajustes específicos para móviles y buscador */
-      html {
-        scroll-behavior: smooth;
-      }
-
-      @media (max-width: 767px) {
-        body {
-          overflow-x: hidden;
-        }
-        nav .nav-inner {
-          height: auto;
-          min-height: 3.5rem;
-          grid-template-columns: auto auto;
-          padding: 0.55rem 1rem;
-          gap: 0.75rem;
-        }
-        nav .desktop-nav,
-        nav .desktop-actions {
-          display: none;
-        }
-        nav .mobile-menu {
-          display: flex;
-          flex-direction: column;
-          gap: 0.5rem;
-          padding: 0.75rem 1rem 1rem;
-          border-top: 1px solid rgb(226 232 240);
-        }
-        nav .mobile-menu a {
-          display: block;
-          padding: 0.65rem 0.25rem;
-        }
-        nav .mobile-menu.hidden {
-          display: none;
-        }
-        nav .mobile-actions {
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
-          gap: 0.5rem;
-        }
-        nav .mobile-actions button {
-          min-width: 2.5rem;
-          min-height: 2.5rem;
-        }
-        main {
-          padding-top: 3.5rem;
-        }
-        .hero-content {
-          padding-left: 1.25rem;
-          padding-right: 1.25rem;
-        }
-        .hero-title {
-          font-size: 2.25rem;
-          line-height: 1.1;
-        }
-        .hero-description {
-          font-size: 1rem;
-          line-height: 1.5;
-        }
-        section {
-          scroll-margin-top: 4rem;
-        }
-      }
-
-      @media (min-width: 768px) {
-        nav .mobile-menu,
-        nav .mobile-toggle,
-        nav .mobile-actions {
-          display: none;
-        }
-      }
-
-      .search-panel {
-        max-height: min(70vh, 520px);
-        overflow-y: auto;
-      }
-    </style>
   </head>
 
   <body class="relative w-full min-h-screen flex flex-col">
@@ -98,155 +20,201 @@
     <nav
       class="fixed top-0 left-0 w-full z-30 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm"
     >
-      <div class="nav-inner w-full px-8 h-14 grid grid-cols-3 items-center">
-        <!-- Logo -->
-        <div>
+      <div
+        class="w-full px-4 md:px-8 h-16 flex items-center justify-between gap-4"
+      >
+        <!-- 1. Logo -->
+        <div class="flex-shrink-0">
           <a href="index.html" class="flex items-center space-x-3">
             <img
               src="assets/images/logo.png"
               class="h-10"
               alt="El Volcan Logo"
             />
-
             <span class="text-xl text-heading font-semibold whitespace-nowrap">
               El Volcan
             </span>
           </a>
         </div>
 
-        <!-- Navegación -->
-        <div class="desktop-nav flex justify-center">
-          <ul class="font-medium flex items-center space-x-8">
+        <!-- 2. Navegación (solo visible en pantallas grandes XL en adelante para no chocar) -->
+        <div class="hidden xl:flex justify-center flex-1 mx-4">
+          <ul class="font-medium flex items-center space-x-6 whitespace-nowrap">
             <li>
-              <a
-                href="pages/productos.html"
-                class="text-heading hover:text-fg-brand"
+              <a href="#productos" class="text-heading hover:text-fg-brand"
+                >Productos</a
               >
-                Productos
-              </a>
             </li>
-
             <li>
-              <a href="#servicios" class="text-heading hover:text-fg-brand">
-                Servicios
-              </a>
+              <a href="#servicios" class="text-heading hover:text-fg-brand"
+                >Servicios</a
+              >
             </li>
-
             <li>
-              <a href="#nosotros" class="text-heading hover:text-fg-brand">
-                Nosotros
-              </a>
+              <a href="#nosotros" class="text-heading hover:text-fg-brand"
+                >Nosotros</a
+              >
             </li>
-
             <li>
-              <a href="#faq" class="text-heading hover:text-fg-brand">
-                Preguntas frecuentes
-              </a>
+              <a href="#faq" class="text-heading hover:text-fg-brand"
+                >Preguntas frecuentes</a
+              >
             </li>
-
             <li>
-              <a href="#contacto" class="text-heading hover:text-fg-brand">
-                Contacto
-              </a>
+              <a href="#contacto" class="text-heading hover:text-fg-brand"
+                >Contacto</a
+              >
             </li>
           </ul>
         </div>
 
-        <!-- Buscador + Cuenta + Carrito -->
-        <div class="desktop-actions flex items-center justify-end gap-6">
-          <!-- Buscar -->
-          <button
-            type="button"
-            aria-label="Buscar productos"
-            class="text-xl text-heading hover:text-fg-brand"
-            onclick="openSearch()"
+        <!-- 3. Buscador + Cuenta + Carrito (desktop nav:) -->
+        <div
+          class="hidden md:flex items-center justify-end gap-4 xl:gap-6 flex-shrink-0"
+        >
+          <!-- Buscador completo -->
+          <form
+            id="nav-search-form"
+            onsubmit="return false;"
+            class="flex items-center bg-white border border-gray-200 rounded-full shadow-md overflow-hidden"
           >
-            🔍
-          </button>
-
+            <input
+              type="text"
+              name="q"
+              placeholder="Buscar..."
+              readonly
+              onfocus="openSearch()"
+              onclick="openSearch()"
+              class="px-4 py-1.5 text-gray-700 text-sm outline-none bg-transparent w-36 focus:w-48 xl:w-44 xl:focus:w-56 transition-all duration-300 cursor-pointer"
+            />
+            <button
+              type="submit"
+              aria-label="Buscar productos"
+              onclick="openSearch()"
+              class="bg-[#46cad6] hover:bg-[#34b4c0] px-3.5 py-2 flex items-center justify-center transition-colors"
+            >
+              <img
+                src="assets/images/search.png"
+                alt="Buscar"
+                class="w-6 h-6 object-contain"
+              />
+            </button>
+          </form>
           <!-- Cuenta -->
           <a
             href="pages/login.html"
-            class="flex items-center gap-2 text-heading hover:text-fg-brand font-medium"
+            class="flex items-center gap-2 text-heading hover:text-fg-brand font-medium whitespace-nowrap"
           >
-            <span class="text-xl">👤</span>
-            Cuenta
+            <img src="assets/images/accountv3.png" alt="" class="w-7 h-7" />
+            <span class="hidden sm:inline">Cuenta</span>
           </a>
 
           <!-- Carrito -->
           <button
             type="button"
             onclick="toggleCart()"
-            class="relative flex items-center gap-2 text-heading hover:text-fg-brand font-medium cursor-pointer"
+            class="flex items-center gap-2 text-heading hover:text-fg-brand font-medium cursor-pointer whitespace-nowrap"
           >
-            <span class="text-xl">🛒</span>
-            Carrito
+            <span id="cart-icon-wrapper" class="relative inline-block">
+              <img src="assets/images/carrito.png" alt="" class="w-6 h-6" />
+              <span
+                id="cart-badge"
+                class="hidden absolute -top-2 -right-3 bg-fg-brand text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center"
+              >
+                0
+              </span>
+            </span>
+            <span class="hidden sm:inline">Carrito</span>
+          </button>
+        </div>
+
+        <!-- 4. Hamburguesa (para pantallas menores a nav: o cuando se oculta el menú) -->
+        <div class="flex xl:hidden items-center gap-1">
+          <!-- Buscar (mobile) -->
+          <button
+            type="button"
+            onclick="openSearch()"
+            aria-label="Buscar productos"
+            class="md:block text-heading hover:text-fg-brand p-2"
+          >
+            <img src="assets/images/search-phone.png" alt="" class="w-6 h-6" />
+          </button>
+
+          <button
+            type="button"
+            onclick="toggleCart()"
+            aria-label="Carrito"
+            class="relative md:hidden text-xl text-heading hover:text-fg-brand p-2"
+          >
+            <img src="assets/images/carrito.png" alt="" class="w-6 h-6" />
+
             <span
-              id="cart-badge"
-              class="hidden absolute -top-2 -right-3 bg-fg-brand text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center"
+              id="cart-badge-mobile"
+              class="hidden absolute top-0 right-0 bg-fg-brand text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center"
             >
               0
             </span>
           </button>
-        </div>
 
-        <!-- Acciones móviles -->
-        <div class="mobile-actions">
+          <!-- Botón de menú hamburguesa (se muestra en móviles y tablets hasta XL) -->
           <button
             type="button"
-            aria-label="Buscar productos"
-            class="text-xl text-heading hover:text-fg-brand"
-            onclick="openSearch()"
-          >
-            🔍
-          </button>
-          <button
-            type="button"
+            onclick="toggleMobileMenu()"
             aria-label="Abrir menú"
-            aria-expanded="false"
-            class="mobile-toggle text-2xl text-heading hover:text-fg-brand"
-            onclick="toggleMobileMenu(this)"
+            class="text-heading p-2"
           >
-            ☰
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-7 h-7"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
           </button>
         </div>
       </div>
 
-      <div id="mobile-menu" class="mobile-menu hidden">
-        <a href="pages/productos.html" class="text-heading hover:text-fg-brand"
+      <!-- Menú desplegable (mobile / tablet hasta xl) -->
+      <div
+        id="mobile-menu"
+        class="hidden xl:hidden flex-col gap-1 px-4 pb-4 pt-2 border-t border-slate-200 bg-white"
+      >
+        <a href="#productos" class="block py-2 text-heading hover:text-fg-brand"
           >Productos</a
         >
-        <a href="#servicios" class="text-heading hover:text-fg-brand"
+        <a href="#servicios" class="block py-2 text-heading hover:text-fg-brand"
           >Servicios</a
         >
-        <a href="#nosotros" class="text-heading hover:text-fg-brand"
+        <a href="#nosotros" class="block py-2 text-heading hover:text-fg-brand"
           >Nosotros</a
         >
-        <a href="#faq" class="text-heading hover:text-fg-brand"
+        <a href="#faq" class="block py-2 text-heading hover:text-fg-brand"
           >Preguntas frecuentes</a
         >
-        <a href="#contacto" class="text-heading hover:text-fg-brand"
+        <a href="#contacto" class="block py-2 text-heading hover:text-fg-brand"
           >Contacto</a
         >
-        <a href="pages/login.html" class="text-heading hover:text-fg-brand"
-          >👤 Cuenta</a
+
+        <!-- Si estamos en móvil pequeño, también mostramos el acceso a la cuenta dentro del menú -->
+        <a
+          href="pages/login.html"
+          class="flex md:hidden items-center gap-2 py-2 text-heading hover:text-fg-brand font-medium border-t border-slate-100 mt-2 pt-2"
         >
-        <button
-          type="button"
-          onclick="
-            toggleCart();
-            closeMobileMenu();
-          "
-          class="text-left text-heading hover:text-fg-brand"
-        >
-          🛒 Carrito
-        </button>
+          <img src="assets/images/accountv3.png" alt="" class="w-6 h-6" />
+          Cuenta
+        </a>
       </div>
     </nav>
 
     <!-- CONTENIDO PRINCIPAL -->
     <main class="w-full flex-1 pt-14">
-      <!-- HERO -->
       <!-- Hero -->
       <section class="relative w-full h-[500px] overflow-hidden">
         <!-- Imagen de Chillán -->
@@ -298,7 +266,7 @@
         </div>
       </section>
 
-      <section class="py-12 bg-slate-50">
+      <section id="productos" class="py-12 bg-slate-50 scroll-mt-14">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
           <!-- Título centrado -->
           <div class="text-center max-w-xl mx-auto mb-10">
@@ -327,7 +295,10 @@
         </div>
       </section>
       <!-- SERVICIOS -->
-      <section id="servicios" class="w-full max-w-7xl mx-auto px-8 py-16">
+      <section
+        id="servicios"
+        class="w-full max-w-7xl mx-auto px-8 py-16 scroll-mt-14"
+      >
         <div class="text-center mb-10">
           <h2 class="text-3xl font-bold text-slate-900">Nuestros servicios</h2>
           <p class="text-sm text-slate-500 mt-2 max-w-md mx-auto">
@@ -419,7 +390,10 @@
       </section>
 
       <!-- NOSOTROS -->
-      <section id="nosotros" class="w-full max-w-7xl mx-auto px-8 py-16">
+      <section
+        id="nosotros"
+        class="w-full max-w-7xl mx-auto px-8 py-16 scroll-mt-14"
+      >
         <div class="text-center max-w-3xl mx-auto">
           <h2 class="text-3xl font-bold text-slate-900 mb-4">Sobre nosotros</h2>
 
@@ -459,7 +433,10 @@
       </section>
 
       <!-- FAQ -->
-      <section id="faq" class="w-full max-w-7xl mx-auto px-8 py-16">
+      <section
+        id="faq"
+        class="w-full max-w-7xl mx-auto px-8 py-16 scroll-mt-14"
+      >
         <div class="text-center mb-12">
           <h2 class="text-3xl font-bold text-slate-900 mb-4">
             Preguntas frecuentes
@@ -645,7 +622,10 @@
       </section>
 
       <!-- CONTACTO -->
-      <section id="contacto" class="w-full max-w-7xl mx-auto px-8 py-16">
+      <section
+        id="contacto"
+        class="w-full max-w-7xl mx-auto px-8 py-16 scroll-mt-14"
+      >
         <div class="text-center">
           <h2 class="text-3xl font-bold text-slate-900 mb-6">Contacto</h2>
 
@@ -899,16 +879,16 @@
     <!-- BUSCADOR -->
     <div
       id="search-modal"
-      class="hidden fixed inset-0 bg-black/40 z-[60] p-4 sm:p-6"
+      class="hidden fixed inset-0 bg-black/40 z-[60] overflow-y-auto p-4 sm:p-6"
       onclick="handleSearchBackdrop(event)"
     >
       <div
-        class="w-full max-w-2xl mx-auto mt-16 bg-white rounded-2xl shadow-2xl overflow-hidden"
+        class="w-full max-w-2xl mx-auto my-6 sm:my-16 bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[85vh] flex flex-col"
       >
         <div
-          class="flex items-center justify-between px-5 py-4 border-b border-slate-200"
+          class="flex items-center justify-between px-5 py-4 border-b border-slate-200 shrink-0"
         >
-          <h2 class="text-lg font-bold text-slate-900">Buscar producto</h2>
+          <h2 class="text-lg font-bold text-slate-900">Buscar</h2>
           <button
             type="button"
             onclick="closeSearch()"
@@ -918,25 +898,58 @@
             ✕
           </button>
         </div>
-        <div class="p-5">
+
+        <div class="p-5 flex flex-col min-h-0 flex-1">
           <div
-            class="flex items-center gap-2 border border-slate-300 rounded-xl px-3 py-2 focus-within:ring-2 focus-within:ring-slate-300"
+            class="flex items-center gap-2 border border-slate-300 rounded-xl px-3 py-2 focus-within:ring-2 focus-within:ring-slate-300 shrink-0"
           >
             <span class="text-lg">🔍</span>
             <input
               id="search-input"
               type="search"
               autocomplete="off"
-              placeholder="Ej: cilindro, regulador, manguera..."
+              placeholder="Ej: cilindro, contacto, servicios..."
               class="w-full outline-none text-slate-900"
               oninput="filterProducts()"
               onkeydown="if (event.key === 'Escape') closeSearch();"
             />
           </div>
-          <p id="search-status" class="text-sm text-slate-500 mt-3">
-            Escribe para buscar entre todos los productos.
+
+          <div class="flex gap-2 mt-3 shrink-0" role="tablist">
+            <button
+              type="button"
+              data-filter="all"
+              onclick="setSearchFilter('all')"
+              class="search-tab px-3 py-1.5 rounded-full text-sm font-medium transition-colors"
+            >
+              Todos
+            </button>
+            <button
+              type="button"
+              data-filter="products"
+              onclick="setSearchFilter('products')"
+              class="search-tab px-3 py-1.5 rounded-full text-sm font-medium transition-colors"
+            >
+              Productos
+            </button>
+            <button
+              type="button"
+              data-filter="sections"
+              onclick="setSearchFilter('sections')"
+              class="search-tab px-3 py-1.5 rounded-full text-sm font-medium transition-colors"
+            >
+              Secciones
+            </button>
+          </div>
+
+          <p id="search-status" class="text-sm text-slate-500 mt-3 shrink-0">
+            Escribe para buscar productos o secciones de la página.
           </p>
-          <div id="search-results" class="search-panel mt-4 space-y-2"></div>
+
+          <div
+            id="search-results"
+            class="mt-4 space-y-2 overflow-y-auto flex-1 min-h-0"
+          ></div>
         </div>
       </div>
     </div>
@@ -1005,5 +1018,6 @@
     <script src="assets/js/render-products.js"></script>
     <script src="assets/js/search.js"></script>
     <script src="assets/js/cart.js"></script>
+    <script src="assets/js/scrollspy.js"></script>
   </body>
 </html>
