@@ -65,11 +65,15 @@ function renderCart() {
 
   totalEl.textContent = formatPrice(total);
 
+  const iconWrapper = document.getElementById("cart-icon-wrapper");
+
   if (totalItems > 0) {
     badge.textContent = totalItems;
     badge.classList.remove("hidden");
+    if (iconWrapper) iconWrapper.classList.add("mr-1.5");
   } else {
     badge.classList.add("hidden");
+    if (iconWrapper) iconWrapper.classList.remove("mr-1.5");
   }
 
   // 2) Ahora sí, dibujar las filas.
