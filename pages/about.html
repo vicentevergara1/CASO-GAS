@@ -20,9 +20,11 @@
     <nav
       class="fixed top-0 left-0 w-full z-30 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm"
     >
-      <div class="w-full px-8 h-14 grid grid-cols-3 items-center">
-        <!-- Logo -->
-        <div>
+      <div
+        class="w-full px-4 md:px-8 h-16 flex items-center justify-between gap-4"
+      >
+        <!-- 1. Logo -->
+        <div class="flex-shrink-0">
           <a href="../index.html" class="flex items-center space-x-3">
             <img
               src="../assets/images/logo.png"
@@ -30,78 +32,198 @@
               alt="El Volcan Logo"
             />
             <span class="text-xl text-heading font-semibold whitespace-nowrap">
-              El Volcán
+              El Volcan
             </span>
           </a>
         </div>
 
-        <!-- Navegación -->
-        <div class="flex justify-center">
-          <ul class="font-medium flex items-center space-x-8">
+        <!-- 2. Navegación (solo visible en pantallas grandes XL en adelante para no chocar) -->
+        <div class="hidden xl:flex justify-center flex-1 mx-4">
+          <ul class="font-medium flex items-center space-x-6 whitespace-nowrap">
             <li>
-              <a href="productos.html" class="text-heading hover:text-fg-brand">
-                Productos
-              </a>
+              <a
+                href="../index.html#productos"
+                class="text-heading hover:text-fg-brand"
+                >Productos</a
+              >
             </li>
-
             <li>
               <a
                 href="../index.html#servicios"
                 class="text-heading hover:text-fg-brand"
+                >Servicios</a
               >
-                Servicios
-              </a>
             </li>
-
-            <li>
-              <a href="about.html" class="text-fg-brand font-semibold">
-                Nosotros
-              </a>
-            </li>
-
-            <li>
-              <a href="faq.html" class="text-heading hover:text-fg-brand">
-                Preguntas frecuentes
-              </a>
-            </li>
-
             <li>
               <a
-                href="../index.html#contacto"
+                href="../index.html#nosotros"
                 class="text-heading hover:text-fg-brand"
+                >Nosotros</a
               >
-                Contacto
-              </a>
+            </li>
+            <li>
+              <a
+                href="../index.html#faq"
+                class="text-heading hover:text-fg-brand"
+                >Preguntas frecuentes</a
+              >
+            </li>
+            <li>
+              <a
+                href="..index.html#contacto"
+                class="text-heading hover:text-fg-brand"
+                >Contacto</a
+              >
             </li>
           </ul>
         </div>
 
-        <!-- Buscador + Cuenta + Carrito -->
-        <div class="flex items-center justify-end gap-6">
+        <!-- 3. Buscador + Cuenta + Carrito (desktop nav:) -->
+        <div
+          class="hidden md:flex items-center justify-end gap-4 xl:gap-6 flex-shrink-0"
+        >
+          <!-- Buscador completo -->
+          <form
+            id="nav-search-form"
+            onsubmit="return false;"
+            class="flex items-center bg-white border border-gray-200 rounded-full shadow-md overflow-hidden"
+          >
+            <input
+              type="text"
+              name="q"
+              placeholder="Buscar..."
+              readonly
+              onfocus="openSearch()"
+              onclick="openSearch()"
+              class="px-4 py-1.5 text-gray-700 text-sm outline-none bg-transparent w-36 focus:w-48 xl:w-44 xl:focus:w-56 transition-all duration-300 cursor-pointer"
+            />
+            <button
+              type="submit"
+              aria-label="Buscar productos"
+              onclick="openSearch()"
+              class="bg-[#46cad6] hover:bg-[#34b4c0] px-3.5 py-2 flex items-center justify-center transition-colors"
+            >
+              <img
+                src="../assets/images/search.png"
+                alt="Buscar"
+                class="w-6 h-6 object-contain"
+              />
+            </button>
+          </form>
+          <!-- Cuenta -->
+          <a
+            href="../pages/login.html"
+            class="flex items-center gap-2 text-heading hover:text-fg-brand font-medium whitespace-nowrap"
+          >
+            <img src="../assets/images/accountv3.png" alt="" class="w-7 h-7" />
+            <span class="hidden sm:inline">Cuenta</span>
+          </a>
+
+          <!-- Carrito -->
           <button
             type="button"
-            aria-label="Buscar productos"
-            class="text-xl text-heading hover:text-fg-brand"
+            onclick="toggleCart()"
+            class="flex items-center gap-2 text-heading hover:text-fg-brand font-medium cursor-pointer whitespace-nowrap"
           >
-            🔍
+            <span id="cart-icon-wrapper" class="relative inline-block">
+              <img src="../assets/images/carrito.png" alt="" class="w-6 h-6" />
+              <span
+                id="cart-badge"
+                class="hidden absolute -top-2 -right-3 bg-fg-brand text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center"
+              >
+                0
+              </span>
+            </span>
+            <span class="hidden sm:inline">Carrito</span>
+          </button>
+        </div>
+
+        <!-- 4. Hamburguesa (para pantallas menores a nav: o cuando se oculta el menú) -->
+        <div class="flex xl:hidden items-center gap-1">
+          <!-- Buscar (mobile) -->
+          <button
+            type="button"
+            onclick="openSearch()"
+            aria-label="Buscar productos"
+            class="md:hidden text-heading hover:text-fg-brand p-2"
+          >
+            <img
+              src="../assets/images/search-phone.png"
+              alt=""
+              class="w-6 h-6"
+            />
           </button>
 
-          <a
-            href="login.html"
-            class="flex items-center gap-2 text-heading hover:text-fg-brand font-medium"
+          <button
+            type="button"
+            onclick="toggleCart()"
+            aria-label="Carrito"
+            class="relative md:hidden text-xl text-heading hover:text-fg-brand p-2"
           >
-            <span class="text-xl">👤</span>
-            Cuenta
-          </a>
+            <img src="../assets/images/carrito.png" alt="" class="w-6 h-6" />
 
-          <a
-            href="#"
-            class="flex items-center gap-2 text-heading hover:text-fg-brand font-medium"
+            <span
+              id="cart-badge-mobile"
+              class="hidden absolute top-0 right-0 bg-fg-brand text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center"
+            >
+              0
+            </span>
+          </button>
+
+          <!-- Botón de menú hamburguesa (se muestra en móviles y tablets hasta XL) -->
+          <button
+            type="button"
+            onclick="toggleMobileMenu()"
+            aria-label="Abrir menú"
+            class="text-heading p-2"
           >
-            <span class="text-xl">🛒</span>
-            Carrito
-          </a>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-7 h-7"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+          </button>
         </div>
+      </div>
+
+      <!-- Menú desplegable (mobile / tablet hasta xl) -->
+      <div
+        id="mobile-menu"
+        class="hidden xl:hidden flex-col gap-1 px-4 pb-4 pt-2 border-t border-slate-200 bg-white"
+      >
+        <a href="#productos" class="block py-2 text-heading hover:text-fg-brand"
+          >Productos</a
+        >
+        <a href="#servicios" class="block py-2 text-heading hover:text-fg-brand"
+          >Servicios</a
+        >
+        <a href="#nosotros" class="block py-2 text-heading hover:text-fg-brand"
+          >Nosotros</a
+        >
+        <a href="#faq" class="block py-2 text-heading hover:text-fg-brand"
+          >Preguntas frecuentes</a
+        >
+        <a href="#contacto" class="block py-2 text-heading hover:text-fg-brand"
+          >Contacto</a
+        >
+
+        <!-- Si estamos en móvil pequeño, también mostramos el acceso a la cuenta dentro del menú -->
+        <a
+          href="pages/login.html"
+          class="flex md:hidden items-center gap-2 py-2 text-heading hover:text-fg-brand font-medium border-t border-slate-100 mt-2 pt-2"
+        >
+          <img src="../assets/images/accountv3.png" alt="" class="w-6 h-6" />
+          Cuenta
+        </a>
       </div>
     </nav>
 
@@ -117,7 +239,8 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
-          <div class="space-y-4 text-muted leading-relaxed">
+          <!-- Texto informativo -->
+          <div class="space-y-4 text-slate-600 leading-relaxed">
             <p>
               Desde 1998, en
               <strong class="text-heading"
@@ -141,47 +264,47 @@
             </p>
           </div>
 
-          <!-- TARJETAS DE DATOS DE LA EMPRESA -->
+          <!-- TARJETAS DE DATOS DE LA EMPRESA (Estilizadas) -->
           <div class="grid grid-cols-2 gap-4">
             <div
-              class="border border-default rounded-xl p-6 text-center bg-neutral-primary shadow-sm"
+              class="border border-slate-200 rounded-xl p-6 text-center bg-white shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
             >
               <p class="text-3xl font-bold text-fg-brand mb-1">1998</p>
               <p
-                class="text-xs text-muted font-medium uppercase tracking-wider"
+                class="text-xs text-slate-500 font-medium uppercase tracking-wider"
               >
                 Año de fundación
               </p>
             </div>
 
             <div
-              class="border border-default rounded-xl p-6 text-center bg-neutral-primary shadow-sm"
+              class="border border-slate-200 rounded-xl p-6 text-center bg-white shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
             >
               <p class="text-3xl font-bold text-fg-brand mb-1">+25</p>
               <p
-                class="text-xs text-muted font-medium uppercase tracking-wider"
+                class="text-xs text-slate-500 font-medium uppercase tracking-wider"
               >
                 Años de trayectoria
               </p>
             </div>
 
             <div
-              class="border border-default rounded-xl p-6 text-center bg-neutral-primary shadow-sm"
+              class="border border-slate-200 rounded-xl p-6 text-center bg-white shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
             >
               <p class="text-3xl font-bold text-fg-brand mb-1">100%</p>
               <p
-                class="text-xs text-muted font-medium uppercase tracking-wider"
+                class="text-xs text-slate-500 font-medium uppercase tracking-wider"
               >
                 Cobertura Chillán y aledaños
               </p>
             </div>
 
             <div
-              class="border border-default rounded-xl p-6 text-center bg-neutral-primary shadow-sm"
+              class="border border-slate-200 rounded-xl p-6 text-center bg-white shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
             >
               <p class="text-3xl font-bold text-fg-brand mb-1">Chillán</p>
               <p
-                class="text-xs text-muted font-medium uppercase tracking-wider"
+                class="text-xs text-slate-500 font-medium uppercase tracking-wider"
               >
                 Origen y casa matriz
               </p>
@@ -387,5 +510,113 @@
         </p>
       </div>
     </footer>
+
+    <!-- BUSCADOR -->
+    <div
+      id="search-modal"
+      class="hidden fixed inset-0 bg-black/40 z-[60] p-4 sm:p-6"
+      onclick="handleSearchBackdrop(event)"
+    >
+      <div
+        class="w-full max-w-2xl mx-auto mt-16 bg-white rounded-2xl shadow-2xl overflow-hidden"
+      >
+        <div
+          class="flex items-center justify-between px-5 py-4 border-b border-slate-200"
+        >
+          <h2 class="text-lg font-bold text-slate-900">Buscar producto</h2>
+          <button
+            type="button"
+            onclick="closeSearch()"
+            aria-label="Cerrar buscador"
+            class="text-slate-500 hover:text-slate-900 text-xl"
+          >
+            ✕
+          </button>
+        </div>
+        <div class="p-5">
+          <div
+            class="flex items-center gap-2 border border-slate-300 rounded-xl px-3 py-2 focus-within:ring-2 focus-within:ring-slate-300"
+          >
+            <span class="text-lg">🔍</span>
+            <input
+              id="search-input"
+              type="search"
+              autocomplete="off"
+              placeholder="Ej: cilindro, regulador, manguera..."
+              class="w-full outline-none text-slate-900"
+              oninput="filterProducts()"
+              onkeydown="if (event.key === 'Escape') closeSearch();"
+            />
+          </div>
+          <p id="search-status" class="text-sm text-slate-500 mt-3">
+            Escribe para buscar entre todos los productos.
+          </p>
+          <div id="search-results" class="search-panel mt-4 space-y-2"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARRITO DRAWER -->
+    <div
+      id="cart-overlay"
+      onclick="toggleCart()"
+      class="hidden fixed inset-0 bg-black/40 z-40"
+    ></div>
+
+    <aside
+      id="cart-drawer"
+      class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white z-50 shadow-xl transform translate-x-full transition-transform duration-300 flex flex-col"
+    >
+      <div
+        class="flex items-center justify-between px-6 py-4 border-b border-slate-200"
+      >
+        <h2 class="text-lg font-bold text-slate-900">Tu carrito</h2>
+        <button
+          onclick="toggleCart()"
+          aria-label="Cerrar carrito"
+          class="text-slate-500 hover:text-slate-900 cursor-pointer"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <div id="cart-items" class="flex-1 overflow-y-auto px-6 py-4 space-y-4">
+        <p id="cart-empty" class="text-slate-400 text-sm text-center mt-10">
+          Tu carrito está vacío
+        </p>
+      </div>
+
+      <div class="border-t border-slate-200 px-6 py-4">
+        <div class="flex items-center justify-between mb-4">
+          <span class="font-semibold text-slate-900">Total</span>
+          <span id="cart-total" class="font-bold text-xl text-slate-900"
+            >$0</span
+          >
+        </div>
+        <button
+          class="w-full bg-fg-brand hover:opacity-90 text-white font-semibold py-3 rounded-lg transition-colors cursor-pointer"
+        >
+          Ir a pagar
+        </button>
+      </div>
+    </aside>
+
+    <script src="../assets/js/productos.js"></script>
+    <script src="../assets/js/render-products.js"></script>
+    <script src="../assets/js/search.js"></script>
+    <script src="../assets/js/cart.js"></script>
   </body>
 </html>
