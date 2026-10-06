@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar sesión - El Volcán</title>
+
+    <link rel="stylesheet" href="../src/output.css" />
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <!-- Fondo general gris suave (bg-slate-100) para eliminar el blanco total de la página -->
+  <body
+    class="min-h-screen flex flex-col justify-between bg-slate-100 text-slate-800"
+  >
+    <!-- Header simplificado solo para navegación de retorno -->
+    <header
+      class="w-full max-w-7xl mx-auto p-6 flex justify-between items-center"
+    >
+      <a
+        href="../index.html"
+        class="inline-flex items-center gap-2 text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          class="w-4 h-4"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+          />
+        </svg>
+        Volver al inicio
+      </a>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="w-full max-w-4xl px-4 sm:px-6 mx-auto my-auto py-8">
+      <!-- Tarjeta sin borde y con sombra suave elevada -->
+      <div
+        class="flex flex-col md:flex-row overflow-hidden rounded-2xl bg-white shadow-2xl shadow-slate-300/50"
+      >
+        <!-- COLUMNA IZQUIERDA: Imagen de Chillán + Capa Oscura + Texto -->
+        <div
+          class="w-full md:w-5/12 text-white p-8 md:p-10 flex flex-col justify-between relative min-h-[280px] md:min-h-[460px] overflow-hidden"
+        >
+          <!-- 1. Imagen de fondo Chillán -->
+          <img
+            src="../assets/images/chillan.jpg"
+            alt="Chillán"
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+
+          <!-- 2. Overlay azul/oscuro semi-transparente -->
+          <div
+            class="absolute inset-0 bg-slate-900/75 backdrop-blur-[2px]"
+          ></div>
+
+          <!-- 3. Contenido sobre la imagen -->
+          <div class="flex items-center gap-3 relative z-10">
+            <a href="../index.html">
+              <img
+                src="../assets/images/logo.png"
+                class="h-9 w-auto object-contain"
+                alt="El Volcán Logo"
+            /></a>
+
+            <span class="text-xl font-bold tracking-tight text-white"
+              >El Volcán</span
+            >
+          </div>
+
+          <div class="my-auto py-6 relative z-10">
+            <h2 class="text-2xl font-bold mb-2 leading-tight text-white">
+              Tu energía de confianza en Chillán
+            </h2>
+            <p class="text-sm text-slate-200 leading-relaxed">
+              Inicia sesión para realizar tus pedidos de gas, hacer seguimiento
+              en tiempo real y acceder a promociones exclusivas.
+            </p>
+          </div>
+
+          <p class="text-xs text-slate-300 relative z-10">
+            Distribuidora de Gas El Volcán • Desde 1998
+          </p>
+        </div>
+
+        <!-- COLUMNA DERECHA: Formulario -->
+        <div
+          class="w-full md:w-7/12 p-8 md:p-10 flex flex-col justify-center bg-white"
+        >
+          <h1 class="text-2xl font-bold text-slate-900 mb-6">Iniciar sesión</h1>
+
+          <form id="login-form" class="space-y-5" novalidate>
+            <div>
+              <label
+                for="email"
+                class="block mb-2 text-sm font-medium text-slate-700"
+              >
+                Correo electrónico
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="correo@ejemplo.com"
+                required
+                aria-invalid="false"
+                aria-describedby="email-error"
+                class="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-fg-brand focus:border-transparent transition-all"
+              />
+              <p
+                id="email-error"
+                class="hidden mt-1.5 text-sm text-red-600"
+                role="alert"
+              ></p>
+            </div>
+
+            <div>
+              <label
+                for="password"
+                class="block mb-2 text-sm font-medium text-slate-700"
+              >
+                Contraseña
+              </label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Ingresa tu contraseña"
+                required
+                aria-invalid="false"
+                aria-describedby="password-error"
+                class="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-fg-brand focus:border-transparent transition-all"
+              />
+              <p
+                id="password-error"
+                class="hidden mt-1.5 text-sm text-red-600"
+                role="alert"
+              ></p>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full rounded-lg bg-fg-brand text-white px-4 py-3 font-medium transition hover:opacity-90 cursor-pointer shadow-sm"
+            >
+              Iniciar sesión
+            </button>
+
+            <p class="text-center text-sm text-slate-500 pt-2">
+              ¿No tienes una cuenta?
+              <a
+                href="register.html"
+                class="font-medium text-slate-900 underline hover:text-fg-brand transition-colors"
+              >
+                Regístrate
+              </a>
+            </p>
+          </form>
+
+          <!-- Mensaje de éxito (oculto por defecto) -->
+          <div
+            id="success-message"
+            class="hidden flex-col items-center text-center py-4"
+            role="status"
+          >
+            <div
+              class="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mb-4"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="w-7 h-7 text-green-600"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4.5 12.75l6 6 9-13.5"
+                />
+              </svg>
+            </div>
+            <h2 class="text-xl font-bold text-slate-900 mb-2">
+              ¡Inicio de sesión exitoso!
+            </h2>
+            <p class="text-sm text-slate-500 mb-6">
+              Bienvenido de vuelta a El Volcán.
+            </p>
+            <a
+              href="../index.html"
+              class="w-full rounded-lg bg-fg-brand text-white px-4 py-3 font-medium transition hover:opacity-90 cursor-pointer shadow-sm text-center"
+            >
+              Ir al inicio
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer minimalista -->
+    <footer
+      class="py-6 text-center text-xs text-slate-500 border-t border-slate-200/60"
+    >
+      © 2026 El Volcán. Todos los derechos reservados.
+    </footer>
+
+    <script src="../assets/js/login.js"></script>
+  </body>
+</html>

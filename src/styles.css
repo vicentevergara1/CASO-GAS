@@ -1,0 +1,40 @@
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}.hero{background:linear-gradient(135deg,#e8fbfd,#fff 65%)}.product-card{transition:.2s}.product-card:hover{transform:translateY(-3px)}.product-image{max-height:175px;object-fit:contain}.modal{z-index:1060}.modal-backdrop{z-index:1050}.offcanvas{z-index:1070}.offcanvas-backdrop{z-index:1065}
+
+/* Experiencia responsive y flujo de compra */
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+.navbar-toggler:focus{box-shadow:0 0 0 .2rem rgba(13,110,253,.15)}
+.product-card .btn{white-space:nowrap}
+.cart-offcanvas{width:min(440px,100vw)!important}
+.checkout-overlay{position:fixed;inset:0;z-index:2000;background:rgba(15,23,42,.68);display:flex;align-items:center;justify-content:center;padding:1rem;overflow-y:auto}
+.checkout-panel{width:min(1100px,100%);max-height:calc(100vh - 2rem);background:#fff;border-radius:1rem;box-shadow:0 1rem 3rem rgba(0,0,0,.25);overflow:hidden;display:flex;flex-direction:column}
+.checkout-header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;border-bottom:1px solid #dee2e6;flex-shrink:0}
+.checkout-body{padding:1.25rem;overflow-y:auto}
+.checkout-section{background:#fff;border:1px solid #e9ecef;border-radius:.8rem;padding:1rem}
+.checkout-summary{background:#f8f9fa;border:1px solid #e9ecef;border-radius:.8rem;padding:1rem;position:sticky;top:0}
+.checkout-items{max-height:300px;overflow-y:auto}
+.payment-option{background:#fff;border:1px solid #ced4da;border-radius:.75rem;padding:.8rem .5rem;min-height:105px;transition:.15s ease}
+.payment-option:hover{border-color:#0d6efd}
+.payment-option.active{border:2px solid #0d6efd;background:#eef6ff;color:#0b5ed7}
+.checkout-success{max-width:600px}
+.checkout-success-icon{width:76px;height:76px;border-radius:50%;background:#198754;color:#fff;display:flex;align-items:center;justify-content:center;font-size:2.5rem;font-weight:700;margin:0 auto 1rem}
+@media (max-width:991.98px){
+  .navbar-collapse{padding:.75rem 0 1rem}
+  .navbar-nav{margin-bottom:.75rem!important}
+  .hero .display-4{font-size:2.4rem}
+  .checkout-overlay{padding:.5rem}
+  .checkout-panel{max-height:calc(100vh - 1rem);border-radius:.75rem}
+  .checkout-summary{position:static}
+}
+@media (max-width:575.98px){
+  .container{--bs-gutter-x:1.25rem}
+  .hero{padding-top:2rem!important;padding-bottom:2rem!important}
+  .hero .display-4{font-size:2rem}
+  .hero .btn{width:100%}
+  .product-card .card-body{padding:1rem}
+  .product-image{max-height:145px}
+  .checkout-header{padding:.85rem 1rem}
+  .checkout-body{padding:.85rem}
+  .checkout-section,.checkout-summary{padding:.85rem}
+  .payment-option{min-height:90px}
+  .checkout-success .p-4{padding:1.5rem!important}
+}
