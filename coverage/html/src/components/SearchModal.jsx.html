@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/components/ProductCard.jsx</title>
+    <title>Code coverage report for src/components/SearchModal.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,27 +19,27 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/components</a> ProductCard.jsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/components</a> SearchModal.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">85.71% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>6/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
@@ -64,8 +64,8 @@
     <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
-<a name='L2'></a><a href='#L2'>2</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">34x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export default function ProductCard({product,onAdd}){return &lt;article className="card h-100 shadow-sm border-0 product-card"&gt;&lt;div className="card-body d-flex flex-column"&gt;&lt;span className="badge text-bg-light align-self-start mb-2"&gt;{product.category}&lt;/span&gt;&lt;div className="d-flex align-items-center justify-content-center mb-3" style={{height:180}}&gt;&lt;img src={`/assets/images/${product.image}`} alt={product.name} className="img-fluid product-image"/&gt;&lt;/div&gt;&lt;h3 className="h5"&gt;{product.name}&lt;/h3&gt;&lt;p className="small text-secondary flex-grow-1"&gt;{product.description}&lt;/p&gt;&lt;div className="d-flex justify-content-between align-items-center border-top pt-3"&gt;&lt;strong&gt;${product.price.toLocaleString("es-CL")}&lt;/strong&gt;&lt;button className="btn btn-primary" onClick={()=&gt;onAdd(product)} aria-label={`Agregar ${product.name} al carrito`}&gt;+ Agregar&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/article&gt;}
+<a name='L2'></a><a href='#L2'>2</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export default function SearchModal({products,query,setQuery,onClose}){const results=products.filter(p=&gt;`${p.name} ${p.category}`.toLowerCase().includes(query.toLowerCase()));return &lt;div className="modal d-block" role="dialog" aria-modal="true"&gt;&lt;div className="modal-dialog modal-dialog-centered"&gt;&lt;div className="modal-content"&gt;&lt;div className="modal-header"&gt;&lt;h2 className="h5"&gt;Buscar productos&lt;/h2&gt;&lt;button className="btn-close" onClick={onClose} aria-label="Cerrar busqueda"/&gt;&lt;/div&gt;&lt;div className="modal-body"&gt;&lt;input autoFocus className="form-control mb-3" value={query} onChange={<span class="fstat-no" title="function not covered" >e=&gt;<span class="cstat-no" title="statement not covered" >s</span>etQuery(e.target.value)} p</span>laceholder="Escribe un producto..."/&gt;{query&amp;&amp;results.length===0?&lt;p&gt;Sin resultados.&lt;/p&gt;:results.map(p=&gt;&lt;div className="list-group-item d-flex justify-content-between" key={p.id}&gt;&lt;span&gt;{p.name}&lt;/span&gt;&lt;strong&gt;${p.price.toLocaleString("es-CL")}&lt;/strong&gt;&lt;/div&gt;)}&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;}
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
