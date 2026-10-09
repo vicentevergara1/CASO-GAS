@@ -12,6 +12,7 @@ import {
   saveCart, saveProducts, updateProduct,
 } from "../data/products.js";
 import Admin from "../components/Admin.jsx";
+import {isUploadedImage, prepareProductImage, productImageSource} from "../data/productImages.js";
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -246,6 +247,41 @@ describe("Gas El Volcan - pruebas unitarias", () => {
     expect(failButton).not.toBeUndefined();
     act(() => failButton.click());
     expect(host.textContent).toContain("Completa todos los datos de entrega.");
+  });
+
+  it("24. La ruta de una imagen existente sigue funcionando", () => {
+    expect(productImageSource("5kg.png")).toContain("assets/images/5kg.png");
+    expect(isUploadedImage("5kg.png")).toBeFalse();
+  });
+
+  it("25. Las fotografías subidas se muestran directamente en el catálogo", () => {
+    const uploaded = "data:image/webp;base64,YWJj";
+    expect(productImageSource(uploaded)).toBe(uploaded);
+    render(ProductCard, { product: { ...PRODUCTS[0], image: uploaded }, onAdd: () => {} });
+    expect(host.querySelector(".product-image").getAttribute("src")).toBe(uploaded);
+  });
+
+  it("26. La carga de fotografías rechaza archivos que no son imágenes", async () => {
+    const file = new File(["contenido"], "archivo.txt", { type: "text/plain" });
+    await expectAsync(prepareProductImage(file)).toBeRejectedWithError(/JPG, PNG o WEBP/);
+  });
+
+  it("27. Una fotografía subida permanece en los datos guardados", () => {
+    const uploaded = "data:image/webp;base64,YWJj";
+    const next = updateProduct(PRODUCTS, PRODUCTS[0].id, { ...PRODUCTS[0], image: uploaded });
+    const store = storage();
+    expect(saveProducts(next, store)).toBeTrue();
+    expect(readProducts(store)[0].image).toBe(uploaded);
+  });
+
+  it("28. Administración permite elegir archivo y muestra la foto subida al editar", () => {
+    const uploaded = "data:image/webp;base64,YWJj";
+    const item = { ...PRODUCTS[0], image: uploaded };
+    render(Admin, { products: [item], onSave: () => {}, onDelete: () => {}, onClose: () => {} });
+    expect(host.querySelector("#admin-upload").getAttribute("accept")).toContain("image/png");
+    act(() => host.querySelector(".admin-list-item button").click());
+    expect(host.querySelector("#admin-image").value).toBe("uploaded");
+    expect(host.querySelector(".admin-image-preview").getAttribute("src")).toBe(uploaded);
   });
 
 });

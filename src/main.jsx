@@ -38,10 +38,12 @@ function App(){
  const qty=(id,change)=>setCart(current=>current.map(item=>item.id===id?{...item,qty:item.qty+change}:item).filter(item=>item.qty>0));
  const saveProduct=(fields,id)=>{
   const next=id?updateProduct(products,id,fields):createProduct(products,fields);
+  if(!saveProducts(next)) throw new Error("No hay espacio disponible para guardar la foto en este navegador. Intenta con otra imagen.");
   setProducts(next);
  };
  const removeProduct=(id)=>{
   const next=deleteProduct(products,id);
+  if(!saveProducts(next)) throw new Error("No se pudo guardar el cambio en este navegador.");
   setProducts(next);
   setCart(current=>current.filter(item=>item.id!==id));
  };

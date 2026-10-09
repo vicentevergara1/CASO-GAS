@@ -1,3 +1,4 @@
+import { productImageSource } from "../data/productImages.js";
 import { useEffect, useMemo, useState } from "react";
 
 const formatCLP = (amount) => `$${amount.toLocaleString("es-CL")}`;
@@ -16,7 +17,7 @@ function SearchResultCard({ product, onAdd }) {
         <article className="search-product-card" aria-label={product.name}>
             <div className="search-product-image">
                 <img
-                    src={`${import.meta.env.BASE_URL}assets/images/${product.image}`}
+                    src={productImageSource(product.image)}
                     alt={product.name}
                     loading="lazy"
                 />

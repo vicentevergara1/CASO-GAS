@@ -96,7 +96,8 @@ html{scroll-behavior:smooth;scroll-padding-top:76px}
 
 .admin-page{min-height:calc(100vh - 70px);background:#f5f8fa}
 .admin-form{scroll-margin-top:95px}
-.admin-image-preview{width:100%;max-width:160px;height:96px;object-fit:contain;background:#f8f9fa;border-radius:.5rem}
+.admin-image-preview{width:100%;max-width:160px;height:108px;object-fit:contain;background:#f8f9fa;border-radius:.5rem}
+.admin-image-preview-box{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding:.75rem;border:1px solid #e7ecf1;border-radius:.75rem;background:#fafbfc}
 .admin-list-search{width:min(100%,250px)}
 .admin-list{display:flex;flex-direction:column;gap:.5rem}
 .admin-list-item{display:flex;align-items:center;gap:1rem;padding:.8rem 0;border-bottom:1px solid #e9ecef}
