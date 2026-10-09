@@ -1,1 +1,28 @@
-
+{
+  "name": "caso-gas",
+  "version": "2.0.0",
+  "description": "Gas El Volcan - DSY1104 Evaluacion Parcial 2",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "karma start karma.conf.cjs",
+    "test:evaluacion": "karma start karma.conf.cjs --single-run"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "jasmine-core": "^5.1.2",
+    "karma": "^6.4.4",
+    "karma-chrome-launcher": "^3.2.0",
+    "karma-coverage": "^2.2.1",
+    "karma-jasmine": "^5.1.0",
+    "karma-vite": "^1.0.5",
+    "vite": "^5.4.21"
+  }
+}
