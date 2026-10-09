@@ -61,7 +61,7 @@ describe("Gas El Volcan - pruebas unitarias", () => {
     const button = [...host.querySelectorAll("button")].find((x) => x.textContent === "Cilindros");
     act(() => button.click());
     expect(host.querySelectorAll(".product-card").length).toBe(
-      PRODUCTS.filter((p) => p.category === "Cilindros").length
+        PRODUCTS.filter((p) => p.category === "Cilindros").length
     );
   });
 
@@ -109,4 +109,56 @@ describe("Gas El Volcan - pruebas unitarias", () => {
     });
     expect(host.textContent).toContain("Sin resultados.");
   });
+
+  it("11. SearchModal muestra imagen, precio y controles del carrito", () => {
+    render(SearchModal, {
+      products: PRODUCTS,
+      query: "cilindro 5",
+      setQuery: () => {},
+      onAdd: () => {},
+      onClose: () => {},
+    });
+    expect(host.querySelectorAll(".search-product-card").length).toBe(1);
+    expect(host.querySelector(".search-product-card img").getAttribute("src")).toContain("5kg.png");
+    expect(host.textContent).toContain("$6.500");
+    expect(host.querySelector(".search-add-button")).not.toBeNull();
+  });
+
+  it("12. SearchModal agrega al carrito la cantidad elegida", () => {
+    let selectedProduct = null;
+    let selectedQuantity = 0;
+    render(SearchModal, {
+      products: PRODUCTS,
+      query: "cilindro 5",
+      setQuery: () => {},
+      onAdd: (product, quantity) => {
+        selectedProduct = product;
+        selectedQuantity = quantity;
+      },
+      onClose: () => {},
+    });
+    const increase = host.querySelector('[aria-label="Añadir una unidad de Cilindro Gas 5 Kg"]');
+    act(() => increase.click());
+    act(() => increase.click());
+    act(() => host.querySelector(".search-add-button").click());
+    expect(selectedProduct.id).toBe(PRODUCTS[0].id);
+    expect(selectedQuantity).toBe(3);
+  });
+
+  it("13. SearchModal filtra por categoría y permite volver a ver todo", () => {
+    render(SearchModal, {
+      products: PRODUCTS,
+      query: "",
+      setQuery: () => {},
+      onAdd: () => {},
+      onClose: () => {},
+    });
+    const categoryButton = [...host.querySelectorAll(".search-categories button")]
+        .find((button) => button.textContent === "Reguladores");
+    act(() => categoryButton.click());
+    expect(host.querySelectorAll(".search-product-card").length).toBe(
+        PRODUCTS.filter((product) => product.category === "Reguladores").length
+    );
+  });
+
 });
