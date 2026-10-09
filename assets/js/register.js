@@ -106,7 +106,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Limpia el error de un campo apenas el usuario empieza a corregirlo
   fields.forEach(function (f) {
     document.getElementById(f.id).addEventListener("input", function () {
       if (

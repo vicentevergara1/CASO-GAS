@@ -1,6 +1,6 @@
 body{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}.hero{background:linear-gradient(135deg,#e8fbfd,#fff 65%)}.product-card{transition:.2s}.product-card:hover{transform:translateY(-3px)}.product-image{max-height:175px;object-fit:contain}.modal{z-index:1060}.modal-backdrop{z-index:1050}.offcanvas{z-index:1070}.offcanvas-backdrop{z-index:1065}
 
-/* Experiencia responsive y flujo de compra */
+
 html{scroll-behavior:smooth;scroll-padding-top:76px}
 .navbar-toggler:focus{box-shadow:0 0 0 .2rem rgba(13,110,253,.15)}
 .product-card .btn{white-space:nowrap}
@@ -39,7 +39,7 @@ html{scroll-behavior:smooth;scroll-padding-top:76px}
   .checkout-success .p-4{padding:1.5rem!important}
 }
 
-/* Buscador comercial: tarjetas de producto, selector de cantidad y carrito. */
+
 .search-dialog{max-width:min(1040px,calc(100vw - 1.5rem));margin-inline:auto}
 .search-modal-content{max-height:calc(100dvh - 2rem);border:0;border-radius:1.1rem;overflow:hidden;box-shadow:0 1.5rem 5rem rgba(0,0,0,.24)}
 .search-header{padding:1.35rem 1.5rem;align-items:flex-start;background:#fff}

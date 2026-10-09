@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from "react";
 
 const formatCLP = (amount) => `$${amount.toLocaleString("es-CL")}`;
 
-// Permite encontrar "cilindro" / "CILINDRO" y palabras con o sin tildes.
 const normalizeText = (text) =>
     String(text ?? "")
         .normalize("NFD")
@@ -79,7 +78,6 @@ export default function SearchModal({ products, query, setQuery, onAdd, onClose 
                 `${product.name} ${product.category} ${product.description}`
             );
             const productWords = searchableText.split(/[^a-z0-9]+/).filter(Boolean);
-            // "cilindro 5" también encuentra "Cilindro Gas 5 Kg".
             const matchingWords = searchTerm.split(/\s+/).every((word) =>
                 productWords.some((productWord) => productWord.startsWith(word))
             );
@@ -87,7 +85,6 @@ export default function SearchModal({ products, query, setQuery, onAdd, onClose 
         });
     }, [products, query, category]);
 
-    // Al abrir el buscador se puede cerrar con ESC, como un modal real.
     useEffect(() => {
         function closeOnEscape(event) {
             if (event.key === "Escape") onClose();

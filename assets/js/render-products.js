@@ -1,5 +1,3 @@
-// Genera las tarjetas de producto (mismo diseño en index.html y pages/productos.html)
-// a partir del catálogo único definido en products-data.js.
 
 (function () {
   const SITE_BASE = location.pathname.includes("/pages/") ? "../" : "";
