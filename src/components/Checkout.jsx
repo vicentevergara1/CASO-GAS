@@ -24,7 +24,6 @@ export default function Checkout({ items, onClose, onFinish }) {
     cvv: "",
   });
   const [error, setError] = useState("");
-  const [order, setOrder] = useState(null);
 
   const total = useMemo(
     () => items.reduce((sum, item) => sum + item.price * item.qty, 0),
@@ -56,17 +55,7 @@ export default function Checkout({ items, onClose, onFinish }) {
       setError(message);
       return;
     }
-    // Para la evaluación se puede simular un rechazo usando una tarjeta terminada en 0000.
-    if (payment === "card" && form.cardNumber.replace(/\s/g, "").endsWith("0000")) {
-      setStep("error");
-      return;
-    }
-    setOrder({ id: `GV-${Date.now().toString().slice(-6)}`, customer: { name: form.name, email: form.email, phone: form.phone, address: form.address, commune: form.commune }, items, total, payment, status: "Recibido", createdAt: new Date().toISOString() });
     setStep("success");
-  }
-
-  if (step === "error") {
-    return <div className="checkout-overlay" role="dialog" aria-modal="true" aria-label="Pago rechazado"><div className="checkout-panel checkout-success"><div className="text-center p-4 p-md-5"><div className="checkout-error-icon" aria-hidden="true">!</div><span className="badge text-bg-danger mb-3">Pago rechazado (simulación)</span><h2 className="fw-bold">No pudimos validar el pago</h2><p className="text-secondary">La tarjeta de prueba terminada en 0000 genera un rechazo simulado. No se realizó ningún cobro.</p><button className="btn btn-primary me-2" onClick={() => setStep("form")}>Intentar nuevamente</button><button className="btn btn-outline-secondary mt-2 mt-sm-0" onClick={onClose}>Volver a la tienda</button></div></div></div>;
   }
 
   if (step === "success") {
@@ -80,11 +69,11 @@ export default function Checkout({ items, onClose, onFinish }) {
             <p className="text-secondary mb-1">Gracias, {form.name || "cliente"}. Recibimos tu solicitud correctamente.</p>
             <p className="text-secondary">Total pagado/por pagar: <strong>{formatCLP(total)}</strong></p>
             <div className="alert alert-info text-start mt-4">
-              <strong>Pedido #{order?.id || `GV-${Date.now().toString().slice(-6)}`}</strong>
+              <strong>Pedido #GV-{Date.now().toString().slice(-6)}</strong>
               <br />
               Te enviaremos la información del pedido a <strong>{form.email}</strong>.
             </div>
-            <button className="btn btn-primary btn-lg px-4" onClick={() => onFinish(order)}>
+            <button className="btn btn-primary btn-lg px-4" onClick={() => onFinish()}>
               Volver a la tienda
             </button>
           </div>
@@ -112,23 +101,23 @@ export default function Checkout({ items, onClose, onFinish }) {
                 <div className="row g-3">
                   <div className="col-12 col-md-6">
                     <label className="form-label" htmlFor="checkout-name">Nombre completo</label>
-                    <input id="checkout-name" className="form-control" autoComplete="name" required value={form.name} onChange={update("name")} placeholder="Ej: Juan Pérez" />
+                    <input id="checkout-name" className="form-control" value={form.name} onChange={update("name")} placeholder="Ej: Juan Pérez" />
                   </div>
                   <div className="col-12 col-md-6">
                     <label className="form-label" htmlFor="checkout-phone">Teléfono</label>
-                    <input id="checkout-phone" className="form-control" autoComplete="tel" required value={form.phone} onChange={update("phone")} placeholder="+56 9 1234 5678" />
+                    <input id="checkout-phone" className="form-control" value={form.phone} onChange={update("phone")} placeholder="+56 9 1234 5678" />
                   </div>
                   <div className="col-12">
                     <label className="form-label" htmlFor="checkout-email">Correo electrónico</label>
-                    <input id="checkout-email" type="email" autoComplete="email" required className="form-control" value={form.email} onChange={update("email")} placeholder="cliente@correo.cl" />
+                    <input id="checkout-email" type="email" className="form-control" value={form.email} onChange={update("email")} placeholder="cliente@correo.cl" />
                   </div>
                   <div className="col-12">
                     <label className="form-label" htmlFor="checkout-address">Dirección de entrega</label>
-                    <input id="checkout-address" className="form-control" autoComplete="street-address" required value={form.address} onChange={update("address")} placeholder="Calle y número" />
+                    <input id="checkout-address" className="form-control" value={form.address} onChange={update("address")} placeholder="Calle y número" />
                   </div>
                   <div className="col-12 col-md-6">
                     <label className="form-label" htmlFor="checkout-commune">Comuna</label>
-                    <input id="checkout-commune" className="form-control" required value={form.commune} onChange={update("commune")} placeholder="Ej: Maipú" />
+                    <input id="checkout-commune" className="form-control" value={form.commune} onChange={update("commune")} placeholder="Ej: Maipú" />
                   </div>
                 </div>
               </section>

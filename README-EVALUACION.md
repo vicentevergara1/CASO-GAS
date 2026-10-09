@@ -1,68 +1,63 @@
-# Gas El Volcán — proyecto de evaluación
+# Gas El Volcan - DSY1104 Evaluacion Parcial 2
 
-Aplicación frontend para una distribuidora de gas, construida con React, Vite y Bootstrap 5. Incluye catálogo, filtros, ofertas, detalle de producto, carrito persistente, checkout de demostración, registro local y panel de administración.
+El proyecto fue actualizado a React manteniendo el caso de Gas El Volcan y agregando un flujo de compra responsive para demostrar la experiencia completa desde el catalogo hasta la confirmacion del pedido.
 
-## Requisitos
-- Node.js 20 o superior recomendado.
-- npm.
-- Google Chrome para ejecutar Karma con ChromeHeadless localmente.
+## Funcionalidades para demostrar en la evaluacion
+- Framework moderno: React.
+- Componentes reutilizables con props y callbacks.
+- Estado con `useState` y calculos con `useMemo`.
+- Bootstrap 5 para diseño responsive.
+- Navbar responsive para computador y celular.
+- Catalogo de productos con busqueda y filtros por categoria.
+- Agregar productos al carrito.
+- Aumentar/disminuir cantidades y eliminar productos.
+- Calculo automatico del total.
+- Boton **Ir a pagar** desde el carrito.
+- Checkout responsive con datos de entrega.
+- Tres metodos de pago simulados: tarjeta, transferencia y contra entrega.
+- Validacion del formulario de checkout.
+- Pantalla de confirmacion del pedido.
+- Inicio de sesion con validacion.
+- Busqueda mediante modal.
+- 10 pruebas unitarias con Jasmine y Karma.
+- Reporte de cobertura con Karma Coverage.
 
-## Ejecutar en local
+## Flujo recomendado para presentar
+1. Abrir la aplicacion con `npm run dev`.
+2. Mostrar el menu responsive reduciendo el ancho de la ventana o usando las herramientas del navegador.
+3. Entrar a **Productos** y probar una categoria y el buscador.
+4. Agregar dos productos al carrito.
+5. Abrir **Carrito**, cambiar cantidades y mostrar el total.
+6. Presionar **Ir a pagar**.
+7. Completar datos de entrega y seleccionar un metodo de pago.
+8. Mostrar la validacion dejando un dato obligatorio vacio.
+9. Completar el formulario y presionar **Finalizar pedido**.
+10. Mostrar la pantalla de confirmacion.
+11. Volver a la tienda y mostrar el login y la busqueda.
+
+## Comandos
 ```bash
-npm ci
+npm install
 npm run dev
-```
-
-## Validar antes de entregar
-```bash
 npm run test:evaluacion
 npm run build
 ```
 
-## Funcionalidades
-- Componentes React reutilizables, props, callbacks, `useState`, `useEffect` y `useMemo`.
-- Diseño responsive mediante Bootstrap 5 y CSS media queries.
-- Catálogo con búsqueda y filtro por categoría.
-- Sección de ofertas/destacados y modal de detalle de producto.
-- Carrito con agregar, incrementar, disminuir, eliminar y cálculo de total.
-- Persistencia de carrito, catálogo, usuarios de demostración y pedidos mediante `localStorage`.
-- Checkout con validaciones y métodos de pago simulados.
-- Pago rechazado simulado: en el campo de tarjeta, usar un número de prueba que termine en `0000`, completando los demás campos obligatorios.
-- Panel de administración: crear, listar, editar y eliminar productos; consultar usuarios/pedidos guardados y exportar pedidos a JSON.
-- Registro de usuario para demostración.
-- 15 pruebas unitarias con Jasmine/Karma, incluyendo spies, CRUD, persistencia y validación condicional.
-- Workflow de GitHub Actions para ejecutar pruebas, compilar y publicar en GitHub Pages.
+## Archivos importantes para explicar
+- `src/main.jsx`: estado y logica principal de la aplicacion.
+- `src/components/Navbar.jsx`: navbar responsive, props y estado del menu.
+- `src/ProductCatalog.jsx`: estado de filtros y busqueda.
+- `src/components/ProductCard.jsx`: props y evento para agregar productos.
+- `src/components/Cart.jsx`: cantidades, eliminacion y total.
+- `src/components/Checkout.jsx`: formulario responsive, metodos de pago, validacion y confirmacion.
+- `src/components/SearchModal.jsx`: busqueda de productos.
+- `src/Login.jsx`: validacion de acceso.
+- `src/tests/components.spec.jsx`: 10 pruebas unitarias.
+- `karma.conf.cjs`: configuracion del entorno Jasmine/Karma.
+- `docs/cobertura-testing.md`: documentacion de cobertura.
 
-## Flujo recomendado para la defensa
-1. Mostrar la página en escritorio y reducir el ancho para demostrar responsive.
-2. Filtrar productos por categoría y buscar por nombre.
-3. Abrir detalle, agregar producto y modificar cantidades en el carrito.
-4. Recargar para demostrar persistencia del carrito.
-5. Ir al checkout, dejar un campo vacío para demostrar validación.
-6. Mostrar pago rechazado con una tarjeta de prueba terminada en `0000` y volver a intentar.
-7. Finalizar una compra de demostración y mostrarla en Administración.
-8. Crear, editar y eliminar un producto desde Administración.
-9. Registrar un usuario y mostrar el registro en el panel.
-10. Ejecutar `npm run test:evaluacion` y `npm run build`.
-
-## Archivos clave
-- `src/main.jsx`: componente raíz, estado global del carrito/productos/pedidos y composición de vistas.
-- `src/data/products.js`: datos iniciales y funciones CRUD del catálogo.
-- `src/data/persistence.js`: helpers de lectura/escritura en `localStorage`.
-- `src/ProductCatalog.jsx`: búsqueda y filtros.
-- `src/components/ProductCard.jsx`: tarjeta de producto, props y callbacks.
-- `src/components/Cart.jsx`: cantidades, eliminación y total.
-- `src/components/Checkout.jsx`: validación, flujo de pago simulado y confirmación/rechazo.
-- `src/components/Admin.jsx`: panel CRUD.
-- `src/components/Register.jsx`: registro de demostración.
-- `src/components/ProductDetail.jsx`: detalle del producto.
-- `src/tests/components.spec.jsx`: pruebas unitarias.
-- `karma.conf.cjs`: configuración de Jasmine/Karma.
-- `vite.config.js`: configuración de Vite y base de GitHub Pages.
-
-## Límites importantes
-`localStorage` guarda información únicamente en el navegador y dispositivo actual; no sincroniza datos entre usuarios. No hay backend, autenticación segura ni procesamiento de pagos reales. No usar datos sensibles reales durante la presentación.
-
-
-## Guía de defensa oral
-Consulta `docs/GUIA-DEFENSA.md`, que contiene preguntas probables y respuestas sugeridas sobre React, props, estado, Bootstrap, CRUD, persistencia, pruebas, cobertura y despliegue.
+## Configuracion de testing
+- Vite 5 + `@vitejs/plugin-react`.
+- Karma utiliza los frameworks `vite` y `jasmine`.
+- Las pruebas se ejecutan con ChromeHeadless mediante `npm run test:evaluacion`.
+- El entorno de pruebas usa `React.act` para evitar la advertencia de `ReactDOMTestUtils.act`.

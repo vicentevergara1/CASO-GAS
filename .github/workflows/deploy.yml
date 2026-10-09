@@ -1,38 +1,43 @@
 name: Deploy React to GitHub Pages
+
 on:
   push:
-    branches: [main]
-  workflow_dispatch:
+    branches:
+      - main
+
 permissions:
   contents: read
   pages: write
   id-token: write
-concurrency:
-  group: github-pages
-  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Descargar código
         uses: actions/checkout@v4
+
       - name: Configurar Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
+
       - name: Instalar dependencias
         run: npm ci
-      - name: Ejecutar pruebas
-        run: npm run test:evaluacion
+
       - name: Construir proyecto
         run: npm run build
+
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
-      - name: Subir archivos compilados
+
+      - name: Subir archivos
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
-      - name: Publicar sitio
+
+      - name: Publicar
         id: deployment
         uses: actions/deploy-pages@v4

@@ -1,36 +1,35 @@
-# Plan de pruebas — Gas El Volcán
+# Cobertura de testing - Gas El Volcan
+
+## Objetivo
+Validar la logica y el comportamiento de los componentes principales del frontend React de Gas El Volcan.
 
 ## Herramientas
-- Jasmine: framework de pruebas y expectativas.
-- Karma: ejecuta las pruebas en un navegador.
-- ChromeHeadless: Chrome sin interfaz gráfica.
-- Karma Coverage: genera reporte de cobertura de código.
-- React `act`: asegura que las actualizaciones de estado se procesen antes de comprobar el DOM.
+- Jasmine
+- Karma
+- ChromeHeadless
+- Karma Coverage
+- React
+- Bootstrap 5
 
-## Casos cubiertos
-1. Navbar muestra el nombre de la tienda.
-2. Navbar recibe el contador por props.
-3. ProductCard muestra datos del producto.
-4. ProductCard ejecuta un spy al agregar.
-5. ProductCatalog renderiza todos los productos.
-6. ProductCatalog filtra por categoría.
+## 10 pruebas
+1. Navbar renderiza el nombre de la tienda.
+2. Navbar recibe y muestra `cartCount` mediante props.
+3. ProductCard muestra datos recibidos mediante props.
+4. ProductCard ejecuta el callback `onAdd`.
+5. ProductCatalog renderiza el catalogo.
+6. ProductCatalog cambia estado al seleccionar categoria.
 7. Cart calcula el total.
-8. Cart ejecuta un spy al eliminar.
+8. Cart ejecuta `onRemove`.
 9. SearchModal muestra coincidencias.
-10. SearchModal informa cuando no hay coincidencias.
-11. Checkout muestra el resumen y los datos de entrega.
-12. Checkout presenta un error condicional con formulario incompleto.
-13. CRUD crea, consulta, actualiza y elimina productos.
-14. CRUD rechaza datos obligatorios inválidos.
-15. Helpers de persistencia guardan y recuperan datos de `localStorage`.
+10. SearchModal maneja el caso sin resultados.
 
-## Mocks / spies
-Se usa `jasmine.createSpy()` para comprobar que un componente llama un callback sin tener que ejecutar una acción externa real. Por ejemplo, la prueba del botón Agregar comprueba que `onAdd` se llama con el producto esperado.
+## Mocks
+Los callbacks como `onAdd`, `onRemove`, `onClose` y otros se reemplazan por funciones mock durante las pruebas. Esto permite probar cada componente de forma aislada sin depender de un backend.
 
-## Ejecutar
+## Ejecucion
 ```bash
-npm ci
+npm install
 npm run test:evaluacion
 ```
 
-El reporte HTML se genera en `coverage/html/` y el resumen se muestra en la terminal. Los porcentajes pueden cambiar cuando se modifica el código; no se deben copiar cifras antiguas como si fueran resultados de la última ejecución.
+El reporte de cobertura se genera en `coverage/html/`.

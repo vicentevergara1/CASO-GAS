@@ -1,0 +1,91 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for src/components/Cart.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/components</a> Cart.jsx</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">70% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>7/10</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">50% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>1/2</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">57.14% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>4/7</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>2/2</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line medium'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export default function Cart({items,onClose,onIncrease,onDecrease,onRemove,onCheckout}){const total=items.reduce((s,i)=&gt;s+i.price*i.qty,0);return &lt;&gt;&lt;div className="offcanvas-backdrop show" onClick={onClose}/&gt;&lt;aside className="offcanvas offcanvas-end show cart-offcanvas" style={{visibility:"visible"}}&gt;&lt;div className="offcanvas-header"&gt;&lt;div&gt;&lt;h2 className="h4 mb-0"&gt;Tu carrito&lt;/h2&gt;&lt;small className="text-secondary"&gt;Revisa tus productos antes de pagar.&lt;/small&gt;&lt;/div&gt;&lt;button className="btn-close" onClick={onClose} aria-label="Cerrar carrito"/&gt;&lt;/div&gt;&lt;div className="offcanvas-body d-flex flex-column"&gt;{items.length===0?<span class="branch-0 cbranch-no" title="branch not covered" >&lt;div className="text-center mt-5"&gt;&lt;div className="display-5"&gt;🛒&lt;/div&gt;&lt;p className="text-secondary mt-3"&gt;Tu carrito esta vacio.&lt;/p&gt;&lt;button className="btn btn-outline-primary" onClick={onClose}&gt;Seguir comprando&lt;/button&gt;&lt;/div&gt;:&lt;</span>&gt;{items.map(i=&gt;&lt;div className="border-bottom pb-3 mb-3" key={i.id}&gt;&lt;div className="d-flex justify-content-between gap-2"&gt;&lt;strong&gt;{i.name}&lt;/strong&gt;&lt;button className="btn btn-sm btn-link text-danger p-0" onClick={<span class="fstat-no" title="function not covered" >()=&gt;<span class="cstat-no" title="statement not covered" >o</span>nRemove(i.id)}&gt;E</span>liminar&lt;/button&gt;&lt;/div&gt;&lt;div className="small text-secondary"&gt;{formatCLP(i.price)} c/u&lt;/div&gt;&lt;div className="d-flex align-items-center gap-2 mt-2"&gt;&lt;button className="btn btn-sm btn-outline-secondary" onClick={<span class="fstat-no" title="function not covered" >()=&gt;<span class="cstat-no" title="statement not covered" >o</span>nDecrease(i.id)} a</span>ria-label={`Disminuir ${i.name}`}&gt;−&lt;/button&gt;&lt;span className="fw-semibold"&gt;{i.qty}&lt;/span&gt;&lt;button className="btn btn-sm btn-outline-secondary" onClick={<span class="fstat-no" title="function not covered" >()=&gt;<span class="cstat-no" title="statement not covered" >o</span>nIncrease(i.id)} a</span>ria-label={`Aumentar ${i.name}`}&gt;+&lt;/button&gt;&lt;strong className="ms-auto"&gt;{formatCLP(i.price*i.qty)}&lt;/strong&gt;&lt;/div&gt;&lt;/div&gt;)}&lt;div className="mt-auto border-top pt-3"&gt;&lt;div className="d-flex justify-content-between fs-5"&gt;&lt;strong&gt;Total&lt;/strong&gt;&lt;strong&gt;{formatCLP(total)}&lt;/strong&gt;&lt;/div&gt;&lt;small className="text-secondary d-block mt-1"&gt;Despacho se coordina al finalizar la compra.&lt;/small&gt;&lt;button className="btn btn-primary btn-lg w-100 mt-3" onClick={onCheckout}&gt;Ir a pagar&lt;/button&gt;&lt;button className="btn btn-outline-secondary w-100 mt-2" onClick={onClose}&gt;Seguir comprando&lt;/button&gt;&lt;/div&gt;&lt;/&gt;}&lt;/div&gt;&lt;/aside&gt;&lt;/&gt;}
+function formatCLP(value){return `$${value.toLocaleString("es-CL")}`}
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2026-10-06T18:26:46.322Z
+            </div>
+        <script src="../../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
+    </body>
+</html>
+    
