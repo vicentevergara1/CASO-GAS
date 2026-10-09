@@ -5,42 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="beb3565d-d9c9-4d53-bd9d-fd507f453e7c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/CASO-GAS-main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README-EVALUACION.md" beforeDir="false" afterPath="$PROJECT_DIR$/README-EVALUACION.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/html/base.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/html/block-navigation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/html/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/html/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/html/prettify.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/html/prettify.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/html/sort-arrow-sprite.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/html/sorter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/html/src/ProductCatalog.jsx.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/html/src/components/Cart.jsx.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/html/src/components/Checkout.jsx.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/html/src/components/Navbar.jsx.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/html/src/components/ProductCard.jsx.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/html/src/components/SearchModal.jsx.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/html/src/components/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/html/src/data/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/html/src/data/products.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/html/src/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/html/src/tests/components.spec.jsx.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/html/src/tests/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/cobertura-testing.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/cobertura-testing.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductCatalog.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductCatalog.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Checkout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Checkout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProductCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProductCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/products.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/products.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/karma.conf.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/karma.conf.cjs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tests/components.spec.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/components.spec.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,51 +17,52 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "vicentevergara1"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;vicentevergara1&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/vicentevergara1/CASO-GAS.git",
-    "accountId": "bdfe6028-3d72-43b2-b791-2dc9b94f604d"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/vicentevergara1/CASO-GAS.git&quot;,
+    &quot;accountId&quot;: &quot;bdfe6028-3d72-43b2-b791-2dc9b94f604d&quot;
   }
-}]]></component>
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="3KSpGDwVNJHFot9aw0W6129l0Vt" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="CASO-GAS" />
@@ -116,7 +83,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1791560725678</updated>
-      <workItem from="1791560726990" duration="1364000" />
+      <workItem from="1791560726990" duration="2301000" />
     </task>
     <servers />
   </component>
