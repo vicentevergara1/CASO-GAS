@@ -1,21 +1,18 @@
 module.exports = function (config) {
   config.set({
     basePath: '',
-    frameworks: ['vite', 'jasmine'],
+    frameworks: ['jasmine'],
     plugins: [
-      require('karma-vite'),
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-coverage')
     ],
     files: [
-      {
-        pattern: 'src/tests/**/*.spec.jsx',
-        type: 'module',
-        watched: false,
-        served: false
-      }
+      { pattern: '.karma-build/components.spec.js', watched: false }
     ],
+    preprocessors: {
+      '.karma-build/components.spec.js': ['coverage']
+    },
     reporters: ['progress', 'coverage'],
     coverageReporter: {
       dir: 'coverage/',
@@ -27,10 +24,7 @@ module.exports = function (config) {
     browsers: ['ChromeHeadless'],
     singleRun: true,
     autoWatch: false,
-    client: {
-      clearContext: false
-    }
+    browserNoActivityTimeout: 60000,
+    client: { clearContext: false }
   });
 };
-
-

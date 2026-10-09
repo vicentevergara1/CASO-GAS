@@ -5,7 +5,7 @@
 1. Mostrar la página principal y el catálogo responsivo. Reducir el ancho de Chrome y señalar las clases de Bootstrap en `src/ProductCatalog.jsx`.
 2. Usar el buscador modal, escoger tres unidades y agregar al carrito. Abrir `src/components/SearchModal.jsx` y explicar el estado `quantity` y el callback `onAdd`.
 3. Abrir `src/main.jsx` y explicar el estado `cart`, el cálculo del total y la persistencia mediante `useEffect`.
-4. Entrar a Administración, crear un producto, editar su precio y eliminar uno de prueba. Mostrar `src/components/Admin.jsx` y las funciones `createProduct`, `readProducts`, `updateProduct` y `deleteProduct` en `src/data/products.js`.
+4. Entrar a Administración, seleccionar una foto JPG/PNG/WEBP del computador, verificar la vista previa, guardar el producto y comprobar que la foto aparece en la tienda. Mostrar `src/components/Admin.jsx` y `src/data/productImages.js`. Luego editar el precio y mostrar `createProduct`, `readProducts`, `updateProduct` y `deleteProduct` en `src/data/products.js`.
 5. Recargar la página y demostrar que el catálogo y el carrito siguen presentes por `localStorage`. Aclarar que estos datos están guardados solamente en el navegador local.
 6. Ir al checkout, mostrar un error de validación, luego completar los datos y elegir pago contra entrega para probar el botón Simular pago fallido. Reintentar y mostrar la confirmación.
 7. Abrir `src/tests/components.spec.jsx` para explicar `describe`, `it`, `expect`, mocks y los casos de prueba.
@@ -24,6 +24,10 @@
 **¿Dónde se implementa el CRUD?** En `src/data/products.js` se crean, consultan, editan y eliminan productos. `Admin.jsx` permite ejecutar esas operaciones desde la pantalla.
 
 **¿Dónde se guarda la información?** En el `localStorage` del navegador. Es persistencia local de prueba, no un backend ni una base de datos compartida.
+
+**¿Cómo se sube la fotografía?** `Admin.jsx` recibe el archivo elegido. `prepareProductImage` valida el tipo de imagen y reduce su tamaño antes de guardarlo junto con el producto. `productImageSource` permite mostrar la imagen tanto en el catálogo como en la búsqueda.
+
+**¿La fotografía la verán todos los clientes?** No. Al usar GitHub Pages sin servidor de almacenamiento, la fotografía se conserva solamente en el navegador en que se subió. Para compartirla con todos los usuarios se necesitaría un backend o servicio de archivos.
 
 **¿Cómo se verifica el código?** Jasmine describe las pruebas y sus expectativas; Karma las ejecuta en ChromeHeadless y genera un reporte de cobertura.
 

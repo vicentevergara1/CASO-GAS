@@ -34,10 +34,11 @@ Tienda online para la distribuidora de gas *Gas El Volcán*, migrada de HTML/CSS
 - Pantalla de confirmación del pedido.
 - Formulario de inicio de sesión con validación de correo y contraseña.
 - Administración de productos integrada en React, con creación, lectura, edición y eliminación.
+- Selección de fotografías existentes o carga de fotos JPG, PNG y WEBP desde el equipo, con vista previa y optimización.
 - Persistencia del catálogo y las cantidades del carrito mediante `localStorage`.
 - Pantalla de pago fallido simulado, con opción de volver a intentar.
 
-La administración y el acceso de cliente son demostraciones del frontend, sin autenticación real ni backend. Los datos almacenados con `localStorage` permanecen en el navegador y dispositivo usados. La pasarela de pago también está simulada.
+La administración y el acceso de cliente son demostraciones del frontend, sin autenticación real ni backend. Los datos almacenados con `localStorage`, incluidas las fotografías subidas, permanecen en el navegador y dispositivo usados; no se comparten con otros visitantes de GitHub Pages. La pasarela de pago también está simulada.
 
 ## Instalación y ejecución
 

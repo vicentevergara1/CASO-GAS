@@ -21,8 +21,9 @@ El proyecto fue actualizado a React manteniendo el caso de Gas El Volcan y agreg
 - Busqueda mediante modal con tarjetas de producto, selector de cantidad y carrito.
 - CRUD para crear, consultar, editar y eliminar productos desde la vista de administracion en React.
 - Guardado del carrito y del catalogo en el navegador mediante localStorage.
+- Subida de fotografías JPG, PNG o WEBP desde Administración, con compresión, vista previa y persistencia local en el catálogo y buscador.
 - Pantalla de error de pago simulado y reintento.
-- 23 pruebas unitarias definidas con Jasmine y Karma.
+- 28 pruebas unitarias definidas con Jasmine y Karma.
 - Reporte de cobertura con Karma Coverage, que se actualiza al ejecutar los tests.
 
 ## Flujo recomendado para presentar
@@ -37,7 +38,7 @@ El proyecto fue actualizado a React manteniendo el caso de Gas El Volcan y agreg
 9. Completar el formulario y presionar **Finalizar pedido**.
 10. Mostrar la pantalla de confirmacion.
 11. Volver a la tienda y mostrar el login y la busqueda.
-12. Abrir Administracion, crear un producto y editar su precio.
+12. Abrir Administracion, subir una foto de producto desde el computador y guardarla; crear un producto y editar su precio.
 13. Regresar a Productos y demostrar que aparecio el nuevo producto o se actualizo su precio.
 14. Recargar la pagina para comprobar que se conservaron los cambios y las cantidades del carrito.
 15. Mostrar el flujo de pago fallido de prueba con los datos de entrega ya completados.
@@ -54,6 +55,7 @@ npm run build
 ## Archivos importantes para explicar
 - `src/main.jsx`: estado compartido, persistencia y logica principal.
 - `src/data/products.js`: datos iniciales, CRUD y operaciones de localStorage.
+- `src/data/productImages.js`: validacion, reducción de peso y visualización de imágenes cargadas.
 - `src/components/Admin.jsx`: formulario y lista de administracion.
 - `src/components/Navbar.jsx`: navbar responsive, props y estado del menu.
 - `src/ProductCatalog.jsx`: estado de filtros y busqueda.
@@ -62,7 +64,7 @@ npm run build
 - `src/components/Checkout.jsx`: formulario responsive, metodos de pago, validacion y confirmacion.
 - `src/components/SearchModal.jsx`: busqueda de productos.
 - `src/Login.jsx`: validacion de acceso.
-- `src/tests/components.spec.jsx`: 23 pruebas unitarias definidas.
+- `src/tests/components.spec.jsx`: 28 pruebas unitarias definidas.
 - `karma.conf.cjs`: configuracion del entorno Jasmine/Karma.
 - `docs/cobertura-testing.md`: documentacion de cobertura.
 
@@ -73,3 +75,7 @@ npm run build
 - El entorno de pruebas usa `React.act` para evitar la advertencia de `ReactDOMTestUtils.act`.
 
 La administracion y el pago son simulaciones de frontend. No se ha comprobado aqui la compilacion completa ni la ejecucion en Karma; revisa ambas antes de grabar la presentacion.
+
+## Fotografías cargadas desde Administración
+
+Puedes elegir una imagen del catálogo o subir un archivo JPG, PNG o WEBP de hasta 8 MB. El navegador ajusta su tamaño para guardarlo junto con los productos en `localStorage`. La fotografía aparece en el administrador, las tarjetas del catálogo y el buscador modal. Si no hay espacio, se muestra un error de guardado. Esto funciona únicamente en el navegador y dispositivo que subió la foto: GitHub Pages no almacena el archivo ni lo distribuye a otros visitantes.
