@@ -1,9 +1,5 @@
-// Catálogo único de productos. Todas las páginas (index.html y pages/productos.html)
-// leen de aquí, así el buscador y el carrito funcionan igual en cualquier página
-// y no hay precios/nombres duplicados que se desincronicen.
 
 const PRODUCTS = [
-  // Cilindros
   {
     id: "cilindro-5kg",
     name: "Cilindro Gas 5 Kg",
@@ -49,7 +45,6 @@ const PRODUCTS = [
     featured: false,
   },
 
-  // Mangueras y conexiones
   {
     id: "manguera-1-5m",
     name: "Manguera Gas 1.5 m",
@@ -95,7 +90,6 @@ const PRODUCTS = [
     featured: false,
   },
 
-  // Reguladores
   {
     id: "regulador-estandar",
     name: "Regulador Estándar",
@@ -130,7 +124,6 @@ const PRODUCTS = [
     featured: false,
   },
 
-  // Accesorios
   {
     id: "porta-cilindro",
     name: "Carro Porta Cilindro",

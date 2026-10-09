@@ -18,9 +18,12 @@ El proyecto fue actualizado a React manteniendo el caso de Gas El Volcan y agreg
 - Validacion del formulario de checkout.
 - Pantalla de confirmacion del pedido.
 - Inicio de sesion con validacion.
-- Busqueda mediante modal.
-- 10 pruebas unitarias con Jasmine y Karma.
-- Reporte de cobertura con Karma Coverage.
+- Busqueda mediante modal con tarjetas de producto, selector de cantidad y carrito.
+- CRUD para crear, consultar, editar y eliminar productos desde la vista de administracion en React.
+- Guardado del carrito y del catalogo en el navegador mediante localStorage.
+- Pantalla de error de pago simulado y reintento.
+- 23 pruebas unitarias definidas con Jasmine y Karma.
+- Reporte de cobertura con Karma Coverage, que se actualiza al ejecutar los tests.
 
 ## Flujo recomendado para presentar
 1. Abrir la aplicacion con `npm run dev`.
@@ -34,6 +37,11 @@ El proyecto fue actualizado a React manteniendo el caso de Gas El Volcan y agreg
 9. Completar el formulario y presionar **Finalizar pedido**.
 10. Mostrar la pantalla de confirmacion.
 11. Volver a la tienda y mostrar el login y la busqueda.
+12. Abrir Administracion, crear un producto y editar su precio.
+13. Regresar a Productos y demostrar que aparecio el nuevo producto o se actualizo su precio.
+14. Recargar la pagina para comprobar que se conservaron los cambios y las cantidades del carrito.
+15. Mostrar el flujo de pago fallido de prueba con los datos de entrega ya completados.
+16. Ejecutar las pruebas y revisar cuantos tests pasan y el reporte de cobertura.
 
 ## Comandos
 ```bash
@@ -44,7 +52,9 @@ npm run build
 ```
 
 ## Archivos importantes para explicar
-- `src/main.jsx`: estado y logica principal de la aplicacion.
+- `src/main.jsx`: estado compartido, persistencia y logica principal.
+- `src/data/products.js`: datos iniciales, CRUD y operaciones de localStorage.
+- `src/components/Admin.jsx`: formulario y lista de administracion.
 - `src/components/Navbar.jsx`: navbar responsive, props y estado del menu.
 - `src/ProductCatalog.jsx`: estado de filtros y busqueda.
 - `src/components/ProductCard.jsx`: props y evento para agregar productos.
@@ -52,7 +62,7 @@ npm run build
 - `src/components/Checkout.jsx`: formulario responsive, metodos de pago, validacion y confirmacion.
 - `src/components/SearchModal.jsx`: busqueda de productos.
 - `src/Login.jsx`: validacion de acceso.
-- `src/tests/components.spec.jsx`: 10 pruebas unitarias.
+- `src/tests/components.spec.jsx`: 23 pruebas unitarias definidas.
 - `karma.conf.cjs`: configuracion del entorno Jasmine/Karma.
 - `docs/cobertura-testing.md`: documentacion de cobertura.
 
@@ -61,3 +71,5 @@ npm run build
 - Karma utiliza los frameworks `vite` y `jasmine`.
 - Las pruebas se ejecutan con ChromeHeadless mediante `npm run test:evaluacion`.
 - El entorno de pruebas usa `React.act` para evitar la advertencia de `ReactDOMTestUtils.act`.
+
+La administracion y el pago son simulaciones de frontend. No se ha comprobado aqui la compilacion completa ni la ejecucion en Karma; revisa ambas antes de grabar la presentacion.

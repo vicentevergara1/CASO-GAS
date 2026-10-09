@@ -58,6 +58,36 @@ export default function Checkout({ items, onClose, onFinish }) {
     setStep("success");
   }
 
+  function simulateFailure() {
+    const message = validate();
+    if (message) {
+      setError(message);
+      return;
+    }
+    setError("");
+    setStep("error");
+  }
+
+  if (step === "error") {
+    return (
+      <div className="checkout-overlay" role="dialog" aria-modal="true" aria-label="Pago no realizado">
+        <div className="checkout-panel checkout-success">
+          <div className="text-center p-4 p-md-5">
+            <div className="checkout-error-icon" aria-hidden="true">!</div>
+            <span className="badge text-bg-danger mb-3">Pago rechazado de prueba</span>
+            <h2 className="fw-bold">No se pudo realizar el pago</h2>
+            <p className="text-secondary">Esta es una simulación del flujo de error. No se efectuó ningún cargo ni se generó un pedido.</p>
+            <p className="mb-4">Total del intento: <strong>{formatCLP(total)}</strong></p>
+            <div className="d-flex flex-wrap gap-2 justify-content-center">
+              <button type="button" className="btn btn-primary" onClick={() => setStep("form")}>Volver a intentar</button>
+              <button type="button" className="btn btn-outline-secondary" onClick={onClose}>Cancelar compra</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (step === "success") {
     return (
       <div className="checkout-overlay" role="dialog" aria-modal="true" aria-label="Compra confirmada">
@@ -186,6 +216,7 @@ export default function Checkout({ items, onClose, onFinish }) {
                 <div className="small text-secondary mt-2">🔒 Esta es una simulación de pago para la evaluación.</div>
                 {error && <div className="alert alert-danger mt-3 mb-0" role="alert">{error}</div>}
                 <button type="submit" className="btn btn-primary btn-lg w-100 mt-4">Finalizar pedido · {formatCLP(total)}</button>
+                <button type="button" className="btn btn-outline-danger w-100 mt-2" onClick={simulateFailure}>Simular pago fallido</button>
                 <button type="button" className="btn btn-link w-100 mt-1" onClick={onClose}>Volver al carrito</button>
               </aside>
             </div>

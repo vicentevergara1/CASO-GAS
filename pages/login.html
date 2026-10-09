@@ -7,7 +7,6 @@
 
     <link rel="stylesheet" href="../src/output.css" />
 
-    <!-- FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,11 +15,9 @@
     />
   </head>
 
-  <!-- Fondo general gris suave (bg-slate-100) para eliminar el blanco total de la página -->
   <body
     class="min-h-screen flex flex-col justify-between bg-slate-100 text-slate-800"
   >
-    <!-- Header simplificado solo para navegación de retorno -->
     <header
       class="w-full max-w-7xl mx-auto p-6 flex justify-between items-center"
     >
@@ -46,29 +43,23 @@
       </a>
     </header>
 
-    <!-- CONTENIDO PRINCIPAL -->
     <main class="w-full max-w-4xl px-4 sm:px-6 mx-auto my-auto py-8">
-      <!-- Tarjeta sin borde y con sombra suave elevada -->
       <div
         class="flex flex-col md:flex-row overflow-hidden rounded-2xl bg-white shadow-2xl shadow-slate-300/50"
       >
-        <!-- COLUMNA IZQUIERDA: Imagen de Chillán + Capa Oscura + Texto -->
         <div
           class="w-full md:w-5/12 text-white p-8 md:p-10 flex flex-col justify-between relative min-h-[280px] md:min-h-[460px] overflow-hidden"
         >
-          <!-- 1. Imagen de fondo Chillán -->
           <img
             src="../assets/images/chillan.jpg"
             alt="Chillán"
             class="absolute inset-0 w-full h-full object-cover"
           />
 
-          <!-- 2. Overlay azul/oscuro semi-transparente -->
           <div
             class="absolute inset-0 bg-slate-900/75 backdrop-blur-[2px]"
           ></div>
 
-          <!-- 3. Contenido sobre la imagen -->
           <div class="flex items-center gap-3 relative z-10">
             <a href="../index.html">
               <img
@@ -97,7 +88,6 @@
           </p>
         </div>
 
-        <!-- COLUMNA DERECHA: Formulario -->
         <div
           class="w-full md:w-7/12 p-8 md:p-10 flex flex-col justify-center bg-white"
         >
@@ -170,7 +160,6 @@
             </p>
           </form>
 
-          <!-- Mensaje de éxito (oculto por defecto) -->
           <div
             id="success-message"
             class="hidden flex-col items-center text-center py-4"
@@ -211,7 +200,6 @@
       </div>
     </main>
 
-    <!-- Footer minimalista -->
     <footer
       class="py-6 text-center text-xs text-slate-500 border-t border-slate-200/60"
     >

@@ -1,13 +1,9 @@
-// Lógica del buscador (modal). Busca sobre TODO el catálogo (PRODUCTS)
-// y sobre las secciones de la página (SECTIONS), con filtro por tipo.
 
 (function () {
   const SITE_BASE = location.pathname.includes("/pages/") ? "../" : "";
   const onProductsPage = location.pathname.includes("productos.html");
-  const onIndexPage = !onProductsPage; // ajusta si agregas más páginas
+  const onIndexPage = !onProductsPage;
 
-  // Secciones "buscables" de la página principal (index.html).
-  // Si agregas una sección nueva al index, solo agrégala aquí.
   const SECTIONS = [
     { anchor: "servicios", name: "Servicios" },
     { anchor: "nosotros", name: "Nosotros" },
@@ -15,7 +11,7 @@
     { anchor: "contacto", name: "Contacto" },
   ];
 
-  let currentFilter = "all"; // "all" | "products" | "sections"
+  let currentFilter = "all";
 
   function normalizeText(text) {
     return text
@@ -57,8 +53,6 @@
       navForm.classList.add("border-fg-brand");
     }
 
-    // Siempre reinicia a "Todos" al abrir, para que nadie pierda resultados
-    // por haber dejado un filtro activo la vez anterior.
     currentFilter = "all";
     updateTabStyles();
 
@@ -184,8 +178,6 @@
       return;
     }
 
-    // Si estamos en otra página (ej. productos.html), navegamos al index
-    // con el hash de la sección correspondiente.
     window.location.href = `${SITE_BASE}index.html#${anchor}`;
   };
 })();

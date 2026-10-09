@@ -1,17 +1,14 @@
-// Carrito en memoria (se reinicia al recargar la página)
 let cart = [];
 
 function formatPrice(num) {
   return "$" + num.toLocaleString("es-CL");
 }
 
-// Convierte "18990", "18.990" o "18,990" a un número entero seguro
 function parsePrice(raw) {
   const digitsOnly = String(raw).replace(/\D/g, "");
   return parseInt(digitsOnly, 10) || 0;
 }
 
-// Escapa texto para que no rompa el HTML si el nombre tuviera comillas, etc.
 function escapeHtml(str) {
   const div = document.createElement("div");
   div.textContent = str;
@@ -58,8 +55,6 @@ function renderCart() {
   const totalEl = document.getElementById("cart-total");
   const badge = document.getElementById("cart-badge");
 
-  // 1) Calcular el total PRIMERO, antes de tocar el DOM de las filas.
-  //    Así el precio siempre queda correcto aunque algo falle al dibujar una fila.
   const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
   const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
 
@@ -76,7 +71,6 @@ function renderCart() {
     if (iconWrapper) iconWrapper.classList.remove("mr-1.5");
   }
 
-  // 2) Ahora sí, dibujar las filas.
   container.innerHTML = "";
 
   if (cart.length === 0) {
@@ -132,8 +126,6 @@ function renderCart() {
   });
 }
 
-// Delegación de eventos: un solo listener en el contenedor,
-// en vez de "onclick" escrito como texto en cada botón generado dinámicamente.
 document.getElementById("cart-items").addEventListener("click", function (e) {
   const btn = e.target.closest("button[data-action]");
   if (!btn) return;

@@ -20,14 +20,12 @@
   </head>
 
   <body class="relative w-full min-h-screen flex flex-col bg-neutral-primary">
-    <!-- NAVBAR -->
     <nav
       class="fixed top-0 left-0 w-full z-30 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm"
     >
       <div
         class="w-full px-4 md:px-8 h-16 flex items-center justify-between gap-4"
       >
-        <!-- 1. Logo -->
         <div class="flex-shrink-0">
           <a href="../index.html" class="flex items-center space-x-3">
             <img
@@ -41,7 +39,6 @@
           </a>
         </div>
 
-        <!-- 2. Navegación (solo visible en pantallas grandes XL en adelante para no chocar) -->
         <div class="hidden xl:flex justify-center flex-1 mx-4">
           <ul class="font-medium flex items-center space-x-6 whitespace-nowrap">
             <li>
@@ -82,11 +79,9 @@
           </ul>
         </div>
 
-        <!-- 3. Buscador + Cuenta + Carrito (desktop nav:) -->
         <div
           class="hidden md:flex items-center justify-end gap-4 xl:gap-6 flex-shrink-0"
         >
-          <!-- Buscador completo -->
           <form
             id="nav-search-form"
             onsubmit="return false;"
@@ -114,7 +109,6 @@
               />
             </button>
           </form>
-          <!-- Cuenta -->
           <a
             href="../pages/login.html"
             class="flex items-center gap-2 text-heading hover:text-fg-brand font-medium whitespace-nowrap"
@@ -123,7 +117,6 @@
             <span class="hidden sm:inline">Cuenta</span>
           </a>
 
-          <!-- Carrito -->
           <button
             type="button"
             onclick="toggleCart()"
@@ -142,9 +135,7 @@
           </button>
         </div>
 
-        <!-- 4. Hamburguesa (para pantallas menores a nav: o cuando se oculta el menú) -->
         <div class="flex xl:hidden items-center gap-1">
-          <!-- Buscar (mobile) -->
           <button
             type="button"
             onclick="openSearch()"
@@ -174,7 +165,6 @@
             </span>
           </button>
 
-          <!-- Botón de menú hamburguesa (se muestra en móviles y tablets hasta XL) -->
           <button
             type="button"
             onclick="toggleMobileMenu()"
@@ -199,7 +189,6 @@
         </div>
       </div>
 
-      <!-- Menú desplegable (mobile / tablet hasta xl) -->
       <div
         id="mobile-menu"
         class="hidden xl:hidden flex-col gap-1 px-4 pb-4 pt-2 border-t border-slate-200 bg-white"
@@ -230,7 +219,6 @@
           >Contacto</a
         >
 
-        <!-- Si estamos en móvil pequeño, también mostramos el acceso a la cuenta dentro del menú -->
         <a
           href="../pages/login.html"
           class="flex md:hidden items-center gap-2 py-2 text-heading hover:text-fg-brand font-medium border-t border-slate-100 mt-2 pt-2"
@@ -241,11 +229,8 @@
       </div>
     </nav>
 
-    <!-- CONTENIDO PRINCIPAL -->
     <main class="w-full flex-1 pt-24 pb-16 bg-slate-50">
-      <!-- CABECERA Y NAVEGACIÓN RÁPIDA POR CATEGORÍAS -->
       <section class="w-full max-w-7xl mx-auto px-4 sm:px-6 mb-12">
-        <!-- Título principal -->
         <div class="text-center max-w-xl mx-auto mb-10">
           <h1 class="text-3xl sm:text-4xl font-bold text-slate-900">
             Catálogo de Productos
@@ -256,7 +241,6 @@
           </p>
         </div>
 
-        <!-- Botones de Navegación por Categorías -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
           <a
             href="#cilindros"
@@ -304,7 +288,6 @@
         </div>
       </section>
 
-      <!-- CILINDROS -->
       <section
         id="cilindros"
         class="w-full max-w-7xl mx-auto px-4 sm:px-6 py-8 scroll-mt-20 border-t border-slate-200"
@@ -324,7 +307,6 @@
         ></div>
       </section>
 
-      <!-- MANGUERAS Y CONEXIONES -->
       <section
         id="mangueras"
         class="w-full max-w-7xl mx-auto px-4 sm:px-6 py-8 scroll-mt-20 border-t border-slate-200"
@@ -344,7 +326,6 @@
         ></div>
       </section>
 
-      <!-- REGULADORES -->
       <section
         id="reguladores"
         class="w-full max-w-7xl mx-auto px-4 sm:px-6 py-8 scroll-mt-20 border-t border-slate-200"
@@ -362,7 +343,6 @@
         ></div>
       </section>
 
-      <!-- ACCESORIOS -->
       <section
         id="accesorios"
         class="w-full max-w-7xl mx-auto px-4 sm:px-6 py-8 scroll-mt-20 border-t border-slate-200"
@@ -381,12 +361,10 @@
       </section>
     </main>
 
-    <!-- FOOTER -->
     <footer class="bg-white border-t border-slate-200">
       <div
         class="w-full max-w-7xl mx-auto px-8 py-12 grid grid-cols-1 md:grid-cols-3 gap-10"
       >
-        <!-- INFORMACIÓN -->
         <div>
           <a href="../index.html" class="inline-flex items-center gap-3 mb-4">
             <img
@@ -405,7 +383,6 @@
           </p>
         </div>
 
-        <!-- ENLACES -->
         <div>
           <h2
             class="mb-4 text-xs font-bold uppercase tracking-wider text-slate-900"
@@ -461,7 +438,6 @@
           </ul>
         </div>
 
-        <!-- CONTACTO -->
         <div>
           <h2
             class="mb-4 text-xs font-bold uppercase tracking-wider text-slate-900"
@@ -472,7 +448,6 @@
           <ul
             class="grid grid-cols-[1.25rem_1fr] gap-x-2 gap-y-2.5 text-sm text-slate-500"
           >
-            <!-- Teléfono -->
             <li class="contents">
               <span class="flex items-center justify-center text-fg-brand">
                 <svg
@@ -493,7 +468,6 @@
               <span class="self-center">+56 9 XXXX XXXX</span>
             </li>
 
-            <!-- Correo -->
             <li class="contents">
               <span class="flex items-center justify-center text-fg-brand">
                 <svg
@@ -514,7 +488,6 @@
               <span class="self-center">contacto@elvolcan.cl</span>
             </li>
 
-            <!-- Ubicación -->
             <li class="contents">
               <span class="flex items-center justify-center text-fg-brand">
                 <svg
@@ -543,7 +516,6 @@
         </div>
       </div>
 
-      <!-- COPYRIGHT -->
       <div class="border-t border-slate-100">
         <div
           class="max-w-7xl mx-auto px-8 py-5 text-center text-sm font-medium text-slate-500"
@@ -552,7 +524,6 @@
         </div>
       </div>
     </footer>
-    <!-- BUSCADOR -->
     <div
       id="search-modal"
       class="hidden fixed inset-0 bg-black/40 z-[60] overflow-y-auto p-4 sm:p-6"
@@ -630,7 +601,6 @@
       </div>
     </div>
 
-    <!-- CARRITO DRAWER -->
     <div
       id="cart-overlay"
       onclick="toggleCart()"
@@ -668,7 +638,6 @@
       </div>
 
       <div id="cart-items" class="flex-1 overflow-y-auto px-6 py-4 space-y-4">
-        <!-- JS inserta los items aquí -->
         <p id="cart-empty" class="text-slate-400 text-sm text-center mt-10">
           Tu carrito está vacío
         </p>

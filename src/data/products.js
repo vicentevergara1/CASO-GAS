@@ -1,9 +1,5 @@
-// Catálogo único de productos. Todas las páginas (index.html y pages/productos.html)
-// leen de aquí, así el buscador y el carrito funcionan igual en cualquier página
-// y no hay precios/nombres duplicados que se desincronicen.
 
 const PRODUCTS = [
-  // Cilindros
   {
     id: "cilindro-5kg",
     name: "Cilindro Gas 5 Kg",
@@ -49,7 +45,6 @@ const PRODUCTS = [
     featured: false,
   },
 
-  // Mangueras y conexiones
   {
     id: "manguera-1-5m",
     name: "Manguera Gas 1.5 m",
@@ -95,7 +90,6 @@ const PRODUCTS = [
     featured: false,
   },
 
-  // Reguladores
   {
     id: "regulador-estandar",
     name: "Regulador Estándar",
@@ -130,7 +124,6 @@ const PRODUCTS = [
     featured: false,
   },
 
-  // Accesorios
   {
     id: "porta-cilindro",
     name: "Carro Porta Cilindro",
@@ -167,3 +160,114 @@ const PRODUCTS = [
 ];
 
 export { PRODUCTS };
+
+export const PRODUCTS_STORAGE_KEY = "gas-el-volcan-products-v2";
+export const CART_STORAGE_KEY = "gas-el-volcan-cart-v2";
+
+const categoryAnchors = {
+  Cilindros: "cilindros",
+  Mangueras: "mangueras",
+  Reguladores: "reguladores",
+  Accesorios: "accesorios",
+};
+
+function validProduct(product) {
+  return product && typeof product.id === "string" && product.id.length > 0 &&
+    typeof product.name === "string" && product.name.trim().length > 0 &&
+    typeof product.category === "string" && Object.hasOwn(categoryAnchors, product.category) &&
+    Number.isFinite(product.price) && product.price > 0 &&
+    typeof product.image === "string" && product.image.length > 0 &&
+    typeof product.description === "string";
+}
+
+function localStore() {
+  try {
+    return globalThis.localStorage;
+  } catch {
+    return null;
+  }
+}
+
+export function readProducts(storage = localStore()) {
+  try {
+    const saved = storage?.getItem(PRODUCTS_STORAGE_KEY);
+    if (saved === null || saved === undefined) return PRODUCTS.map((product) => ({ ...product }));
+    const products = JSON.parse(saved);
+    if (!Array.isArray(products) || !products.every(validProduct)) throw new Error("Catálogo inválido");
+    if (new Set(products.map((product) => product.id)).size !== products.length) throw new Error("IDs repetidos");
+    return products;
+  } catch {
+    return PRODUCTS.map((product) => ({ ...product }));
+  }
+}
+
+export function saveProducts(products, storage = localStore()) {
+  try {
+    storage?.setItem(PRODUCTS_STORAGE_KEY, JSON.stringify(products));
+    return Boolean(storage);
+  } catch {
+    return false;
+  }
+}
+
+function fieldsForProduct(fields) {
+  const name = String(fields.name ?? "").trim();
+  const description = String(fields.description ?? "").trim();
+  const category = String(fields.category ?? "");
+  const image = String(fields.image ?? "");
+  const price = Number(fields.price);
+  if (!name || !description || !categoryAnchors[category] || !image || !Number.isSafeInteger(price) || price <= 0) {
+    throw new Error("Completa nombre, categoría, precio válido, imagen y descripción.");
+  }
+  return { name, description, category, categoryAnchor: categoryAnchors[category], image, price, featured: Boolean(fields.featured) };
+}
+
+export function createProduct(products, fields) {
+  const product = {
+    id: `producto-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`,
+    ...fieldsForProduct(fields),
+  };
+  return [...products, product];
+}
+
+export function getProductById(products, id) {
+  return products.find((product) => product.id === id) ?? null;
+}
+
+export function updateProduct(products, id, fields) {
+  if (!getProductById(products, id)) throw new Error("El producto no existe.");
+  const changes = fieldsForProduct(fields);
+  return products.map((product) => product.id === id ? { ...product, ...changes } : product);
+}
+
+export function deleteProduct(products, id) {
+  if (!getProductById(products, id)) throw new Error("El producto no existe.");
+  return products.filter((product) => product.id !== id);
+}
+
+export function readCart(products, storage = localStore()) {
+  try {
+    const saved = storage?.getItem(CART_STORAGE_KEY);
+    if (!saved) return [];
+    const entries = JSON.parse(saved);
+    if (!Array.isArray(entries)) return [];
+    const quantities = new Map();
+    for (const item of entries) {
+      if (item && typeof item.id === "string" && Number.isSafeInteger(item.qty) && item.qty > 0 && getProductById(products, item.id)) {
+        quantities.set(item.id, (quantities.get(item.id) || 0) + item.qty);
+      }
+    }
+    return [...quantities].map(([id, qty]) => ({ id, qty }));
+  } catch {
+    return [];
+  }
+}
+
+export function saveCart(cart, storage = localStore()) {
+  try {
+    storage?.setItem(CART_STORAGE_KEY, JSON.stringify(cart.map(({ id, qty }) => ({ id, qty }))));
+    return Boolean(storage);
+  } catch {
+    return false;
+  }
+}

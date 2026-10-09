@@ -42,7 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value;
 
-    // Correo: obligatorio, formato válido y más de 3 caracteres
     if (!email) {
       setInvalid(
         "email",
@@ -66,7 +65,6 @@ document.addEventListener("DOMContentLoaded", function () {
       isValid = false;
     }
 
-    // Contraseña: obligatoria y más de 6 caracteres
     if (!password) {
       setInvalid(
         "password",
@@ -83,7 +81,6 @@ document.addEventListener("DOMContentLoaded", function () {
       isValid = false;
     }
 
-    // Por ahora se permite cualquier usuario que cumpla el formato (no hay backend)
     if (isValid) {
       form.classList.add("hidden");
       successMessage.classList.remove("hidden");
@@ -91,7 +88,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Limpia el error de un campo apenas el usuario empieza a corregirlo
   fields.forEach(function (f) {
     document.getElementById(f.id).addEventListener("input", function () {
       if (
