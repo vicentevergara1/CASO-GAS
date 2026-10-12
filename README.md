@@ -18,7 +18,7 @@ Tienda online para la distribuidora de gas *Gas El Volcán*, migrada de HTML/CSS
 
 ## Tecnologías
 
-- [React 28](https://react.dev/) (componentes, props, `useState`, `useMemo`)
+- [React 18](https://react.dev/) (componentes, props, `useState`, `useMemo`)
 - [Vite 5](https://vitejs.dev/) como bundler y servidor de desarrollo
 - [Bootstrap 5.3](https://getbootstrap.com/) para el diseño responsivo
 - [Jasmine](https://jasmine.github.io/) + [Karma](https://karma-runner.github.io/) + Karma Coverage para testing
