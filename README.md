@@ -86,7 +86,7 @@ CASO-GAS/
 
 ## Pruebas unitarias
 
-Las 23 pruebas están definidas en `src/tests/components.spec.jsx`:
+Las 28 pruebas están definidas en `src/tests/components.spec.jsx`:
 
 1. Navbar renderiza el nombre de la tienda.
 2. Navbar recibe `cartCount` por props.
