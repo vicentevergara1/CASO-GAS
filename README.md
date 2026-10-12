@@ -9,7 +9,7 @@ Tienda online para la distribuidora de gas *Gas El Volcán*, migrada de HTML/CSS
 |---|---|
 | Vicente Vergara | [@vicentevergara1](https://github.com/vicentevergara1) |
 | Juan Parra | https://github.com/juanalonsoparraverdejo |
-| Benjamín Perez | _(usuario)_ |
+| Benjamín Perez | https://github.com/Benja-ignacio |
 
 ## Enlaces
 
