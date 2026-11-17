@@ -27,11 +27,11 @@ export default function Navbar({
   }
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm border-bottom">
+    <nav className="navbar navbar-expand-lg navbar-light fixed-top store-navbar">
       <div className="container-fluid px-3 px-lg-5">
-        <a className="navbar-brand d-flex align-items-center gap-2 fw-semibold" href="#inicio" onClick={() => navigate(isSeller ? "products" : "store")}>
-          <img src={`${import.meta.env.BASE_URL}assets/images/logo.png`} alt="Gas El Volcán" style={{ height: 42 }} />
-          El Volcán
+        <a className="navbar-brand store-brand d-flex align-items-center gap-2" href="#inicio" onClick={() => navigate(isSeller ? "products" : "store")}>
+          <img src={`${import.meta.env.BASE_URL}assets/images/logo.png`} alt="" />
+          <span><strong>Gas El Volcán</strong><small>Distribuidora</small></span>
         </a>
         <button className="navbar-toggler" aria-label="Abrir menú" aria-expanded={open} onClick={() => setOpen(!open)}>
           <span className="navbar-toggler-icon" />
@@ -41,7 +41,7 @@ export default function Navbar({
             {roleLinks.map(([label, target]) => (
               <li className="nav-item" key={target}>
                 <a
-                  className={`nav-link ${view === target ? "active fw-semibold" : ""}`}
+                  className={`nav-link store-nav-link ${view === target ? "active fw-semibold" : ""}`}
                   href={target.startsWith("anchor:") ? `#${target.slice(7)}` : "#"}
                   onClick={(event) => { event.preventDefault(); navigate(target); }}
                 >
@@ -51,19 +51,19 @@ export default function Navbar({
             ))}
             {isAdmin && (
               <>
-                <li className="nav-item"><button className={`nav-link btn btn-link ${view === "admin" ? "active fw-semibold" : ""}`} onClick={() => navigate("admin")}>Administración</button></li>
-                <li className="nav-item"><button className={`nav-link btn btn-link ${view === "orders" ? "active fw-semibold" : ""}`} onClick={() => navigate("orders")}>Pedidos</button></li>
+                <li className="nav-item"><button className={`nav-link store-nav-link btn btn-link ${view === "admin" ? "active fw-semibold" : ""}`} onClick={() => navigate("admin")}>Administración</button></li>
+                <li className="nav-item"><button className={`nav-link store-nav-link btn btn-link ${view === "orders" ? "active fw-semibold" : ""}`} onClick={() => navigate("orders")}>Pedidos</button></li>
               </>
             )}
           </ul>
 
           <div className="d-flex flex-column flex-lg-row gap-2 align-items-lg-center">
-            {!isSeller && <button type="button" className="btn btn-outline-secondary" onClick={() => { setOpen(false); onSearch?.(); }}>🔎 Buscar</button>}
-            {!isSeller && <a className="btn btn-outline-dark" href="#login" onClick={() => navigate("store")}>{user ? `Cuenta · ${user.name}` : "Cuenta"}</a>}
-            {user && <button type="button" className="btn btn-outline-secondary" onClick={onLogout}>Cerrar sesión</button>}
+            {!isSeller && <button type="button" className="btn btn-outline-secondary nav-utility-button" onClick={() => { setOpen(false); onSearch?.(); }}>⌕ Buscar</button>}
+            {!isSeller && <a className="btn btn-outline-secondary nav-utility-button" href="#login" onClick={() => navigate("store")}>{user ? `Cuenta · ${user.name}` : "Cuenta"}</a>}
+            {user && <button type="button" className="btn btn-outline-secondary nav-utility-button" onClick={onLogout}>Cerrar sesión</button>}
             {!isSeller && (
-              <button type="button" className="btn btn-primary position-relative" onClick={onCartOpen}>
-                🛒 Carrito
+              <button type="button" className="btn btn-primary position-relative nav-cart-button" onClick={onCartOpen}>
+                Carrito <span aria-hidden="true">↗</span>
                 {cartCount > 0 && <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{cartCount}</span>}
               </button>
             )}

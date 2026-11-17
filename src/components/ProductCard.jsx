@@ -1,21 +1,28 @@
-import {productImageSource} from "../data/productImages.js";
+import { productImageSource } from "../data/productImages.js";
 
 export default function ProductCard({ product, onAdd, onViewDetails, readOnly = false }) {
   const stock = product.stock === undefined || product.stock === null ? null : Number(product.stock);
   const canAdd = typeof onAdd === "function" && !readOnly;
   return (
-    <article className="card h-100 shadow-sm border-0 product-card">
+    <article className="card h-100 product-card">
+      <div className="product-card-art">
+        <span className="product-card-category">{product.category}</span>
+        {product.featured && <span className="product-featured">Destacado</span>}
+        <img src={productImageSource(product.image)} alt={product.name} className="product-image" />
+      </div>
       <div className="card-body d-flex flex-column">
-        <span className="badge text-bg-light align-self-start mb-2">{product.category}</span>
-        <div className="d-flex align-items-center justify-content-center mb-3" style={{ height: 180 }}>
-          <img src={productImageSource(product.image)} alt={product.name} className="img-fluid product-image" />
+        <h3 className="product-card-title">{product.name}</h3>
+        <p className="product-card-description flex-grow-1">{product.description}</p>
+        <div className="product-card-stock">
+          <span className={`stock-dot ${stock !== null && stock < 1 ? "out" : ""}`} />
+          {stock === null ? "Stock por consultar" : stock < 1 ? "Sin stock disponible" : `${stock} unidades disponibles`}
         </div>
-        <h3 className="h5">{product.name}</h3>
-        <p className="small text-secondary flex-grow-1">{product.description}</p>
-        <div className="small text-secondary mb-2">{stock === null ? "Stock por consultar" : `Stock disponible: ${stock}`}</div>
-        <div className="d-flex flex-wrap justify-content-between align-items-center gap-2 border-top pt-3">
-          <strong>${Number(product.price).toLocaleString("es-CL")}</strong>
-          <div className="d-flex gap-2">
+        <div className="product-card-footer">
+          <div className="product-card-price-wrap">
+            <span>Precio</span>
+            <strong>${Number(product.price).toLocaleString("es-CL")}</strong>
+          </div>
+          <div className="product-card-actions">
             {canAdd && <button className="btn btn-primary" disabled={stock !== null && stock < 1} onClick={() => onAdd(product)} aria-label={`Agregar ${product.name} al carrito`}>+ Agregar</button>}
             <button type="button" className="btn btn-outline-primary" onClick={() => onViewDetails?.(product)}>Ver detalle</button>
           </div>

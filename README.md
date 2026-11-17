@@ -62,6 +62,10 @@ npm run test:evaluacion
 
 Para pruebas locales, el backend debe permitir el origen `http://localhost:5173`, habilitar cookies con credenciales y usar `COOKIE_SAME_SITE=Lax` y `COOKIE_SECURE=false`. Sigue el README del backend para configurar MySQL, JWT y usuarios ADMIN/VENDEDOR; no subas el `.env` del backend ni compartas las contraseñas.
 
+## Publicación en GitHub Pages
+
+El workflow de GitHub Actions usa la variable de repositorio `VITE_API_BASE_URL`. Antes de publicar, entra a **Settings → Secrets and variables → Actions → Variables**, crea `VITE_API_BASE_URL` y asígnale el origen HTTPS público del backend, sin agregar `/api` al final. No es un secreto; es la dirección pública de la API. El workflow detiene la compilación si la variable está vacía para evitar publicar una versión que intente conectarse a `localhost`. Usa una dirección que ya hayas comprobado desde el navegador donde se utilizará el sitio.
+
 ## Archivos principales
 
 - `src/main.jsx`: estado de tienda, catálogo y checkout.

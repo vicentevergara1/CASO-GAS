@@ -17,6 +17,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      VITE_API_BASE_URL: ${{ vars.VITE_API_BASE_URL }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -24,9 +26,13 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci
+      - name: Validar URL pública del backend
+        run: |
+          if [ -z "$VITE_API_BASE_URL" ]; then
+            echo "::error::Configura la variable de repositorio VITE_API_BASE_URL en Settings > Secrets and variables > Actions > Variables. Debe contener el origen HTTPS público de la API, sin /api al final."
+            exit 1
+          fi
       - run: npm run build
-        env:
-          VITE_API_BASE_URL: https://3.80.86.195.nip.io
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

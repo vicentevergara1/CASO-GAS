@@ -192,47 +192,135 @@ function StoreApp() {
   if (isSeller) {
     content = view === "orders"
       ? <OrdersPanel onBack={() => navigate("products")} />
-      : <main id="inicio" style={{ paddingTop: 70 }}>
+      : <main id="inicio" className="store-main" style={{ paddingTop: 84 }}>
           <section className="py-4 bg-light border-bottom">
             <div className="container"><span className="badge text-bg-info mb-2">Vista de vendedor</span><h1 className="h2 fw-bold mb-1">Productos</h1><p className="text-secondary mb-0">Consulta el catálogo y el detalle de cada producto.</p></div>
           </section>
           {catalog}
         </main>;
   } else if (view === "admin" && isAdmin) {
-    content = <main style={{ paddingTop: 70 }}><Admin products={products} categories={categories} onSave={saveProduct} onDelete={removeProduct} onClose={() => navigate("store")} /></main>;
+    content = <main style={{ paddingTop: 84 }}><Admin products={products} categories={categories} onSave={saveProduct} onDelete={removeProduct} onClose={() => navigate("store")} /></main>;
   } else if (view === "orders" && isAdmin) {
-    content = <main style={{ paddingTop: 70 }}><OrdersPanel onBack={() => navigate("store")} /></main>;
+    content = <main style={{ paddingTop: 84 }}><OrdersPanel onBack={() => navigate("store")} /></main>;
   } else {
     content = (
-      <main id="inicio" style={{ paddingTop: 70 }}>
-        <section className="hero py-5">
-          <div className="container py-5">
-            <div className="row align-items-center g-4">
-              <div className="col-lg-7">
-                <span className="badge text-bg-info mb-3">Gas El Volcán</span>
-                <h1 className="display-4 fw-bold">Gas para tu hogar, con servicio cercano y confiable.</h1>
-                <p className="lead text-secondary">Compra cilindros, accesorios y soluciones para gas de manera simple.</p>
-                <a className="btn btn-primary btn-lg" href="#productos">Ver productos</a>
+      <main id="inicio" className="store-main" style={{ paddingTop: 84 }}>
+        <section className="hero-section">
+          <div className="hero-orb hero-orb-one" aria-hidden="true" />
+          <div className="hero-orb hero-orb-two" aria-hidden="true" />
+          <div className="container hero-container">
+            <div className="row align-items-center g-5">
+              <div className="col-lg-6 hero-copy">
+                <span className="hero-kicker"><span className="hero-kicker-dot" /> Energía para tu día a día</span>
+                <h1>El gas que necesitas, <span>cerca de ti.</span></h1>
+                <p className="hero-description">Encuentra cilindros, reguladores y accesorios para tu hogar o negocio en un solo lugar.</p>
+                <div className="hero-actions">
+                  <a className="btn btn-primary btn-lg hero-primary-button" href="#productos">Explorar catálogo <span aria-hidden="true">→</span></a>
+                  <a className="hero-text-link" href="#servicios">Conoce nuestros servicios</a>
+                </div>
+                <div className="hero-highlights">
+                  <div className="hero-highlight"><span className="hero-highlight-icon">✓</span><span>Compra simple</span></div>
+                  <div className="hero-highlight"><span className="hero-highlight-icon">✓</span><span>Hogar y negocio</span></div>
+                  <div className="hero-highlight"><span className="hero-highlight-icon">✓</span><span>Atención cercana</span></div>
+                </div>
               </div>
-              <div className="col-lg-5 text-center"><img src={`${import.meta.env.BASE_URL}assets/images/volcan.png`} className="img-fluid" alt="Gas El Volcán" /></div>
+              <div className="col-lg-6">
+                <div className="hero-visual" aria-label="Cilindro de gas para el hogar">
+                  <div className="hero-visual-ring" aria-hidden="true" />
+                  <div className="hero-visual-glow" aria-hidden="true" />
+                  <img className="hero-cylinder" src={`${import.meta.env.BASE_URL}assets/images/15kg.png`} alt="Cilindro de gas de 15 kilogramos" />
+                  <div className="hero-floating-note">
+                    <span className="hero-floating-label">GAS EL VOLCÁN</span>
+                    <strong>Soluciones para tu hogar</strong>
+                    <span>Cilindros y accesorios</span>
+                  </div>
+                  <div className="hero-sticker"><span>+</span> Calidad y confianza</div>
+                </div>
+              </div>
+            </div>
+            <div className="hero-bottom-line">
+              <span>Explora nuestras categorías</span>
+              <span className="hero-bottom-divider" />
+              <span>{products.length ? `${products.length} productos en catálogo` : "Catálogo en línea"}</span>
             </div>
           </div>
         </section>
         {catalog}
-        <section id="servicios" className="py-5">
+        <section id="servicios" className="services-section">
           <div className="container">
-            <h2 className="fw-bold">Nuestros servicios</h2>
-            <div className="row g-4 mt-1">
-              {[["Venta de cilindros", "Formatos para distintos niveles de consumo."], ["Accesorios", "Mangueras, reguladores y productos complementarios."], ["Atención al cliente", "Orientación para elegir la alternativa adecuada."]].map(([title, text]) => (
-                <div className="col-12 col-md-4" key={title}><div className="card h-100 shadow-sm border-0"><div className="card-body"><h3 className="h5">{title}</h3><p>{text}</p></div></div></div>
+            <div className="section-heading text-center mx-auto">
+              <span className="section-eyebrow">LO QUE ENCONTRARÁS</span>
+              <h2>Todo lo que necesitas, más fácil</h2>
+              <p>Una experiencia simple para encontrar los productos adecuados para cada espacio.</p>
+            </div>
+            <div className="row g-4 mt-2">
+              {[["01", "Compra simple", "Revisa el catálogo, compara alternativas y agrega tus productos al carrito."], ["02", "Para cada necesidad", "Encuentra formatos de cilindros, mangueras, reguladores y accesorios."], ["03", "Atención cercana", "Un espacio digital pensado para acompañarte en cada consulta y pedido."]].map(([number, title, text]) => (
+                <div className="col-12 col-md-4" key={number}>
+                  <article className="service-card h-100">
+                    <span className="service-number">{number}</span>
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                    <span className="service-arrow" aria-hidden="true">↗</span>
+                  </article>
+                </div>
               ))}
             </div>
           </div>
         </section>
-        <section id="nosotros" className="py-5 bg-light"><div className="container"><h2>Sobre Gas El Volcán</h2><p className="text-secondary">Propuesta digital para facilitar la consulta y compra de productos de gas.</p></div></section>
-        <section id="faq" className="py-5"><div className="container"><h2>Preguntas frecuentes</h2><div className="accordion mt-3"><div className="accordion-item"><h3 className="accordion-header"><button className="accordion-button" type="button">¿Qué productos puedo encontrar?</button></h3><div className="accordion-body">Cilindros, mangueras, reguladores y accesorios.</div></div></div></div></section>
+        <section id="nosotros" className="about-section">
+          <div className="container">
+            <div className="row align-items-center g-5">
+              <div className="col-lg-6">
+                <div className="about-image-wrap">
+                  <img src={`${import.meta.env.BASE_URL}assets/images/chillan.jpg`} alt="Paisaje cordillerano de la Región de Ñuble" />
+                  <div className="about-image-caption"><span>GAS EL VOLCÁN</span><strong>Cerca de las personas, todos los días.</strong></div>
+                </div>
+              </div>
+              <div className="col-lg-6 about-copy">
+                <span className="section-eyebrow">SOBRE NOSOTROS</span>
+                <h2>Un servicio pensado para acompañarte.</h2>
+                <p>En Gas El Volcán reunimos productos para el hogar y el negocio en un catálogo claro y fácil de recorrer. Queremos que encuentres lo que buscas de forma rápida y sencilla.</p>
+                <a className="about-link" href="#productos">Conocer el catálogo <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="faq" className="faq-section">
+          <div className="container">
+            <div className="section-heading text-center mx-auto">
+              <span className="section-eyebrow">AYUDA</span>
+              <h2>Preguntas frecuentes</h2>
+            </div>
+            <div className="faq-list mx-auto mt-4">
+              <details className="faq-item" open>
+                <summary>¿Qué productos puedo encontrar?</summary>
+                <p>Cilindros de distintos formatos, mangueras, reguladores y accesorios para instalaciones de gas.</p>
+              </details>
+              <details className="faq-item">
+                <summary>¿Cómo puedo realizar un pedido?</summary>
+                <p>Agrega los productos al carrito, inicia sesión con tu cuenta de cliente y completa los datos solicitados para registrar el pedido.</p>
+              </details>
+              <details className="faq-item">
+                <summary>¿Necesito una cuenta para comprar?</summary>
+                <p>Sí. Debes iniciar sesión o crear una cuenta de cliente para registrar tus pedidos y consultar tu información.</p>
+              </details>
+            </div>
+          </div>
+        </section>
         <Login user={user} loading={authLoading} onLogin={handleLogin} onRegister={handleRegister} onLogout={handleLogout} prompt={accountPrompt} />
-        <section id="contacto" className="py-5 bg-dark text-white"><div className="container"><h2>Contacto</h2><p>Gas El Volcán - Atención y productos para tu hogar.</p></div></section>
+        <footer id="contacto" className="store-footer">
+          <div className="container">
+            <div className="footer-main">
+              <div className="footer-brand">
+                <img src={`${import.meta.env.BASE_URL}assets/images/logo.png`} alt="" />
+                <div><strong>GAS EL VOLCÁN</strong><span>Energía para tu día a día</span></div>
+              </div>
+              <div className="footer-message"><h2>¿Buscas algo para tu hogar?</h2><p>Explora el catálogo y encuentra lo que necesitas.</p></div>
+              <a className="btn btn-light footer-button" href="#productos">Ver productos <span aria-hidden="true">→</span></a>
+            </div>
+            <div className="footer-bottom"><span>© {new Date().getFullYear()} Gas El Volcán</span><a href="#inicio">Volver arriba ↑</a></div>
+          </div>
+        </footer>
       </main>
     );
   }

@@ -55,7 +55,11 @@ export default function Checkout({ items, onClose, onFinish, user }) {
     setSubmitting(true);
     try {
       const createdOrder = await onFinish({
-        ...form,
+        name: form.name.trim(),
+        phone: form.phone.trim(),
+        email: form.email.trim(),
+        address: form.address.trim(),
+        commune: form.commune.trim(),
         paymentMethod: payment,
         items: items.map(({ id, qty }) => ({ id, qty })),
       });
@@ -149,25 +153,8 @@ export default function Checkout({ items, onClose, onFinish, user }) {
                   ))}
                 </div>
 
-                {payment === "card" && (
-                  <div className="row g-3 mt-2 payment-details">
-                    <div className="col-12">
-                      <label className="form-label" htmlFor="checkout-card">Número de tarjeta</label>
-                      <input id="checkout-card" inputMode="numeric" className="form-control" value={form.cardNumber} onChange={update("cardNumber")} placeholder="1234 5678 9012 3456" />
-                    </div>
-                    <div className="col-6">
-                      <label className="form-label" htmlFor="checkout-expiry">Vencimiento</label>
-                      <input id="checkout-expiry" className="form-control" value={form.expiry} onChange={update("expiry")} placeholder="MM/AA" />
-                    </div>
-                    <div className="col-6">
-                      <label className="form-label" htmlFor="checkout-cvv">CVV</label>
-                      <input id="checkout-cvv" inputMode="numeric" className="form-control" value={form.cvv} onChange={update("cvv")} placeholder="123" maxLength={4} />
-                    </div>
-                  </div>
-                )}
-
                 <div className="alert alert-info mt-3 mb-0">
-                  El backend registra el método seleccionado, pero esta evaluación no conecta una pasarela de pago ni procesa cobros.
+                  El backend registra el método de pago seleccionado y crea el pedido pendiente. No se realiza un cobro ni se solicitan datos de tarjeta.
                 </div>
               </section>
             </div>

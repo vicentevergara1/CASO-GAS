@@ -38,31 +38,33 @@ export default function ProductCatalog({
   }
 
   return (
-    <section id="productos" className="py-5 bg-light">
+    <section id="productos" className="catalog-section">
       <div className="container">
-        <div className="row align-items-end mb-4">
-          <div className="col-lg-7">
-            <span className="text-primary fw-semibold">CATÁLOGO</span>
-            <h2 className="display-6 fw-bold">Productos para tu hogar y negocio</h2>
+        <div className="catalog-heading">
+          <div>
+            <span className="section-eyebrow">CATÁLOGO DE PRODUCTOS</span>
+            <h2>Encuentra lo que necesitas</h2>
+            <p>Productos para tu hogar y negocio, en un solo lugar.</p>
           </div>
-          <div className="col-lg-5 mt-3">
+          <div className="catalog-search-wrap">
             <label className="visually-hidden" htmlFor="product-search">Buscar productos</label>
+            <span className="catalog-search-icon" aria-hidden="true">⌕</span>
             <input id="product-search" className="form-control" placeholder="Buscar producto…" value={query} onChange={(event) => setQuery(event.target.value)} />
           </div>
         </div>
-        <div className="d-flex flex-wrap gap-2 mb-4" role="group" aria-label="Filtrar productos por categoría">
+        <div className="catalog-filters" role="group" aria-label="Filtrar productos por categoría">
           {availableCategories.map((item) => (
-            <button key={item} type="button" className={`btn ${category === item ? "btn-primary" : "btn-outline-primary"}`} aria-pressed={category === item} onClick={() => setCategory(item)}>{item}</button>
+            <button key={item} type="button" className={`btn catalog-filter ${category === item ? "active" : ""}`} aria-pressed={category === item} onClick={() => setCategory(item)}>{item}</button>
           ))}
         </div>
-        <div className="row g-4">
+        <div className="row g-4 catalog-grid">
           {filtered.map((product) => (
-            <div className="col-12 col-sm-6 col-lg-4 col-xl-3" key={product.id}>
+            <div className="col-12 col-sm-6 col-lg-4 col-xl-3 catalog-grid-item" key={product.id}>
               <ProductCard product={product} onAdd={onAdd} readOnly={readOnly} onViewDetails={showDetails} />
             </div>
           ))}
         </div>
-        {filtered.length === 0 && <div className="alert alert-warning mt-4">No encontramos productos para tu búsqueda.</div>}
+        {filtered.length === 0 && <div className="catalog-empty">No encontramos productos para tu búsqueda.</div>}
       </div>
       {selectedProduct && <ProductDetails product={selectedProduct} loading={detailsLoading} error={detailsError} onClose={() => setSelectedProduct(null)} onAdd={(item) => { onAdd?.(item); setSelectedProduct(null); }} readOnly={readOnly} />}
     </section>

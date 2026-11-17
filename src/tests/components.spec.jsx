@@ -94,6 +94,9 @@ describe("Gas El Volcan - pruebas unitarias", () => {
     expect(host.textContent).toContain("Datos de entrega");
     expect(host.textContent).toContain("$13.000");
     expect(host.textContent).toContain("Registrar pedido");
+    expect(host.querySelector("#checkout-card")).toBeNull();
+    expect(host.querySelector("#checkout-expiry")).toBeNull();
+    expect(host.querySelector("#checkout-cvv")).toBeNull();
   });
 
   it("9. SearchModal muestra coincidencias", () => {

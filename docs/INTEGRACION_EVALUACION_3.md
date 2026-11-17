@@ -42,7 +42,7 @@ El checkout envía el identificador y cantidad de cada producto junto con los da
 
 ## Configuración para un backend en AWS
 
-Define `VITE_API_BASE_URL` con la URL HTTPS pública del backend, sin agregar `/api` al final, antes de compilar el frontend. En el backend configura `FRONTEND_ORIGIN` con el origen exacto donde se publica el frontend, y usa `COOKIE_SAME_SITE=None` junto con `COOKIE_SECURE=true` cuando frontend y backend estén en sitios HTTPS distintos. No uses CORS con `*` cuando hay cookies. Vuelve a compilar y publicar el frontend después de cambiar la variable de Vite.
+Define `VITE_API_BASE_URL` con la URL HTTPS pública del backend, sin agregar `/api` al final, antes de compilar el frontend. Para GitHub Pages, crea esa variable en **Settings → Secrets and variables → Actions → Variables** del repositorio; el workflow la inyecta durante la compilación y se detiene si no está configurada, para no publicar una versión que apunte a `localhost`. En el backend configura `FRONTEND_ORIGIN` con el origen exacto donde se publica el frontend, y usa `COOKIE_SAME_SITE=None` junto con `COOKIE_SECURE=true` cuando frontend y backend estén en sitios HTTPS distintos. No uses CORS con `*` cuando hay cookies. Vuelve a compilar y publicar el frontend después de cambiar la variable de Vite. Antes de publicarlo, verifica que la URL del backend abra desde el navegador del usuario final.
 
 No se probó una conexión real con AWS desde este paquete: la dirección del despliegue y las credenciales se configuran en el entorno del propietario.
 
