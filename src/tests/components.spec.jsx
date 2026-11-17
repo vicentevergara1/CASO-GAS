@@ -36,7 +36,7 @@ describe("Gas El Volcan - pruebas unitarias", () => {
 
   it("1. Navbar renderiza El Volcan", () => {
     render(Navbar, { cartCount: 0, onCartOpen: () => {}, onSearch: () => {} });
-    expect(host.textContent).toContain("El Volcan");
+    expect(host.textContent).toContain("El Volcán");
   });
 
   it("2. Navbar recibe cartCount por props", () => {
@@ -93,7 +93,7 @@ describe("Gas El Volcan - pruebas unitarias", () => {
     expect(host.textContent).toContain("Finalizar compra");
     expect(host.textContent).toContain("Datos de entrega");
     expect(host.textContent).toContain("$13.000");
-    expect(host.textContent).toContain("Finalizar pedido");
+    expect(host.textContent).toContain("Registrar pedido");
   });
 
   it("9. SearchModal muestra coincidencias", () => {
@@ -239,14 +239,18 @@ describe("Gas El Volcan - pruebas unitarias", () => {
     expect(host.querySelector("#admin-price").value).toBe(String(PRODUCTS[0].price));
   });
 
-  it("23. Checkout contiene un flujo demostrativo de pago fallido", () => {
+  it("23. Checkout valida los datos antes de enviar el pedido al backend", async () => {
+    let called = false;
     render(Checkout, {
-      items: [{ ...PRODUCTS[0], qty: 1 }], onClose: () => {}, onFinish: () => {},
+      items: [{ ...PRODUCTS[0], qty: 1 }],
+      onClose: () => {},
+      onFinish: () => { called = true; },
     });
-    const failButton = [...host.querySelectorAll("button")].find((button) => button.textContent === "Simular pago fallido");
-    expect(failButton).not.toBeUndefined();
-    act(() => failButton.click());
+    await act(async () => {
+      host.querySelector("form").dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+    });
     expect(host.textContent).toContain("Completa todos los datos de entrega.");
+    expect(called).toBeFalse();
   });
 
   it("24. La ruta de una imagen existente sigue funcionando", () => {
@@ -282,6 +286,26 @@ describe("Gas El Volcan - pruebas unitarias", () => {
     act(() => host.querySelector(".admin-list-item button").click());
     expect(host.querySelector("#admin-image").value).toBe("uploaded");
     expect(host.querySelector(".admin-image-preview").getAttribute("src")).toBe(uploaded);
+  });
+
+  it("29. El menú de vendedor solo ofrece productos y pedidos", () => {
+    render(Navbar, {
+      user: { name: "Vendedor de prueba", role: "VENDEDOR" },
+      onViewChange: () => {},
+      onLogout: () => {},
+    });
+    expect(host.textContent).toContain("Productos");
+    expect(host.textContent).toContain("Pedidos");
+    expect(host.textContent).toContain("Cerrar sesión");
+    expect(host.textContent).not.toContain("Carrito");
+    expect(host.textContent).not.toContain("Administración");
+    expect(host.textContent).not.toContain("Buscar");
+  });
+
+  it("30. ProductCard en modo solo lectura no muestra agregar al carrito", () => {
+    render(ProductCard, { product: PRODUCTS[0], readOnly: true });
+    expect(host.textContent).toContain("Ver detalle");
+    expect(host.textContent).not.toContain("Agregar");
   });
 
 });

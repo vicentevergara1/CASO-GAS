@@ -1,126 +1,83 @@
-# Gas El Volcán – Tienda online (Frontend)
+# Gas El Volcán — Frontend Evaluación Parcial 3
 
-Proyecto de la asignatura **DSY1104 – Desarrollo Fullstack II** (Evaluación Parcial 2).
-Tienda online para la distribuidora de gas *Gas El Volcán*, migrada de HTML/CSS/JS a **React**, con diseño responsivo en **Bootstrap 5**, CRUD local de productos y pruebas unitarias con **Jasmine + Karma**.
+Tienda React/Vite responsive para DSY1104, conectada al backend Spring Boot entregado. El catálogo, los detalles, el CRUD administrativo y los pedidos usan datos de la API; el carrito conserva solo los identificadores y cantidades en `localStorage`.
 
 ## Integrantes
 
 | Nombre | GitHub |
-|---|---|
+| --- | --- |
 | Vicente Vergara | [@vicentevergara1](https://github.com/vicentevergara1) |
 | Juan Parra | [@juanalonsoparraverdejo](https://github.com/juanalonsoparraverdejo) |
-| Benjamín Perez |  [@Benja-ignacio](https://github.com/Benja-ignacio) |
+| Benjamín Perez | [@Benja-ignacio](https://github.com/Benja-ignacio) |
 
-## Enlaces
+Repositorio frontend: https://github.com/vicentevergara1/CASO-GAS
 
-- Repositorio: https://github.com/vicentevergara1/CASO-GAS
-- Demo desplegada: _(agregar link si se publica)_
+## Funcionalidad integrada
 
-## Tecnologías
+- Catálogo, categorías y detalle de producto consultados desde la API.
+- Registro de cliente e inicio de sesión con validación del backend.
+- Access token JWT mantenido en memoria; renovación de sesión con la cookie HttpOnly del backend y cierre de sesión.
+- Navegación diferenciada: ADMIN gestiona productos y consulta pedidos; VENDEDOR consulta productos/detalles y pedidos; CLIENTE usa la tienda.
+- CRUD de productos con nombre, categoría, precio, stock, imagen y descripción.
+- Carrito persistido localmente; el backend vuelve a validar precio y stock al crear el pedido.
+- Checkout que registra pedidos reales en la API; no solicita datos de tarjeta ni procesa pagos.
+- Mensajes de conexión, errores HTTP y permisos insuficientes.
 
-- [React 18](https://react.dev/) (componentes, props, `useState`, `useMemo`)
-- [Vite 5](https://vitejs.dev/) como bundler y servidor de desarrollo
-- [Bootstrap 5.3](https://getbootstrap.com/) para el diseño responsivo
-- [Jasmine](https://jasmine.github.io/) + [Karma](https://karma-runner.github.io/) + Karma Coverage para testing
-- Chrome Headless para ejecutar las pruebas
+La protección del frontend mejora la interfaz, pero los permisos efectivos también los aplica Spring Security. Revisa los endpoints, roles y límites conocidos en `docs/INTEGRACION_EVALUACION_3.md`.
 
-## Funcionalidades
+## Requisitos
 
-- Navbar responsive (menú colapsable en móvil).
-- Catálogo de productos con filtro por categoría y búsqueda de texto.
-- Buscador mediante modal.
-- Carrito de compras: agregar, aumentar/disminuir cantidad, eliminar y total automático.
-- Checkout responsive con datos de entrega, validación del formulario y tres métodos de pago simulados (tarjeta, transferencia, contra entrega).
-- Pantalla de confirmación del pedido.
-- Formulario de inicio de sesión con validación de correo y contraseña.
-- Administración de productos integrada en React, con creación, lectura, edición y eliminación.
-- Selección de fotografías existentes o carga de fotos JPG, PNG y WEBP desde el equipo, con vista previa y optimización.
-- Persistencia del catálogo y las cantidades del carrito mediante `localStorage`.
-- Pantalla de pago fallido simulado, con opción de volver a intentar.
+- Node.js 18 o superior.
+- Backend Spring Boot y MySQL ejecutándose para usar la integración.
+- Google Chrome disponible si se ejecutan las pruebas de Karma.
 
-La administración y el acceso de cliente son demostraciones del frontend, sin autenticación real ni backend. Los datos almacenados con `localStorage`, incluidas las fotografías subidas, permanecen en el navegador y dispositivo usados; no se comparten con otros visitantes de GitHub Pages. La pasarela de pago también está simulada.
+## Instalar y ejecutar
 
-## Instalación y ejecución
-
-Requisitos: Node.js 18 o superior y Google Chrome (para los tests).
+Desde la carpeta raíz del frontend:
 
 ```bash
 npm install
+```
+
+Copia `.env.example` como `.env` y ajusta `VITE_API_BASE_URL` al origen de la API, por ejemplo `http://localhost:8080`. En PowerShell:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+En macOS/Linux:
+
+```bash
+cp .env.example .env
+```
+
+Luego ejecuta:
+
+```bash
 npm run dev
 npm run build
 npm run preview
 npm run test:evaluacion
 ```
 
-Si Karma no encuentra Chrome, define la variable `CHROME_BIN` con la ruta del ejecutable.
+Para pruebas locales, el backend debe permitir el origen `http://localhost:5173`, habilitar cookies con credenciales y usar `COOKIE_SAME_SITE=Lax` y `COOKIE_SECURE=false`. Sigue el README del backend para configurar MySQL, JWT y usuarios ADMIN/VENDEDOR; no subas el `.env` del backend ni compartas las contraseñas.
 
-## Estructura del proyecto
+## Archivos principales
 
-```
-CASO-GAS/
-├── index.html
-├── vite.config.js
-├── karma.conf.cjs
-├── assets/images/
-├── docs/
-└── src/
-    ├── main.jsx
-    ├── ProductCatalog.jsx
-    ├── Login.jsx
-    ├── components/
-    │   ├── Navbar.jsx
-    │   ├── ProductCard.jsx
-    │   ├── Cart.jsx
-    │   ├── Checkout.jsx
-    │   ├── SearchModal.jsx
-    │   └── Admin.jsx
-    ├── data/products.js
-    └── tests/components.spec.jsx
-```
+- `src/main.jsx`: estado de tienda, catálogo y checkout.
+- `src/services/api.js`: llamadas REST, manejo de errores y renovación JWT.
+- `src/context/AuthContext.jsx`: inicio, registro, sesión y cierre.
+- `src/components/Admin.jsx`: CRUD de productos restringido a ADMIN.
+- `src/components/OrdersPanel.jsx`: lista y detalle de pedidos para ADMIN/VENDEDOR.
+- `src/components/Checkout.jsx`: validación y envío del pedido a la API.
+- `docs/INTEGRACION_EVALUACION_3.md`: endpoints, roles y guía para AWS.
+- `docs/MANUAL_USUARIO.md`: pasos de uso y lista de capturas reales pendientes.
 
-## Gestión de props y estado
+## Estado de las verificaciones
 
-- `App` (`main.jsx`) mantiene el estado compartido: productos, carrito, visibilidad de modales y texto de búsqueda. Lo entrega a los hijos mediante **props** y recibe eventos mediante **callbacks** (`onAdd`, `onIncrease`, `onDecrease`, `onRemove`, `onCheckout`, `onClose`).
-- `ProductCatalog`, `Checkout`, `Login` y `Navbar` manejan **estado local** (filtros, formulario, errores, menú abierto).
-- El conteo del carrito y el total se calculan con `useMemo` / `reduce`.
+- `npm run build`: correcto.
+- `npm run test:evaluacion`: 30 de 30 pruebas unitarias correctas en Chrome Headless.
+- La suite no es una prueba end-to-end: no verifica conexión HTTP real, MySQL, CORS ni permisos en un backend activo.
+- No se probó el backend en AWS porque no se proporcionó una URL pública del despliegue.
 
-## Pruebas unitarias
-
-Las 28 pruebas están definidas en `src/tests/components.spec.jsx`:
-
-1. Navbar renderiza el nombre de la tienda.
-2. Navbar recibe `cartCount` por props.
-3. ProductCard muestra los datos recibidos por props.
-4. ProductCard ejecuta el callback `onAdd`.
-5. ProductCatalog renderiza todo el catálogo.
-6. ProductCatalog cambia el estado al seleccionar una categoría.
-7. Cart calcula el total y muestra "Ir a pagar".
-8. Checkout muestra los datos de entrega y el resumen.
-9. SearchModal muestra coincidencias.
-10. SearchModal informa cuando no hay resultados.
-11. SearchModal presenta la imagen, el precio y controles.
-12. SearchModal agrega al carrito la cantidad elegida.
-13. SearchModal filtra por categoría.
-14. El catálogo recupera los productos iniciales.
-15. CRUD crea productos nuevos.
-16. CRUD actualiza precios sin mutar el original.
-17. CRUD elimina productos.
-18. CRUD rechaza precios no válidos.
-19. Persistencia guarda y recupera cambios en los productos.
-20. Persistencia guarda y recupera las cantidades del carrito.
-21. El carrito ignora productos eliminados.
-22. Administración permite seleccionar un producto para editar.
-23. Checkout contempla el flujo de pago fallido simulado.
-
-Los callbacks (`onAdd`, `onClose`, `onFinish`, etc.) se reemplazan por funciones *mock* para probar cada componente de forma aislada. Al ejecutar `npm run test:evaluacion`, Karma genera la cobertura en `coverage/html/`. Los reportes incluidos en ZIP anteriores son históricos y no prueban los cambios actuales.
-
-## Documentación
-
-- ERS (Especificación de Requisitos del Software): `docs/`
-- Cobertura de testing: `docs/cobertura-testing.md`
-
-## Estado del proyecto
-
-Implementado en esta versión: CRUD con almacenamiento local, vista de administración React, persistencia de carrito y catálogo, y vista demostrativa de pago fallido.
-
-Pendiente de comprobar: resultado de las pruebas con Karma, compilación de producción y publicación real en GitHub Pages. No hay autenticación administrativa, backend ni pasarela de pagos real. Otras vistas mencionadas como propuesta por el Anexo 1, como ofertas y detalle de producto, no son pantallas independientes en React. Confirma su obligatoriedad con el docente.
+Los anexos recibidos para documentación de API y manual de usuario son plantillas de Pokémon Go y no sirven como evidencia del caso Gas El Volcán; deben reemplazarse o completarse con capturas reales.

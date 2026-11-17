@@ -1,81 +1,38 @@
-# Gas El Volcan - DSY1104 Evaluacion Parcial 2
+# Evaluación Parcial 3 — Gas El Volcán
 
-El proyecto fue actualizado a React manteniendo el caso de Gas El Volcan y agregando un flujo de compra responsive para demostrar la experiencia completa desde el catalogo hasta la confirmacion del pedido.
+## Relación del frontend con la pauta
 
-## Funcionalidades para demostrar en la evaluacion
-- Framework moderno: React.
-- Componentes reutilizables con props y callbacks.
-- Estado con `useState` y calculos con `useMemo`.
-- Bootstrap 5 para diseño responsive.
-- Navbar responsive para computador y celular.
-- Catalogo de productos con busqueda y filtros por categoria.
-- Agregar productos al carrito.
-- Aumentar/disminuir cantidades y eliminar productos.
-- Calculo automatico del total.
-- Boton **Ir a pagar** desde el carrito.
-- Checkout responsive con datos de entrega.
-- Tres metodos de pago simulados: tarjeta, transferencia y contra entrega.
-- Validacion del formulario de checkout.
-- Pantalla de confirmacion del pedido.
-- Inicio de sesion con validacion.
-- Busqueda mediante modal con tarjetas de producto, selector de cantidad y carrito.
-- CRUD para crear, consultar, editar y eliminar productos desde la vista de administracion en React.
-- Guardado del carrito y del catalogo en el navegador mediante localStorage.
-- Subida de fotografías JPG, PNG o WEBP desde Administración, con compresión, vista previa y persistencia local en el catálogo y buscador.
-- Pantalla de error de pago simulado y reintento.
-- 28 pruebas unitarias definidas con Jasmine y Karma.
-- Reporte de cobertura con Karma Coverage, que se actualiza al ejecutar los tests.
+| Requisito de la pauta | Implementación del frontend |
+| --- | --- |
+| IE3.2.2 / IE3.2.4 — Comunicación REST e integración | Catálogo, categorías, detalle, autenticación, operaciones de productos y pedidos usan endpoints versionados `/api/v1` del backend incluido. |
+| IE3.3.2 / IE3.3.5 — Sesión persistente | Access token JWT solo en memoria; la cookie HttpOnly del backend permite renovar la sesión al recargar la página. |
+| IE3.3.3 / IE3.3.6 — Restricción por permisos | ADMIN ve administración de productos y pedidos; VENDEDOR ve productos/detalles y pedidos; CLIENTE usa la tienda. Spring Security mantiene la autorización del lado servidor. |
+| Integración de compra | El checkout envía productos, cantidades y datos de entrega al backend. El servidor verifica stock/precio y crea el pedido pendiente. |
 
-## Flujo recomendado para presentar
-1. Abrir la aplicacion con `npm run dev`.
-2. Mostrar el menu responsive reduciendo el ancho de la ventana o usando las herramientas del navegador.
-3. Entrar a **Productos** y probar una categoria y el buscador.
-4. Agregar dos productos al carrito.
-5. Abrir **Carrito**, cambiar cantidades y mostrar el total.
-6. Presionar **Ir a pagar**.
-7. Completar datos de entrega y seleccionar un metodo de pago.
-8. Mostrar la validacion dejando un dato obligatorio vacio.
-9. Completar el formulario y presionar **Finalizar pedido**.
-10. Mostrar la pantalla de confirmacion.
-11. Volver a la tienda y mostrar el login y la busqueda.
-12. Abrir Administracion, subir una foto de producto desde el computador y guardarla; crear un producto y editar su precio.
-13. Regresar a Productos y demostrar que aparecio el nuevo producto o se actualizo su precio.
-14. Recargar la pagina para comprobar que se conservaron los cambios y las cantidades del carrito.
-15. Mostrar el flujo de pago fallido de prueba con los datos de entrega ya completados.
-16. Ejecutar las pruebas y revisar cuantos tests pasan y el reporte de cobertura.
+## Funciones incluidas
 
-## Comandos
-```bash
-npm install
-npm run dev
-npm run test:evaluacion
-npm run build
-```
+- Tienda responsive, filtro por categoría, búsqueda y detalle consultado por API.
+- Registro de cliente, login, refresco de sesión y logout.
+- Carrito recuperable tras recarga. Solo conserva IDs y cantidades en el navegador.
+- Administración de productos conectada al CRUD del backend, incluida la actualización del stock.
+- Vista de pedidos para ADMIN y VENDEDOR, con lista y detalle.
+- Manejo visible de errores de conexión, validación y autorización.
 
-## Archivos importantes para explicar
-- `src/main.jsx`: estado compartido, persistencia y logica principal.
-- `src/data/products.js`: datos iniciales, CRUD y operaciones de localStorage.
-- `src/data/productImages.js`: validacion, reducción de peso y visualización de imágenes cargadas.
-- `src/components/Admin.jsx`: formulario y lista de administracion.
-- `src/components/Navbar.jsx`: navbar responsive, props y estado del menu.
-- `src/ProductCatalog.jsx`: estado de filtros y busqueda.
-- `src/components/ProductCard.jsx`: props y evento para agregar productos.
-- `src/components/Cart.jsx`: cantidades, eliminacion y total.
-- `src/components/Checkout.jsx`: formulario responsive, metodos de pago, validacion y confirmacion.
-- `src/components/SearchModal.jsx`: busqueda de productos.
-- `src/Login.jsx`: validacion de acceso.
-- `src/tests/components.spec.jsx`: 28 pruebas unitarias definidas.
-- `karma.conf.cjs`: configuracion del entorno Jasmine/Karma.
-- `docs/cobertura-testing.md`: documentacion de cobertura.
+## No incluido o no verificado
 
-## Configuracion de testing
-- Vite 5 + `@vitejs/plugin-react`.
-- Karma utiliza los frameworks `vite` y `jasmine`.
-- Las pruebas se ejecutan con ChromeHeadless mediante `npm run test:evaluacion`.
-- El entorno de pruebas usa `React.act` para evitar la advertencia de `ReactDOMTestUtils.act`.
+- No existe pasarela de pago en el backend entregado. El checkout registra el método de pago elegido, pero no cobra ni almacena datos de tarjeta.
+- No se verificó el backend en ejecución con MySQL, ni la conexión a AWS, porque no se proporcionó una dirección de despliegue activa.
+- La entrega requiere capturas reales de pruebas integradas, y no se inventan en este documento.
+- El ERS y el manual de usuario son documentos de entrega del equipo, no funcionalidades del frontend. El anexo de API y el manual recibidos tienen texto/ejemplos de Pokémon Go y deben corregirse antes de entregar.
 
-La administracion y el pago son simulaciones de frontend. No se ha comprobado aqui la compilacion completa ni la ejecucion en Karma; revisa ambas antes de grabar la presentacion.
+## Recorrido sugerido de presentación
 
-## Fotografías cargadas desde Administración
+1. Iniciar backend y frontend. Mostrar catálogo y detalle cargados desde la API.
+2. Iniciar sesión como ADMIN, crear o editar un producto y comprobar el cambio en el catálogo.
+3. Cerrar sesión; entrar como VENDEDOR y mostrar que solo aparecen Productos y Pedidos.
+4. Consultar la lista de pedidos y abrir el detalle de uno.
+5. Entrar como CLIENTE, agregar productos, recargar la página y mostrar que se conserva el carrito.
+6. Crear un pedido y comprobar en Swagger o en la vista de pedidos que el backend devolvió un ID y estado.
+7. Explicar en `src/context/AuthContext.jsx` la sesión renovada por cookie y en `src/services/api.js` los headers Bearer y el manejo de `401`.
 
-Puedes elegir una imagen del catálogo o subir un archivo JPG, PNG o WEBP de hasta 8 MB. El navegador ajusta su tamaño para guardarlo junto con los productos en `localStorage`. La fotografía aparece en el administrador, las tarjetas del catálogo y el buscador modal. Si no hay espacio, se muestra un error de guardado. Esto funciona únicamente en el navegador y dispositivo que subió la foto: GitHub Pages no almacena el archivo ni lo distribuye a otros visitantes.
+Usa cuentas de prueba configuradas localmente en el backend. No muestres las contraseñas, la clave JWT ni valores reales de `.env` durante la presentación.

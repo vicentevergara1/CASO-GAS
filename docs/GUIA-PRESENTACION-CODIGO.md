@@ -1,44 +1,42 @@
-# Presentación y demostración de código - Gas El Volcán
+# Guía para presentar el código — Gas El Volcán
 
-## Recorrido práctico sugerido
+## Recorrido funcional
 
-1. Mostrar la página principal y el catálogo responsivo. Reducir el ancho de Chrome y señalar las clases de Bootstrap en `src/ProductCatalog.jsx`.
-2. Usar el buscador modal, escoger tres unidades y agregar al carrito. Abrir `src/components/SearchModal.jsx` y explicar el estado `quantity` y el callback `onAdd`.
-3. Abrir `src/main.jsx` y explicar el estado `cart`, el cálculo del total y la persistencia mediante `useEffect`.
-4. Entrar a Administración, seleccionar una foto JPG/PNG/WEBP del computador, verificar la vista previa, guardar el producto y comprobar que la foto aparece en la tienda. Mostrar `src/components/Admin.jsx` y `src/data/productImages.js`. Luego editar el precio y mostrar `createProduct`, `readProducts`, `updateProduct` y `deleteProduct` en `src/data/products.js`.
-5. Recargar la página y demostrar que el catálogo y el carrito siguen presentes por `localStorage`. Aclarar que estos datos están guardados solamente en el navegador local.
-6. Ir al checkout, mostrar un error de validación, luego completar los datos y elegir pago contra entrega para probar el botón Simular pago fallido. Reintentar y mostrar la confirmación.
-7. Abrir `src/tests/components.spec.jsx` para explicar `describe`, `it`, `expect`, mocks y los casos de prueba.
-8. Ejecutar `npm run test:evaluacion` y enseñar el resultado real. No usar porcentajes de un reporte antiguo.
+1. Iniciar Spring Boot y MySQL; luego abrir el frontend con `npm run dev`.
+2. Mostrar que productos y categorías llegan desde el backend.
+3. Abrir el detalle de un producto para explicar la consulta `GET /api/v1/products/{id}`.
+4. Iniciar sesión con una cuenta ADMIN de prueba, modificar stock o precio y comprobar el cambio en la tienda.
+5. Cerrar sesión y entrar con una cuenta VENDEDOR. Mostrar que su navegación solo presenta productos y pedidos; abrir un pedido y revisar sus líneas.
+6. Entrar con una cuenta CLIENTE, agregar al carrito, recargar y comprobar que se conservan IDs y cantidades.
+7. Enviar un pedido válido y mostrar el ID y estado que devuelve el backend.
+8. Probar una cantidad mayor al stock y explicar el mensaje de error que devuelve la API.
+9. Ejecutar `npm run test:evaluacion` y `npm run build`; presentar únicamente resultados obtenidos en ese momento.
 
-## Preguntas cortas de defensa
+## Archivos que conviene explicar
 
-**¿Qué es React?** Es una biblioteca de JavaScript que permite construir la interfaz a partir de componentes reutilizables.
+- `src/main.jsx`: obtiene los datos, mantiene carrito y navegación, y conecta tienda con checkout.
+- `src/services/api.js`: agrega el JWT, incluye cookies, renueva la sesión cuando recibe `401` y traduce errores HTTP.
+- `src/context/AuthContext.jsx`: realiza login/registro/logout y restaura al recargar mediante la cookie HttpOnly.
+- `src/components/Admin.jsx`: formulario y acciones de administración que llaman al backend.
+- `src/components/OrdersPanel.jsx`: lista y detalle de pedidos disponibles para ADMIN y VENDEDOR.
+- `src/components/Checkout.jsx`: valida los datos antes de enviar el pedido.
+- `src/components/ProductCatalog.jsx`: filtros y detalle con consulta a la API.
 
-**¿Qué son las props?** Son datos y funciones que recibe un componente desde su padre, por ejemplo los productos y la función `onAdd`.
+## Preguntas de defensa
 
-**¿Qué es useState?** Es un hook que mantiene valores cambiantes como el carrito, el filtro o el formulario de administración.
+**¿Dónde queda el JWT?** El access token queda en memoria de JavaScript y se envía como `Authorization: Bearer`. El refresh token lo administra Spring Boot en una cookie `HttpOnly`; React no puede leerla.
 
-**¿Por qué el estado está en App?** El catálogo, la búsqueda, la administración y el carrito necesitan usar y actualizar la misma lista de productos.
+**¿Qué pasa al recargar?** React solicita `/api/v1/auth/refresh`. El backend valida la cookie y devuelve un access token nuevo y los datos de la cuenta.
 
-**¿Dónde se implementa el CRUD?** En `src/data/products.js` se crean, consultan, editan y eliminan productos. `Admin.jsx` permite ejecutar esas operaciones desde la pantalla.
+**¿Cómo se limitan los roles?** React oculta funciones que el rol no debe usar, pero Spring Security también valida cada endpoint. La protección del servidor es la que impide accesos directos.
 
-**¿Dónde se guarda la información?** En el `localStorage` del navegador. Es persistencia local de prueba, no un backend ni una base de datos compartida.
+**¿Quién calcula el precio final del pedido?** El backend. El frontend envía IDs y cantidades; el servidor vuelve a leer precios y stock desde la base de datos.
 
-**¿Cómo se sube la fotografía?** `Admin.jsx` recibe el archivo elegido. `prepareProductImage` valida el tipo de imagen y reduce su tamaño antes de guardarlo junto con el producto. `productImageSource` permite mostrar la imagen tanto en el catálogo como en la búsqueda.
+**¿El pago es real?** No. El backend entregado registra un pedido pendiente y un método seleccionado; no contiene una pasarela ni procesa tarjetas.
 
-**¿La fotografía la verán todos los clientes?** No. Al usar GitHub Pages sin servidor de almacenamiento, la fotografía se conserva solamente en el navegador en que se subió. Para compartirla con todos los usuarios se necesitaría un backend o servicio de archivos.
+## Antes de exponer
 
-**¿Cómo se verifica el código?** Jasmine describe las pruebas y sus expectativas; Karma las ejecuta en ChromeHeadless y genera un reporte de cobertura.
-
-**¿El pago es real?** No. El checkout y el fallo de pago son demostraciones del flujo de la interfaz y no realizan cargos reales.
-
-**¿La administración tiene seguridad?** No, es una demostración frontend; para producción se requiere autenticación y autorización en el servidor.
-
-## Comprobaciones antes de grabar
-
-- Ejecutar `npm install`, `npm run dev` y `npm run build`.
-- Ejecutar `npm run test:evaluacion` y verificar cuántas pruebas pasan.
-- Confirmar que las imágenes carguen y que el diseño responda en pantalla móvil.
-- Revisar la publicación real en GitHub Pages, si la entrega exige ese enlace.
-- Actualizar el ERS para que corresponda a las funciones implementadas.
+- Completar la prueba local con MySQL y guardar capturas reales de login, roles, producto y pedido.
+- Revisar Swagger y la configuración del origen CORS.
+- No mostrar contraseñas ni valores reales de variables de entorno.
+- El material recibido para el manual y la documentación de APIs contiene ejemplos de Pokémon Go; reemplázalos por evidencia de Gas El Volcán.

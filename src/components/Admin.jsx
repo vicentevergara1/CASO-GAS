@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import { isUploadedImage, prepareProductImage, productImageSource } from "../data/productImages.js";
 
-const CATEGORIES = ["Cilindros", "Mangueras", "Reguladores", "Accesorios"];
 const IMAGES = [
   "5kg.png", "11kg.png", "15kg.png", "45kg.png", "1.5m.webp", "3m.webp",
   "abrazadera.webp", "kit.jpeg", "regulador-estandar.png", "regulador-alta-presion.png",
@@ -12,18 +11,20 @@ const blank = {
   name: "",
   category: "Cilindros",
   price: "",
+  stock: "100",
   image: "5kg.png",
   description: "",
   featured: false,
 };
 
-export default function Admin({ products, onSave, onDelete, onClose }) {
+export default function Admin({ products, categories = [], onSave, onDelete, onClose }) {
   const [editingId, setEditingId] = useState(null);
   const [form, setForm] = useState({ ...blank });
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [filter, setFilter] = useState("");
   const [uploading, setUploading] = useState(false);
+  const [saving, setSaving] = useState(false);
   const uploadRequest = useRef(0);
   const photoInput = useRef(null);
 
@@ -38,6 +39,7 @@ export default function Admin({ products, onSave, onDelete, onClose }) {
       name: product.name,
       category: product.category,
       price: String(product.price),
+      stock: String(product.stock ?? 0),
       image: product.image,
       description: product.description,
       featured: product.featured,
@@ -55,23 +57,26 @@ export default function Admin({ products, onSave, onDelete, onClose }) {
     setForm({ ...blank });
   }
 
-  function submit(event) {
+  async function submit(event) {
     event.preventDefault();
+    setSaving(true);
     try {
-      onSave(form, editingId);
+      await onSave({ ...form, price: Number(form.price), stock: Number(form.stock) }, editingId);
       setMessage(editingId ? "Producto actualizado correctamente." : "Producto agregado al catálogo.");
       setError("");
       reset();
     } catch (reason) {
       setError(reason.message);
       setMessage("");
+    } finally {
+      setSaving(false);
     }
   }
 
-  function remove(product) {
+  async function remove(product) {
     if (!window.confirm(`¿Eliminar ${product.name} del catálogo?`)) return;
     try {
-      onDelete(product.id);
+      await onDelete(product.id);
       if (editingId === product.id) reset();
       setMessage("Producto eliminado del catálogo.");
       setError("");
@@ -105,6 +110,8 @@ export default function Admin({ products, onSave, onDelete, onClose }) {
     setError("");
   }
 
+  const categoryNames = categories.map((category) => typeof category === "string" ? category : category.name).filter(Boolean);
+
   return (
     <section className="py-5 admin-page" id="administracion">
       <div className="container">
@@ -112,12 +119,9 @@ export default function Admin({ products, onSave, onDelete, onClose }) {
           <div>
             <span className="text-primary fw-semibold">GESTIÓN DE PRODUCTOS</span>
             <h1 className="h2 fw-bold mb-1">Administración del catálogo</h1>
-            <p className="text-secondary mb-0">Crea, consulta, edita y elimina productos de la tienda.</p>
+            <p className="text-secondary mb-0">Los cambios se guardan en el catálogo del backend.</p>
           </div>
           <button type="button" className="btn btn-outline-primary" onClick={onClose}>Volver a la tienda</button>
-        </div>
-        <div className="alert alert-info" role="note">
-          Vista demostrativa sin inicio de sesión administrativo. Los cambios se guardan solamente en este navegador.
         </div>
         {message && <div className="alert alert-success" role="status">{message}</div>}
         {error && <div className="alert alert-danger" role="alert">{error}</div>}
@@ -133,13 +137,17 @@ export default function Admin({ products, onSave, onDelete, onClose }) {
                 <div className="row g-3 mb-3">
                   <div className="col-12 col-sm-6">
                     <label className="form-label" htmlFor="admin-category">Categoría</label>
-                    <select id="admin-category" className="form-select" value={form.category} onChange={(event) => change("category", event.target.value)}>
-                      {CATEGORIES.map((category) => <option key={category}>{category}</option>)}
+                    <select required id="admin-category" className="form-select" value={form.category} onChange={(event) => change("category", event.target.value)}>
+                      {categoryNames.map((category) => <option key={category}>{category}</option>)}
                     </select>
                   </div>
                   <div className="col-12 col-sm-6">
                     <label className="form-label" htmlFor="admin-price">Precio ($ CLP)</label>
                     <input required id="admin-price" className="form-control" type="number" min="1" step="1" value={form.price} onChange={(event) => change("price", event.target.value)} />
+                  </div>
+                  <div className="col-12 col-sm-6">
+                    <label className="form-label" htmlFor="admin-stock">Stock disponible</label>
+                    <input required id="admin-stock" className="form-control" type="number" min="0" step="1" value={form.stock} onChange={(event) => change("stock", event.target.value)} />
                   </div>
                 </div>
                 <div className="mb-3">
@@ -150,7 +158,7 @@ export default function Admin({ products, onSave, onDelete, onClose }) {
                   </select>
                   <label className="form-label mt-3" htmlFor="admin-upload">O subir una fotografía desde tu equipo</label>
                   <input ref={photoInput} id="admin-upload" className="form-control" type="file" accept="image/jpeg,image/png,image/webp" onChange={uploadPhoto} disabled={uploading} />
-                  <div className="form-text">Formatos JPG, PNG o WEBP, hasta 8 MB. La foto se guarda en este navegador.</div>
+                  <div className="form-text">Formatos JPG, PNG o WEBP, hasta 8 MB. La imagen optimizada se envía al backend.</div>
                   {uploading && <div role="status" className="text-primary small mt-2">Preparando fotografía...</div>}
                   <div className="admin-image-preview-box mt-3">
                     <img className="admin-image-preview" src={productImageSource(form.image)} alt="Vista previa del producto" />
@@ -166,7 +174,7 @@ export default function Admin({ products, onSave, onDelete, onClose }) {
                   <span className="form-check-label">Producto destacado</span>
                 </label>
                 <div className="d-flex flex-wrap gap-2">
-                  <button type="submit" className="btn btn-primary" disabled={uploading}>{editingId ? "Guardar cambios" : "Crear producto"}</button>
+                  <button type="submit" className="btn btn-primary" disabled={uploading || saving || categoryNames.length === 0}>{saving ? "Guardando…" : editingId ? "Guardar cambios" : "Crear producto"}</button>
                   {editingId && <button type="button" className="btn btn-outline-secondary" onClick={reset}>Cancelar edición</button>}
                 </div>
               </div>
@@ -185,7 +193,7 @@ export default function Admin({ products, onSave, onDelete, onClose }) {
                       <img src={productImageSource(product.image)} alt="" />
                       <div className="admin-list-info">
                         <strong>{product.name}</strong>
-                        <span className="text-secondary small">{product.category} · ${product.price.toLocaleString("es-CL")}</span>
+                        <span className="text-secondary small">{product.category} · ${Number(product.price).toLocaleString("es-CL")} · Stock: {Number(product.stock ?? 0)}</span>
                       </div>
                       <div className="d-flex flex-wrap gap-2">
                         <button type="button" className="btn btn-sm btn-outline-primary" onClick={() => edit(product)}>Editar</button>

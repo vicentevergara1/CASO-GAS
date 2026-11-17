@@ -11,7 +11,7 @@ await build({
   build: {
     outDir: '.karma-build',
     emptyOutDir: true,
-    copyPublicDir: false,
+    copyPublicDir: true,
     minify: false,
     sourcemap: true,
     lib: {

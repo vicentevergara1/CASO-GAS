@@ -254,7 +254,7 @@ export function readCart(products, storage = localStore()) {
     const quantities = new Map();
     for (const item of entries) {
       if (item && typeof item.id === "string" && Number.isSafeInteger(item.qty) && item.qty > 0 && getProductById(products, item.id)) {
-        quantities.set(item.id, (quantities.get(item.id) || 0) + item.qty);
+        quantities.set(item.id, Math.min(50, (quantities.get(item.id) || 0) + item.qty));
       }
     }
     return [...quantities].map(([id, qty]) => ({ id, qty }));

@@ -7,9 +7,19 @@ module.exports = function (config) {
       require('karma-chrome-launcher'),
       require('karma-coverage')
     ],
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox', '--disable-dev-shm-usage']
+      }
+    },
     files: [
-      { pattern: '.karma-build/components.spec.js', watched: false }
+      { pattern: '.karma-build/components.spec.js', watched: false },
+      { pattern: '.karma-build/assets/**/*', included: false, served: true, watched: false }
     ],
+    proxies: {
+      '/assets/': '/base/.karma-build/assets/'
+    },
     preprocessors: {
       '.karma-build/components.spec.js': ['coverage']
     },
@@ -21,7 +31,7 @@ module.exports = function (config) {
         { type: 'text-summary' }
       ]
     },
-    browsers: ['ChromeHeadless'],
+    browsers: ['ChromeHeadlessNoSandbox'],
     singleRun: true,
     autoWatch: false,
     browserNoActivityTimeout: 60000,
