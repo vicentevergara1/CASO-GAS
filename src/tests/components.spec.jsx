@@ -1,22 +1,23 @@
 import React, { act } from "react";
 import { createRoot } from "react-dom/client";
-import Navbar from "../components/Navbar.jsx";
-import ProductCard from "../components/ProductCard.jsx";
-import ProductCatalog from "../ProductCatalog.jsx";
-import Cart from "../components/Cart.jsx";
-import SearchModal from "../components/SearchModal.jsx";
-import Checkout from "../components/Checkout.jsx";
+import Navbar from "../features/store/components/StoreNavbar.jsx";
+import LoginSection from "../features/auth/LoginSection.jsx";
+import ProductCard from "../features/store/components/ProductCard.jsx";
+import ProductCatalog from "../features/store/components/ProductCatalog.jsx";
+import Cart from "../features/cart/CartDrawer.jsx";
+import SearchModal from "../features/search/SearchModal.jsx";
+import Checkout from "../features/checkout/CheckoutDialog.jsx";
 import {
   PRODUCTS, PRODUCTS_STORAGE_KEY, CART_STORAGE_KEY,
   createProduct, deleteProduct, getProductById, readCart, readProducts,
   saveCart, saveProducts, updateProduct,
 } from "../data/products.js";
-import Admin from "../components/Admin.jsx";
+import Admin from "../features/admin/AdminPage.jsx";
 import {isUploadedImage, prepareProductImage, productImageSource} from "../data/productImages.js";
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
-describe("Gas El Volcan - pruebas unitarias", () => {
+describe("Gas El Volcán - pruebas unitarias", () => {
   let host, root;
 
   beforeEach(() => {
@@ -34,9 +35,16 @@ describe("Gas El Volcan - pruebas unitarias", () => {
     act(() => root.render(<C {...props} />));
   };
 
-  it("1. Navbar renderiza El Volcan", () => {
+  const fill = (selector, value) => {
+    const input = host.querySelector(selector);
+    const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value").set;
+    setter.call(input, value);
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+  };
+
+  it("1. Navbar renderiza Gas El Volcán", () => {
     render(Navbar, { cartCount: 0, onCartOpen: () => {}, onSearch: () => {} });
-    expect(host.textContent).toContain("El Volcan");
+    expect(host.textContent).toContain("Gas El Volcán");
   });
 
   it("2. Navbar recibe cartCount por props", () => {
@@ -239,13 +247,11 @@ describe("Gas El Volcan - pruebas unitarias", () => {
     expect(host.querySelector("#admin-price").value).toBe(String(PRODUCTS[0].price));
   });
 
-  it("23. Checkout contiene un flujo demostrativo de pago fallido", () => {
+  it("23. Checkout valida los datos de entrega antes de confirmar", () => {
     render(Checkout, {
       items: [{ ...PRODUCTS[0], qty: 1 }], onClose: () => {}, onFinish: () => {},
     });
-    const failButton = [...host.querySelectorAll("button")].find((button) => button.textContent === "Simular pago fallido");
-    expect(failButton).not.toBeUndefined();
-    act(() => failButton.click());
+    act(() => host.querySelector('button[type="submit"]').click());
     expect(host.textContent).toContain("Completa todos los datos de entrega.");
   });
 
@@ -282,6 +288,33 @@ describe("Gas El Volcan - pruebas unitarias", () => {
     act(() => host.querySelector(".admin-list-item button").click());
     expect(host.querySelector("#admin-image").value).toBe("uploaded");
     expect(host.querySelector(".admin-image-preview").getAttribute("src")).toBe(uploaded);
+  });
+
+  it("29. El registro valida que las contraseñas coincidan", () => {
+    render(LoginSection, {});
+    act(() => host.querySelector("#account-tab-register").click());
+    act(() => {
+      fill("#register-name", "Ana Pérez");
+      fill("#register-email", "ana@correo.cl");
+      fill("#register-password", "segura123");
+      fill("#register-confirm", "diferente123");
+    });
+    act(() => host.querySelector('#register-form button[type="submit"]').click());
+    expect(host.textContent).toContain("Las contraseñas no coinciden.");
+  });
+
+  it("30. El registro exitoso muestra confirmación", () => {
+    render(LoginSection, {});
+    act(() => host.querySelector("#account-tab-register").click());
+    act(() => {
+      fill("#register-name", "Ana Pérez");
+      fill("#register-email", "ana@correo.cl");
+      fill("#register-password", "segura123");
+      fill("#register-confirm", "segura123");
+    });
+    act(() => host.querySelector("#register-terms").click());
+    act(() => host.querySelector('#register-form button[type="submit"]').click());
+    expect(host.textContent).toContain("Cuenta creada correctamente");
   });
 
 });

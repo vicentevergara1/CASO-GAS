@@ -23,7 +23,7 @@ El proyecto fue actualizado a React manteniendo el caso de Gas El Volcan y agreg
 - Guardado del carrito y del catalogo en el navegador mediante localStorage.
 - Subida de fotografías JPG, PNG o WEBP desde Administración, con compresión, vista previa y persistencia local en el catálogo y buscador.
 - Pantalla de error de pago simulado y reintento.
-- 28 pruebas unitarias definidas con Jasmine y Karma.
+- 30 pruebas unitarias definidas con Jasmine y Karma.
 - Reporte de cobertura con Karma Coverage, que se actualiza al ejecutar los tests.
 
 ## Flujo recomendado para presentar
@@ -64,7 +64,7 @@ npm run build
 - `src/components/Checkout.jsx`: formulario responsive, metodos de pago, validacion y confirmacion.
 - `src/components/SearchModal.jsx`: busqueda de productos.
 - `src/Login.jsx`: validacion de acceso.
-- `src/tests/components.spec.jsx`: 28 pruebas unitarias definidas.
+- `src/tests/components.spec.jsx`: 30 pruebas unitarias definidas.
 - `karma.conf.cjs`: configuracion del entorno Jasmine/Karma.
 - `docs/cobertura-testing.md`: documentacion de cobertura.
 

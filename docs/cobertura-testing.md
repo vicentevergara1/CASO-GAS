@@ -8,7 +8,7 @@ Validar el renderizado, las props, el estado, los eventos, el CRUD y la persiste
 
 Jasmine, Karma, ChromeHeadless, Karma Coverage, React y Bootstrap 5.
 
-## 28 pruebas definidas
+## 30 pruebas definidas
 
 1. Navbar renderiza El Volcán.
 2. Navbar muestra `cartCount` mediante props.
@@ -32,12 +32,14 @@ Jasmine, Karma, ChromeHeadless, Karma Coverage, React y Bootstrap 5.
 20. `saveCart` y `readCart` guardan y recuperan cantidades.
 21. `readCart` ignora los productos eliminados.
 22. Admin permite seleccionar un producto para editar.
-23. Checkout tiene el botón de error de pago simulado y exige validar los datos.
+23. Checkout valida los datos de entrega antes de confirmar.
 24. La ruta de las imágenes existentes se conserva.
 25. ProductCard muestra las fotografías subidas guardadas como datos de imagen.
 26. El procesamiento de fotografías rechaza archivos no compatibles.
 27. La persistencia conserva la fotografía cargada.
 28. Admin acepta fotografías JPG/PNG/WEBP y muestra la vista previa al editar.
+29. El registro valida que las contraseñas coincidan.
+30. El registro exitoso muestra confirmación.
 
 ## Mocks y preparación
 
@@ -50,6 +52,6 @@ npm install
 npm run test:evaluacion
 ```
 
-Karma genera el reporte actualizado en `coverage/html/index.html` cuando se ejecuta correctamente. Los reportes preexistentes son de una versión anterior y no corresponden a estas 28 pruebas. No se deben presentar como cobertura nueva.
+Karma genera el reporte actualizado en `coverage/html/index.html` cuando se ejecuta correctamente. Los reportes preexistentes son de una versión anterior y no corresponden a estas 30 pruebas. No se deben presentar como cobertura nueva.
 
-Para demostrar calidad durante la defensa, ejecuta la suite actual, verifica que las 28 pruebas terminen correctamente y anota los porcentajes de líneas, funciones y ramas que entrega el nuevo reporte.
+Para demostrar calidad durante la defensa, ejecuta la suite actual, verifica que las 30 pruebas terminen correctamente y anota los porcentajes de líneas, funciones y ramas que entrega el nuevo reporte.
