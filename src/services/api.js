@@ -102,7 +102,7 @@ export async function apiRequest(path, options = {}) {
   try {
     response = await fetch(`${API_BASE_URL}${path}`, requestOptions);
   } catch {
-    throw new ApiError("No se pudo conectar con el backend. Revisa que esté iniciado y que la URL de API sea correcta.");
+    throw new ApiError(`No fue posible conectar con ${API_BASE_URL}. Comprueba la dirección publicada, HTTPS, conexión a Internet o bloqueos de red; revisa F12 > Network para identificar CORS u otros errores.`);
   }
 
   const result = await readBody(response);

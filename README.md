@@ -64,7 +64,7 @@ Para pruebas locales, el backend debe permitir el origen `http://localhost:5173`
 
 ## Publicación en GitHub Pages
 
-El workflow de GitHub Actions usa la variable de repositorio `VITE_API_BASE_URL`. Antes de publicar, entra a **Settings → Secrets and variables → Actions → Variables**, crea `VITE_API_BASE_URL` y asígnale el origen HTTPS público del backend, sin agregar `/api` al final. No es un secreto; es la dirección pública de la API. El workflow detiene la compilación si la variable está vacía para evitar publicar una versión que intente conectarse a `localhost`. Usa una dirección que ya hayas comprobado desde el navegador donde se utilizará el sitio.
+La URL pública se define **una sola vez** en `.env.production` (versionado, sin contraseñas). El workflow ya **no usa** `vars.VITE_API_BASE_URL` de GitHub Actions porque el último despliegue incorporó una IP anterior. Antes de compilar verifica HTTPS, las rutas `GET /api/v1/products` y `GET /api/v1/categories`, el CORS hacia `https://vicentevergara1.github.io` y el preflight OPTIONS. Además comprueba que el JavaScript final contenga la dirección esperada. Si estas verificaciones fallan, **detiene** la publicación en vez de desplegar una compilación que muestre el antiguo error genérico. Si cambia la IP pública de EC2, cambia **solo** `.env.production` y vuelve a hacer push. Esto no reemplaza una Elastic IP o un dominio propio estable. Consulta `docs/GUIA_PUSH_SEGURO.md`.
 
 ## Archivos principales
 
