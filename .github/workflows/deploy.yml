@@ -24,9 +24,6 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci
-      # La configuración de producción es versionada en .env.production.
-      # No usar vars.VITE_API_BASE_URL: una variable vieja produjo el despliegue
-      # del 18-11-2026 con el host 3.80.86.195.nip.io.
       - name: Probar configuración de publicación
         run: node --test scripts/validar-config-publica.test.mjs
       - name: Validar HTTPS, catálogo, categorías y CORS de la API

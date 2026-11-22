@@ -432,7 +432,6 @@ section[id], footer[id] { scroll-margin-top: 90px; }
 .faq-item[open] summary::after { content: "−"; }
 .faq-item p { margin: 0; padding: 0 2rem 1.15rem 0; color: var(--volcan-muted); line-height: 1.7; }
 
-/* Refinamiento de tipografia, legibilidad y movimiento */
 :root {
   --volcan-font-body: "Segoe UI Variable Text", "Segoe UI", Inter, Roboto, Arial, sans-serif;
   --volcan-font-display: "Segoe UI Variable Display", "Segoe UI", Inter, Roboto, Arial, sans-serif;

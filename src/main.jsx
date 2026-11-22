@@ -161,7 +161,6 @@ function StoreApp() {
     try {
       await logout();
     } catch {
-      // La sesión local se limpia aunque el backend no responda.
     }
     setView("store");
   }

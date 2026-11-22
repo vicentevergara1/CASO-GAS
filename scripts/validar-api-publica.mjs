@@ -1,4 +1,3 @@
-/** Verificación anterior al build de GitHub Pages. No requiere credenciales. */
 import { readFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
 

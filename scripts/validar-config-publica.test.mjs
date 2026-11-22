@@ -25,7 +25,6 @@ for (const value of ["http://localhost:8080", "https://host.cl/api", "https://ho
   });
 }
 
-// Pruebas sin acceso a Internet para la validación del despliegue.
 test("preflight y dos GET correctos permiten publicar", async () => {
   const { validatePublicApi } = await import("./validar-api-publica.mjs");
   const originalFetch = globalThis.fetch;
